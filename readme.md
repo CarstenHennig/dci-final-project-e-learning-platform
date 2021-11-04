@@ -59,3 +59,22 @@ The core platform for DCI will be created and curated by the 'Digital Evangelist
 It's an open platform, means: We provide API and support for new developed solutions.
 
 The business model is focussed on - open low code solution for basic monthly fees - enhance new functions and business cases with new developed solutions and app connected via two-way real-time API - web project development for individual solutions and specialized business apps for custom fees
+
+## Discussion / Design Thinking
+
+Meta Platform ‚How to learn‘
+Create and mix your individual learning modules:
+
+- Blog publishing (text module)
+- Video tutorials (video module, video playlist)
+- Explaining podcasts (audio module)
+- Peer-to-peer learning (chat module)
+- Tutorials for creating e-learning content (how to guidelines for texts, videos, podcasts, didactics, principles of user-generated content)
+
+Open Source Solution with beta version (inluding basic modules) -> DCI community is invited to develop new modules, improve modules, create specific business apps and using the solution for a topic-focussed e-learning platform (i.e. SEO Basics, React Development tbc)
+
+First steps of project management following design thinking process:
+
+- Defining target groups
+- Designing market research (web crawl) AND survey
+- Defining unique selling propositions (USP) and main purpose for our target groups
