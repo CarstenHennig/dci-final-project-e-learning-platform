@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #a7d5d4;
+  font-family: "Karla", sans-serif;
+  font-family: "Mochiy Pop One", sans-serif;
+}
 .App {
   text-align: center;
 }
@@ -6,8 +14,8 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-height: 10vh;
-  background: rgb(73, 77, 77);
+  height: 15vh;
+  background: #a8a9ad;
   color: white;
 }
 
@@ -17,4 +25,27 @@ nav {
   justify-content: space-around;
   align-items: center;
   list-style: none;
+}
+
+.login-box {
+  background-color: #e6a61a;
+  box-sizing: border-box;
+}
+.main {
+  background-color: #e6a61a;
+  min-height: 65vh;
+  padding: 2em;
+}
+
+.login-in-box {
+  padding-top: 20px;
+  margin: 70px;
+  height: 500px;
+  width: 100px;
+}
+
+.blue {
+  color: #1a3be6;
+}
+.home {
 }

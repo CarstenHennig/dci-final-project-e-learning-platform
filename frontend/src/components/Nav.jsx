@@ -9,16 +9,16 @@ function Nav() {
 
   return (
     <nav>
-      <h3>Logo</h3>
+      <h1>LernUp</h1>
       <ul className="nav-links">
         <Link style={navStyle} to="/Login">
           <li>Login</li>
         </Link>
-        <Link style={navStyle} to="/Logout">
+        <Link style={navStyle} to="/Home">
           <li>Logout</li>
         </Link>
-        <Link style={navStyle} to="/Home">
-          <li>Home</li>
+        <Link style={navStyle} to="/Registration">
+          <li>Registration</li>
         </Link>
       </ul>
     </nav>
