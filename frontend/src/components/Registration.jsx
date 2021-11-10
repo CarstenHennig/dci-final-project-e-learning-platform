@@ -3,7 +3,7 @@ import "./Registration.css";
 function Registration() {
   return (
     <div className="registration">
-      <h1> Create account and start to learn: </h1>
+      <h1> Create account and start to learn : </h1>
 
       <div className="wrap">
         <form action="/action_page.php">
