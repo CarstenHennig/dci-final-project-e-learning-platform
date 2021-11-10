@@ -2,7 +2,9 @@ footer {
   height: 20vh;
   background: #58585a;
   color: white;
+  text-align: center;
 }
 footer h1 {
   margin: 0;
+  padding: 50px;
 }

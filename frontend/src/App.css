@@ -6,9 +6,6 @@ body {
   font-family: "Karla", sans-serif;
   font-family: "Mochiy Pop One", sans-serif;
 }
-.App {
-  text-align: center;
-}
 
 nav {
   display: flex;
@@ -27,25 +24,15 @@ nav {
   list-style: none;
 }
 
-.login-box {
-  background-color: #e6a61a;
-  box-sizing: border-box;
-}
 .main {
   background-color: #e6a61a;
   min-height: 65vh;
-  padding: 2em;
+  padding: 2vh;
 }
 
-.login-in-box {
-  padding-top: 20px;
-  margin: 70px;
-  height: 500px;
-  width: 100px;
-}
-
-.blue {
-  color: #1a3be6;
-}
-.home {
+@media screen and (max-width: 600px) {
+  nav {
+    background-color: olive;
+    font-size: 10px;
+  }
 }

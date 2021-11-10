@@ -3,7 +3,7 @@ import "./Registration.css";
 function Registration() {
   return (
     <div className="registration">
-      <h1> Let's start to LearnUp together: </h1>
+      <h1> Create account and start to learn: </h1>
 
       <div className="wrap">
         <form action="/action_page.php">
@@ -31,6 +31,17 @@ function Registration() {
           </div>
           <div>
             <label for="pass">Password :</label>
+            <input
+              type="password"
+              id="pass"
+              name="password"
+              placeholder="8 characters minimum"
+              minlength="8"
+              required
+            />
+          </div>
+          <div>
+            <label for="pass">Repeat Password :</label>
             <input
               type="password"
               id="pass"

@@ -9,7 +9,7 @@ function Nav() {
 
   return (
     <nav>
-      <h1>LernUp</h1>
+      <h1>YouLearn</h1>
       <ul className="nav-links">
         <Link style={navStyle} to="/Login">
           <li>Login</li>
@@ -18,7 +18,7 @@ function Nav() {
           <li>Logout</li>
         </Link>
         <Link style={navStyle} to="/Registration">
-          <li>Registration</li>
+          <li> Sign Up</li>
         </Link>
       </ul>
     </nav>
