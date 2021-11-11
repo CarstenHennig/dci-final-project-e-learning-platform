@@ -1,3 +1,5 @@
 node_modules
 .env
 user.js
+views
+publications
