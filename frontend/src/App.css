@@ -1,20 +1,17 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+
+  font-family: "Karla", sans-serif;
+  font-family: "Mochiy Pop One", sans-serif;
+}
+body {
+  background-color: #a7d5d4;
+  font-family: "Karla", sans-serif;
+  font-family: "Mochiy Pop One", sans-serif;
 }
 
-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 10vh;
-  background: rgb(73, 77, 77);
-  color: white;
-}
-
-.nav-links {
-  width: 40%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  list-style: none;
+.main {
+  background-color: #e6a61a;
+  min-height: 65vh;
+  padding: 2vh;
 }

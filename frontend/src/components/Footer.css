@@ -1,0 +1,19 @@
+footer {
+  height: 20vh;
+  background: #58585a;
+  color: white;
+  text-align: center;
+}
+footer h1 {
+  margin: 0;
+  padding: 50px;
+}
+
+@media screen and (max-width: 600px) {
+  footer {
+    height: 35vh;
+  }
+  footer h1 {
+    font-size: 25px;
+  }
+}
