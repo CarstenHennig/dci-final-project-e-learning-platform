@@ -16,7 +16,7 @@ function App() {
         <Nav />
         <main className="main">
           <Switch>
-            <Route path="/" exact component={<p></p>} />
+            <Route path="/" exact component={Home} />
             <Route path="/Home" component={Home} />
             <Route path="/Login" component={Login} />
             <Route path="/Registration" component={Registration} />
