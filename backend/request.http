@@ -1,0 +1,35 @@
+POST http://localhost:3000/login
+Content-Type: application/json
+
+	{   
+		"email": "esemelango@panza.com",
+         "password": "12345"
+	}
+
+
+###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+"firstName": "Congo",
+"lastName": "Mali",
+"email": "zouroubaba@gazaphili.com",
+"password": "123",
+"avatar": "😥",
+"dateOfBirth": 13122000,
+"address": {
+		"city": "Azi",
+		"street": "Main Street 45",
+		"zip": "15011",
+		"country": "Germany"
+	},
+	"phoneNumber": "0124567844",
+	"blogPosts": {
+		"title": "Fangs in the skies",
+		"body":"Circling the deaf zones of human accoustic competence. Also, in some situations I do need to get the password field, like when the user wants to login or change the password. Also, in some situations I do need to get the password field, like when the user wants to login or change the password."
+	} 
+
+}
+
+
