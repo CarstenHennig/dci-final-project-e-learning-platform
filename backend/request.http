@@ -1,21 +1,24 @@
-POST http://localhost:3000/login
+POST http://localhost:9000/login
 Content-Type: application/json
 
-	{   
-		"email": "esemelango@panza.com",
-         "password": "12345"
+	{  
+	"password": "123", 
+	"email": "engels@gazaphili.com"
+    
+
 	}
 
 
 ###
-POST http://localhost:3000/register
+POST http://localhost:9000/register
 Content-Type: application/json
 
 {
-"firstName": "Congo",
-"lastName": "Mali",
-"email": "zouroubaba@gazaphili.com",
+"firstName": "Martina",
+"lastName": "Engels",
+"email": "engels@gazaphili.com",
 "password": "123",
+"repassword": "123",
 "avatar": "😥",
 "dateOfBirth": 13122000,
 "address": {

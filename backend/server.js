@@ -18,10 +18,10 @@ app.use(cors())
 //=============== 
 
 // Test server connection
-/* app.use("/", (req,res)=>{
+/*  app.use("/", (req,res)=>{
 	res.send("Welcome")
 	console.log("Backend here!")
-}) */
+})  */
 //============
 
 // Register New User ==
@@ -94,7 +94,7 @@ app.post("/message", checkLogin, validate(messageRules), (req, res) => {
 	res.send(messages);
 });
 
-// If the previous middlewares did not handle the request, this will!
+// Final error check middleware
 app.use((req, res) => {
 	res.status(404);
 	res.json({ error: "Resource not found 😥" });

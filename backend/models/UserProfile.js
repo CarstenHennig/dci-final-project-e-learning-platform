@@ -11,11 +11,14 @@ const userSchema = mongoose.Schema({
 		minLength: 3
 	},
 	lastName: {
-		type: String, required,
+		type: String,required,
 		minLength: 3
 	},
-	email: String,
-
+	email: {
+		type: String, required,
+		
+		
+	},
 	password: {
 		type: String, required,
 		minLength: 8,
@@ -78,7 +81,7 @@ userSchema.statics.register = async (userData) => {
 userSchema.statics.login = async (userData) => {
 	const user = await User.findOne({ email: userData.email });
 	if (!user) {
-		return null
+		return null;
 	}
 	const success = await compare(userData.password, user.password);
 	if (!success) {
