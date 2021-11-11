@@ -9,12 +9,11 @@ function Registration() {
     setRegister({ ...register, [e.target.name]: e.target.value });
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    if (register.password === register.repassword) {
-      // return console.log("ok expeted ");
-      return axios
-        .post("http://localhost:3005/register", register)
+    if (register.password == register.repassword) {
+      return await axios
+        .post("http://localhost:9000/register", register)
         .then((result) => console.log(result.data))
         .catch((error) => console.log(error));
     }
@@ -32,7 +31,7 @@ function Registration() {
               onChange={changeHandler}
               type="text"
               id="fname"
-              name="firstname"
+              name="firstName"
               placeholder="Your name..."
             />
           </div>
@@ -42,7 +41,7 @@ function Registration() {
               onChange={changeHandler}
               type="text"
               id="lname"
-              name="lastname"
+              name="lastName"
               placeholder="Your last name..."
             />
           </div>
