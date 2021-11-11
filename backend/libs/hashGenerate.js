@@ -1,15 +1,15 @@
 import bcrypt from 'bcrypt';
 
 
-export function hash(input){
-	return bcrypt.hash(input,10)
+export async function hash(input){
+	return await bcrypt.hash(input,10)
 }
 
 //write compare function
 
-export function compare(input,hash){
+export async function  compare(input,hash){
 	if(!input){
 		return false;
 	}
-	return bcrypt.compare(input,hash)
+	return await bcrypt.compare(input,hash)
 }

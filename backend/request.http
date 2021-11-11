@@ -2,8 +2,8 @@ POST http://localhost:9000/login
 Content-Type: application/json
 
 	{  
-	"password": "123", 
-	"email": "engels@gazaphili.com"
+	"password": "12345678", 
+	"email": "awungferd@yahoo.com"
     
 
 	}
@@ -18,7 +18,6 @@ Content-Type: application/json
 "lastName": "Engels",
 "email": "engels@gazaphili.com",
 "password": "123",
-"repassword": "123",
 "avatar": "😥",
 "dateOfBirth": 13122000,
 "address": {
@@ -29,9 +28,12 @@ Content-Type: application/json
 	},
 	"phoneNumber": "0124567844",
 	"blogPosts": {
+
 		"title": "Fangs in the skies",
 		"body":"Circling the deaf zones of human accoustic competence. Also, in some situations I do need to get the password field, like when the user wants to login or change the password. Also, in some situations I do need to get the password field, like when the user wants to login or change the password."
 	} 
+
+"blogPosts":[    ]
 
 }
 

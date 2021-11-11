@@ -79,14 +79,17 @@ userSchema.statics.register = async (userData) => {
 
 ///LOGIN controller
 userSchema.statics.login = async (userData) => {
+	console.log(userData);
 	const user = await User.findOne({ email: userData.email });
+	
 	if (!user) {
 		return null;
 	}
-	const success = await compare(userData.password, user.password);
+	const success = await compare(user.password, userData.password);
 	if (!success) {
 		return null;
 	}
+	
 	return user.toJSON();
 };
 
