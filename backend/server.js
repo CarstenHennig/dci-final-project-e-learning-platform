@@ -38,18 +38,18 @@ app.post("/register", async (req, res) => {
 
 // Login User with password and email
 app.post("/login", async (req, res) => {
-	res.json(req.body);
+
 	const user = await User.login(req.body);
 
-	/* if (!user) {
+	if (!user) {
 		return res.status(400).json({ user });
 
 	}
-	
+
 	// create JWT token
 	const token = jwt.sign({ _id: user._id }, process.env.SECRET);
-	console.log("Logged in with token")
-	res.json({ user, token })  */
+
+	res.json({ user, token })
 })
 
 // JWT validation middleware
