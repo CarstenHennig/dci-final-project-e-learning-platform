@@ -11,7 +11,7 @@ function Registration() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    if (register.password == register.repassword) {
+    if (register.password === register.repassword) {
       return await axios
         .post("http://localhost:9000/register", register)
         .then((result) => console.log(result.data))
@@ -46,7 +46,7 @@ function Registration() {
             />
           </div>
           <div>
-            <label for="lname">Your Email : </label>
+            <label for="email">Your Email : </label>
             <input
               onChange={changeHandler}
               type="email"
