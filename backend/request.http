@@ -2,11 +2,16 @@ POST http://localhost:9000/login
 Content-Type: application/json
 
 	{  
-	"password": "123", 
-	"email": "engels@gazaphili.com"
+	"password": "12345678", 
+	"email": "test@test.com"
     
 
 	}
+
+###
+GET http://localhost:9000/users/619054d2c33a59fa7a362022
+
+
 
 
 ###
