@@ -97,6 +97,7 @@ userSchema.statics.login = async (userData) => {
 };
 
 // THIS RETURNS USER VALUES AFTER LOGIN from frontend
+// And everything should be cool!
 userSchema.methods.toJSON= function(){
 	const user = this.toObject()
 	delete user.password;
