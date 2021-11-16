@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Nav() {
+function Nav(props) {
   const navStyle = {
     color: "white",
   };
@@ -13,7 +13,7 @@ function Nav() {
     <nav className="navbar navbar-expand-lg navbar-light">
       <h1 className="logo">YouLearn</h1>
       <button
-        class="navbar-toggler"
+        className="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#navbarNav"
@@ -21,26 +21,22 @@ function Nav() {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon" git></span>
+      <span className="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav nav-links w-100">
-          <li className="nav-item">
-            <Link className="nav-link" style={navStyle} to="/Login">
-              Login
-            </Link>
-          </li>
-          <div className="nav-item">
-            <Link className="nav-link" style={navStyle} to="/Home">
-              <li>Logout</li>
-            </Link>
-          </div>
-          <div className="nav-item">
+      <div className="collapse navbar-collapse" id="navbarNav">
+        <ul className="navbar-nav nav-links w-100">
+          {!props.user ? <><li className="nav-item">
+
+<Link className="nav-link" style={navStyle} to="/Login">
+  Login
+</Link>
+</li> 
+<div className="nav-item">
             <Link className="nav-link" style={navStyle} to="/Registration">
               <li> SignUp</li>
             </Link>
           </div>
-          <div className="nav-item">
+<div className="nav-item">
             <Link className="nav-link" style={navStyle} to="/Imprint">
               <li>Imprint</li>
             </Link>
@@ -50,7 +46,20 @@ function Nav() {
               <li>About</li>
             </Link>
           </div>
+         
+</> : <>
+        
+          <div className="nav-item">
+            <Link className="nav-link" style={navStyle} to="/Home">
+              <li>Logout</li>
+            </Link>
+          </div>
+         
+         
+          </>
+}
         </ul>
+  
       </div>
     </nav>
   );
