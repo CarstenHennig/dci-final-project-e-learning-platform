@@ -96,7 +96,7 @@ userSchema.statics.login = async (userData) => {
 	return user.toJSON();
 };
 
-// Convert User object to simplified JSON
+// THIS RETURNS USER VALUES AFTER LOGIN
 userSchema.methods.toJSON= function(){
 	const user = this.toObject()
 	delete user.password;
