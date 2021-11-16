@@ -1,8 +1,9 @@
 import "./Login.css";
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-function Login() {
+function Login(props) {
   const [login, setLogin] = useState({});
 
   const changeHandler = (e) => {
@@ -14,7 +15,7 @@ function Login() {
     console.log("come from Login", login);
     return await axios
       .post("http://localhost:9000/login", login)
-      .then((result) => console.log(result.data))
+      .then((result) => props.setUser(result.data))
       .catch((error) => console.log(error));
   };
 
@@ -41,12 +42,14 @@ function Login() {
               id="pass"
               name="password"
               placeholder="8 characters minimum"
-              minlength="8"
+              minLength="8"
               required
             />
           </div>
 
           <input className="sign-in-submit" type="submit" value="Sign in" />
+          <h4><Link className="sign-up-submit" to="/Registration"> Sign Up</Link> </h4>
+          {/* <input className="sign-up-submit" type="submit" value="Sign Up"  /> */}
         </form>
       </div>
     </div>

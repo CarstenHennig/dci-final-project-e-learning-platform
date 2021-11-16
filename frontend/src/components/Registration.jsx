@@ -2,19 +2,23 @@ import "./Registration.css";
 import React, { useState } from "react";
 import axios from "axios";
 
-function Registration() {
+function Registration(props) {
   const [register, setRegister] = useState({});
 
   const changeHandler = (e) => {
     setRegister({ ...register, [e.target.name]: e.target.value });
   };
+  // const homeHandler= async (e)=> {
+  //   e.preventDefault();
+  //   return await 
+  // }
 
   const submitHandler = async (e) => {
     e.preventDefault();
     if (register.password === register.repassword) {
       return await axios
         .post("http://localhost:9000/register", register)
-        .then((result) => console.log(result.data))
+        .then((result) => props.setUser(result.data))
         .catch((error) => console.log(error));
     }
     alert("your password unmatched");
@@ -77,11 +81,13 @@ function Registration() {
               name="repassword"
               placeholder="8 characters minimum"
               minlength="8"
-              required
-            />
+              required/>
           </div>
           <div>
-            <input type="submit" value="Submit" />
+          <button >
+          "submit"
+          </button>
+            {/* <input type="submit" value="Submit" /> */}
           </div>
         </form>
       </div>
