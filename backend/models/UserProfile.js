@@ -63,7 +63,8 @@ const userSchema = mongoose.Schema({
 	}
 }, { timestamps: true });
 
-//USER Registration controller
+
+// 1) USER Registration controller
 
 userSchema.statics.register = async (userData) => {
 	try {
@@ -77,7 +78,7 @@ userSchema.statics.register = async (userData) => {
 	}
 }
 
-///LOGIN controller
+///  2) LOGIN controller
 userSchema.statics.login = async (userData) => {
 	
 	const user = await User.findOne({ email: userData.email });
@@ -95,12 +96,11 @@ userSchema.statics.login = async (userData) => {
 	return user.toJSON();
 };
 
-// Convert User object to simplified json representation
+// Convert User object to simplified JSON
 userSchema.methods.toJSON= function(){
-	return {
-		email: this.email,
-		_id: this._id
-	}
+	const user = this.toObject()
+	delete user.password;
+	return user
 }
 
 const User = mongoose.model('userProfiles', userSchema);

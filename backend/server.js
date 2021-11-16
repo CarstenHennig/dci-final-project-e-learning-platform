@@ -50,6 +50,7 @@ app.post("/login", async (req, res) => {
 	const token = jwt.sign({ _id: user._id }, process.env.SECRET);
 
 	res.json({ user, token })
+	console.log(user);
 })
 
 // JWT validation middleware
@@ -89,12 +90,36 @@ const validate = (rules) => {
 
 }
 
-// This endpoint takes in a message and saves it; returning a list of messages
+// Blog Post endpoint
 const messages = ["First!"];
 app.post("/message", checkLogin, validate(messageRules), (req, res) => {
 	messages.push(req.body.message);
 	res.send(messages);
 });
+
+
+// GET USER PROFILE
+
+app.get("/users/:_id", async (req, res) => {
+
+	try {
+		let user = await User.findById(req.params._id);
+console.log( 'USER_PROFILE: ',user)
+const data = user
+		res.status(200)
+		return res.send(data);
+	} catch (err) {
+
+		res.status(500).json({
+			Message: err.message
+
+		})
+
+	}
+})
+
+//==========================
+
 
 // Final error check middleware
 app.use((req, res) => {
