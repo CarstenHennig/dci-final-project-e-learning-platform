@@ -1,11 +1,15 @@
 import "./Login.css";
-import React, { useState } from "react";
+import React, { useState , useContext} from "react";
+import {UserContext} from "./InfoProvider.jsx"
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 
 function Login(props) {
-  const [login, setLogin] = useState({});
 
+const history = useHistory()
+
+  const [login, setLogin] = useState({});
+  const [isLog, setIsLog]= useContext(UserContext)
   const changeHandler = (e) => {
     setLogin({ ...login, [e.target.name]: e.target.value });
   };
@@ -15,10 +19,17 @@ function Login(props) {
     console.log("come from Login", login);
     return await axios
       .post("http://localhost:9000/login", login)
-      .then((result) => props.setUser(result.data))
+      .then((result) => {
+        if(result ===""){
+
+          setIsLog(true)
+          props.setUser(result.data)
+         return history.push('/Logout')
+        }
+      })
       .catch((error) => console.log(error));
   };
-
+<></>
   return (
     <div className="login">
       <div className="login-container">
