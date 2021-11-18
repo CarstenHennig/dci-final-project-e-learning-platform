@@ -32,8 +32,9 @@ app.post("/register", async (req, res) => {
 	if (!user) {
 		return res.status(400).json({ success: false });
 	}
-
-	res.status(201).json({ success: true });
+	
+	res.status(201).json({ success: true, user: user });
+	
 });
 
 // Login User with password and email

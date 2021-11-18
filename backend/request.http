@@ -19,10 +19,10 @@ POST http://localhost:9000/register
 Content-Type: application/json
 
 {
-"firstName": "Martina",
-"lastName": "Engels",
-"email": "engels@gazaphili.com",
-"password": "123",
+"firstName": "Hackers235",
+"lastName": "235HAckers",
+"email": "Hackers@gazaphili.com",
+"password": "12345678",
 "avatar": "😥",
 "dateOfBirth": 13122000,
 "address": {
@@ -36,9 +36,9 @@ Content-Type: application/json
 
 		"title": "Fangs in the skies",
 		"body":"Circling the deaf zones of human accoustic competence. Also, in some situations I do need to get the password field, like when the user wants to login or change the password. Also, in some situations I do need to get the password field, like when the user wants to login or change the password."
-	} 
+	}, 
 
-"blogPosts":[    ]
+"blogPosts": []
 
 }
 
