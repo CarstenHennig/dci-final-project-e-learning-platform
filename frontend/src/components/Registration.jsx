@@ -18,7 +18,10 @@ function Registration(props) {
     if (register.password === register.repassword) {
       return await axios
         .post("http://localhost:9000/register", register)
-        .then((result) => props.setUser(result.data))
+        .then((result) => {
+          console.log("User Is registered");
+          // props.setUser(result.data)
+        })
         .catch((error) => console.log(error));
     }
     alert("your password unmatched");
