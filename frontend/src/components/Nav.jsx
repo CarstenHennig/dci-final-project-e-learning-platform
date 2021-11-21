@@ -11,7 +11,9 @@ function Nav(props) {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
-      <h1 className="logo">YouLearn</h1>
+      <h1 className="logo">
+        YouLearn
+      </h1>
       <button
         className="navbar-toggler"
         type="button"

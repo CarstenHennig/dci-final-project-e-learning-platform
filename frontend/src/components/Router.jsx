@@ -10,6 +10,7 @@ import Footer from './Footer.jsx'
 import Logout from './Logout.jsx'
 
 import {UserContext} from './InfoProvider.jsx'
+import Home from './Home.jsx';
 
 function RouterComponents() {
     const [user, setUser] = useState(false);
@@ -28,6 +29,7 @@ function RouterComponents() {
               <Route path="/Imprint" component={Imprint} />
               <Route path="/About" component={About} />
               <Route path="/Logout" component={Logout} />
+              <Route path="/Home" component={Home} />
              
 
             </Switch>

@@ -20,16 +20,18 @@ const history = useHistory()
     return await axios
       .post("http://localhost:9000/login", login)
       .then((result) => {
-        if(result ===""){
-
-          setIsLog(true)
-          props.setUser(result.data)
-         return history.push('/Logout')
-        }
+        console.log('hsello',result.data);
+         if(result.data.token){
+           setIsLog({...isLog, user: result.data.user})
+          history.push('/Home') //redirect to home page
+        //   setIsLog(true)
+        //   props.setUser(result.data.user)
+        //  return history.push('/Logout')
+         }
       })
       .catch((error) => console.log(error));
   };
-<></>
+
   return (
     <div className="login">
       <div className="login-container">
