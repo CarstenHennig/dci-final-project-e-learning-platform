@@ -13,9 +13,7 @@ function About() {
           <Carousel.Item className="d-flex justify-content-center">
             <img className="d-block w-50" src={Pic1} alt="First slide" />
             <Carousel.Caption className="p-5">
-              <h2>
-                <b>WHY</b>
-              </h2>
+              <h2>WHY YOULEARN</h2>
               <h4>
                 <b>
                   Hybrid learning is one of the main trends in the digitization
@@ -32,7 +30,7 @@ function About() {
             <img className="d-block w-50" src={Pic2} alt="Second slide" />
 
             <Carousel.Caption>
-              <h2>WHO</h2>
+              <h2>WHO ARE THE INITIATORS</h2>
               <h4>
                 The very first try is created by the 'Digital Evangelists'
                 Ferdinand Mbucha, Lead Backend Developer Karin Yahud, Lead
@@ -44,7 +42,7 @@ function About() {
             <img className="d-block w-50" src={Pic3} alt="Third slide" />
 
             <Carousel.Caption>
-              <h2>HOW</h2>
+              <h2>HOW TO JOIN</h2>
               <h4>
                 We create a very first 'beta' e-learning platform for students
                 and alumni of DCI, while structuring and preparing all frontend
