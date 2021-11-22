@@ -1,17 +1,17 @@
 import "./Registration.css";
 import React, { useState } from "react";
 import axios from "axios";
+import {useHistory} from "react-router-dom"
 
 function Registration(props) {
   const [register, setRegister] = useState({});
 
   const changeHandler = (e) => {
     setRegister({ ...register, [e.target.name]: e.target.value });
+    
   };
-  // const homeHandler= async (e)=> {
-  //   e.preventDefault();
-  //   return await 
-  // }
+
+  const history = useHistory()
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -19,8 +19,8 @@ function Registration(props) {
       return await axios
         .post("http://localhost:9000/register", register)
         .then((result) => {
-          console.log("User Is registered");
-          // props.setUser(result.data)
+          console.log("User Is registered", result);
+          history.push("/Login")
         })
         .catch((error) => console.log(error));
     }
@@ -87,10 +87,9 @@ function Registration(props) {
               required/>
           </div>
           <div>
-          <button >
-          "submit"
+          <button type="submit" className="SignUp-button" >
+          Submit
           </button>
-            {/* <input type="submit" value="Submit" /> */}
           </div>
         </form>
       </div>

@@ -19,7 +19,7 @@ function RouterComponents() {
     return (
         <Router>
         <div>
-          <Nav user= {user} />
+          <Nav user= {isLog} />
           <main className="main">
 
             <Switch>
