@@ -6,3 +6,8 @@
 .write-article-content {
   width: 75%;
 }
+
+.headline {
+  padding: 5px;
+  margin: 5px;
+}

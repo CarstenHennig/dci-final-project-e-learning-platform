@@ -20,6 +20,10 @@ export default function WriteArticle() {
 
   return (
     <div>
+      <div className="headline">
+        <h4>Publish your blog posts</h4>
+      </div>
+
       <form onChange={HandleChange}>
         <>
           {/* Inserting blog headline */}
@@ -28,7 +32,11 @@ export default function WriteArticle() {
             label="Headline"
             className="write-article-headline"
           >
-            <Form.Control as="textarea" placeholder="Write your headline" />
+            <Form.Control
+              as="textarea"
+              placeholder="Write your headline"
+              style={{ height: "100px", margin: "5px", padding: "5px" }}
+            />
           </FloatingLabel>
 
           {/* Inserting blog text */}
@@ -40,7 +48,7 @@ export default function WriteArticle() {
             <Form.Control
               as="textarea"
               placeholder="Write your content"
-              style={{ height: "500px" }}
+              style={{ height: "500px", margin: "5px", padding: "5px" }}
             />
           </FloatingLabel>
         </>
@@ -49,19 +57,39 @@ export default function WriteArticle() {
 
         {/* Selecting blog category */}
         <Dropdown as={ButtonGroup}>
-          <Button variant="warning">Select category</Button>
-          <Dropdown.Toggle split variant="warning" id="dropdown-split-basic" />
+          <Button variant="warning" style={{ margin: "5px", padding: "5px" }}>
+            Select category
+          </Button>
+          <Dropdown.Toggle
+            split
+            variant="warning"
+            id="dropdown-split-basic"
+            style={{ margin: "5px", padding: "5px" }}
+          />
           <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Offers</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Searches</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Misc</Dropdown.Item>
+            <Dropdown.Item href="#/action-1" className="blog-category-offers">
+              Offers
+            </Dropdown.Item>
+            <Dropdown.Item href="#/action-2" className="blog-category-search">
+              Search
+            </Dropdown.Item>
+            <Dropdown.Item href="#/action-3" className="blog-category-misc">
+              Misc
+            </Dropdown.Item>
+            <Dropdown.Item href="#/action-4" className="blog-category-no">
+              Uncategorized
+            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
 
         <br />
 
         {/* Button to publish */}
-        <button type="submit" onChange={HandleChange}>
+        <button
+          type="submit"
+          onChange={HandleChange}
+          style={{ margin: "5px", padding: "5px" }}
+        >
           Publish
         </button>
       </form>
