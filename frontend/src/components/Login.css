@@ -18,11 +18,11 @@ label {
 }
 
 .login .sign-in-submit {
-  width: 61%;
+  width: 60%;
   background-color: #1a3be6;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
+  padding: 10px 15px;
+  margin: 4px 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -34,14 +34,15 @@ label {
 }
 .login .sign-up-submit {
   font-size: 20px;
-  width: 50%;
+  width: 70%;
   background-color:#A7D5D4;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
+  padding: 10px 15px;
+  margin: 4px 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  
   
 }
 .login .sign-up-submit:hover {
