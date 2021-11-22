@@ -1,14 +1,21 @@
 import "./Nav.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import React from "react";
-import { Link } from "react-router-dom";
+import React ,{ useContext } from "react";
+import { Link, useHistory } from "react-router-dom";
+import {UserContext} from "./InfoProvider.jsx"
+
 
 function Nav(props) {
   const navStyle = {
     color: "white",
   };
-
+  const [isLog, setIsLog]= useContext(UserContext)
+  const history = useHistory()
+  const logOutHandler = (e)=>{
+    setIsLog(false) 
+    history.push('/Login')
+  }
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <h1 className="logo">
@@ -52,8 +59,19 @@ function Nav(props) {
 </> : <>
         
           <div className="nav-item">
-            <Link className="nav-link" style={navStyle} to="/Home">
-              <li>Logout</li>
+            <button onClick={logOutHandler} className="nav-link" >
+              Logout
+            </button>
+          </div>
+
+          <div className="nav-item">
+            <Link className="nav-link" style={navStyle} to="/Imprint">
+              <li>Imprint</li>
+            </Link>
+          </div>
+          <div className="nav-item">
+            <Link className="nav-link" style={navStyle} to="/About">
+              <li>About</li>
             </Link>
           </div>
          
