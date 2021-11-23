@@ -1,8 +1,14 @@
+/** Frontend component to create a blog post
+ * using React, Axios, own style sheet and Bootstrap
+ */
+
 import React from "react";
 import axios from "axios";
-import { FloatingLabel, Form } from "react-bootstrap";
 import "./Article.css";
+import { FloatingLabel, Form } from "react-bootstrap";
 import ToggleButtons from "./ToggleButton.jsx";
+
+/** Function to write a blog post */
 
 export default function WriteArticle() {
   const HandleChange = (e) => {
@@ -22,6 +28,7 @@ export default function WriteArticle() {
       <form onChange={HandleChange}>
         <>
           {/* Inserting blog headline */}
+
           <FloatingLabel
             controlId="floatingTextarea"
             label="Headline"
@@ -35,6 +42,7 @@ export default function WriteArticle() {
           </FloatingLabel>
 
           {/* Inserting blog text */}
+
           <FloatingLabel
             controlId="floatingTextarea2"
             label="Content"
@@ -47,6 +55,8 @@ export default function WriteArticle() {
             />
           </FloatingLabel>
         </>
+
+        {/** Texareas should be responsive for mobile use */}
 
         {/* Selecting blog category */}
         <div className="toggleButtons">
