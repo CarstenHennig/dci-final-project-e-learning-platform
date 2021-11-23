@@ -1,14 +1,8 @@
 import React from "react";
 import axios from "axios";
-import {
-  FloatingLabel,
-  Form,
-  Dropdown,
-  ButtonGroup,
-  Button,
-} from "react-bootstrap";
+import { FloatingLabel, Form } from "react-bootstrap";
 import "./Article.css";
-import ToggleButton from "./ToggleButton.jsx";
+import ToggleButtons from "./ToggleButton.jsx";
 
 export default function WriteArticle() {
   const HandleChange = (e) => {
@@ -54,13 +48,10 @@ export default function WriteArticle() {
           </FloatingLabel>
         </>
 
-        <br />
-
         {/* Selecting blog category */}
-
-        <ToggleButton />
-
-        <br />
+        <div className="toggleButtons">
+          <ToggleButtons />
+        </div>
 
         {/* Button to publish */}
 
