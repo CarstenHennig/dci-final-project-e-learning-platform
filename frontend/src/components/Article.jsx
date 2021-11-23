@@ -8,6 +8,7 @@ import {
   Button,
 } from "react-bootstrap";
 import "./Article.css";
+import ToggleButton from "./ToggleButton.jsx";
 
 export default function WriteArticle() {
   const HandleChange = (e) => {
@@ -56,35 +57,13 @@ export default function WriteArticle() {
         <br />
 
         {/* Selecting blog category */}
-        <Dropdown as={ButtonGroup}>
-          <Button variant="warning" style={{ margin: "5px", padding: "5px" }}>
-            Select category
-          </Button>
-          <Dropdown.Toggle
-            split
-            variant="warning"
-            id="dropdown-split-basic"
-            style={{ margin: "5px", padding: "5px" }}
-          />
-          <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1" className="blog-category-offers">
-              Offers
-            </Dropdown.Item>
-            <Dropdown.Item href="#/action-2" className="blog-category-search">
-              Search
-            </Dropdown.Item>
-            <Dropdown.Item href="#/action-3" className="blog-category-misc">
-              Misc
-            </Dropdown.Item>
-            <Dropdown.Item href="#/action-4" className="blog-category-no">
-              Uncategorized
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+
+        <ToggleButton />
 
         <br />
 
         {/* Button to publish */}
+
         <button
           type="submit"
           onChange={HandleChange}
