@@ -1,26 +1,23 @@
 import "./Nav.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import React ,{ useContext } from "react";
+import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
-import {UserContext} from "./InfoProvider.jsx"
-
+import { UserContext } from "./InfoProvider.jsx";
 
 function Nav(props) {
   const navStyle = {
     color: "white",
   };
-  const [isLog, setIsLog]= useContext(UserContext)
-  const history = useHistory()
-  const logOutHandler = (e)=>{
-    setIsLog(false) 
-    history.push('/Login')
-  }
+  const [isLog, setIsLog] = useContext(UserContext);
+  const history = useHistory();
+  const logOutHandler = (e) => {
+    setIsLog(false);
+    history.push("/Login");
+  };
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
-      <h1 className="logo">
-        YouLearn
-      </h1>
+      <h1 className="logo">YouLearn</h1>
       <button
         className="navbar-toggler"
         type="button"
@@ -30,93 +27,58 @@ function Nav(props) {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-      <span className="navbar-toggler-icon"></span>
+        <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav nav-links w-100">
-          {!props.user ? <><li className="nav-item">
+          {!props.user ? (
+            <>
+              <li className="nav-item">
+                <Link className="nav-link" style={navStyle} to="/Login">
+                  Login
+                </Link>
+              </li>
 
-<Link className="nav-link" style={navStyle} to="/Login">
-  Login
-</Link>
-</li> 
-<div className="nav-item">
-            <Link className="nav-link" style={navStyle} to="/Registration">
-              <li> SignUp</li>
-            </Link>
-          </div>
-<div className="nav-item">
-            <Link className="nav-link" style={navStyle} to="/Imprint">
-              <li>Imprint</li>
-            </Link>
-          </div>
-          <div className="nav-item">
-            <Link className="nav-link" style={navStyle} to="/About">
-              <li>About</li>
-            </Link>
-          </div>
-         
-</> : <>
-        
-          <div className="nav-item">
-            <button onClick={logOutHandler} className="nav-link" >
-              Logout
-            </button>
-          </div>
+              <li className="nav-item">
+                <Link className="nav-link" style={navStyle} to="/Registration">
+                  SignUp
+                </Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="nav-item">
+                <button onClick={logOutHandler} className="nav-link">
+                  Logout
+                </button>
+              </li>
 
-          <div className="nav-item">
+              <li className="nav-item">
+            <Link className="nav-link" style={navStyle} to="/UserProfile">
+              Profile
+            </Link>
+          </li>
+
+
+            </>
+          )}
+           
+          <li className="nav-item">
             <Link className="nav-link" style={navStyle} to="/Imprint">
-              <li>Imprint</li>
+              Imprint
             </Link>
-          </div>
-          <div className="nav-item">
+          </li>
+
+          <li className="nav-item">
             <Link className="nav-link" style={navStyle} to="/About">
-              <li>About</li>
+              About
             </Link>
-          </div>
-         
-         
-          </>
-}
+          </li>
+
         </ul>
-  
       </div>
     </nav>
   );
 }
 
 export default Nav;
-
-// <nav>
-//   <h1 className="logo">YouLearn</h1>
-//   <div>
-//     <ul className="nav-links">
-// <div className="div-nav">
-//   <Link style={navStyle} to="/Login">
-//     <li>Login</li>
-//   </Link>
-// </div>
-// <div className="div-nav">
-//   <Link style={navStyle} to="/Home">
-//     <li>Logout</li>
-//   </Link>
-// </div>
-// <div className="div-nav">
-//   <Link style={navStyle} to="/Registration">
-//     <li> SignUp</li>
-//   </Link>
-// </div>
-// <div className="div-nav">
-//   <Link style={navStyle} to="/Imprint">
-//     <li>Imprint</li>
-//   </Link>
-// </div>
-// <div className="div-nav">
-//   <Link style={navStyle} to="/About">
-//     <li>About</li>
-//   </Link>
-// </div>
-//     </ul>
-//   </div>
-
-// </nav>
