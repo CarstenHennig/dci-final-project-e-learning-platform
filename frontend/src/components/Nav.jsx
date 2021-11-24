@@ -1,6 +1,5 @@
 import "./Nav.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "./InfoProvider.jsx";
@@ -57,12 +56,16 @@ function Nav(props) {
             <Link className="nav-link" style={navStyle} to="/UserProfile">
               Profile
             </Link>
-          </li>
+            </li>
 
-
+              <li className="nav-item">
+                <Link className="nav-link" style={navStyle} to="/Article">
+                  <li>Post article</li>
+                </Link>
+              </li>
             </>
           )}
-           
+          
           <li className="nav-item">
             <Link className="nav-link" style={navStyle} to="/Imprint">
               Imprint
