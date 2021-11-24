@@ -20,7 +20,9 @@ function UserProfile() {
     </p>
   </div>
   <div className="div-wrap-main">
-
+    <div></div>
+    <div></div>
+    <div></div>
 
 
   </div>
