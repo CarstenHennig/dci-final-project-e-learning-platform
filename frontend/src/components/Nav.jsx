@@ -63,12 +63,9 @@ function Nav(props) {
                   <li>Post article</li>
                 </Link>
               </li>
-
-
-
             </>
           )}
-           
+          
           <li className="nav-item">
             <Link className="nav-link" style={navStyle} to="/Imprint">
               Imprint
@@ -80,6 +77,7 @@ function Nav(props) {
               About
             </Link>
           </li>
+          
 
         </ul>
       </div>
