@@ -16,15 +16,16 @@ export default function WriteArticle() {
 
   /** Function HandleChange sending form data via axios to backend */
   const HandleChange = (e) => {
+    console.log("Blog post send!");
     e.preventDefault();
-    axios.post("http://localhost:9000/postBlog", { headline, text }).then(
-      (response) => {
-        console.log(response.data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    // axios.post("http://localhost:9000/postBlog", { headline, text }).then(
+    //   (response) => {
+    //     console.log(response.data);
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //   }
+    // );
   };
 
   // const formData = new FormData();
@@ -40,7 +41,7 @@ export default function WriteArticle() {
       <form onChange={HandleChange}>
         <>
           {/* Inserting blog headline */}
-          <p>Headline</p>
+          <p className="labels">Headline</p>
           <FloatingLabel
             controlId="floatingTextarea"
             className="write-article-headline"
@@ -49,11 +50,11 @@ export default function WriteArticle() {
               as="textarea"
               placeholder="Write your headline"
               name="headline"
-              style={{ height: "100px", margin: "5px", padding: "5px" }}
+              // style={{ height: "100px", margin: "5px", padding: "5px" }}
             />
           </FloatingLabel>
           {/* Inserting blog text */}
-          <p>Content</p>
+          <p className="labels">Content</p>
           <FloatingLabel
             controlId="floatingTextarea2"
             className="write-article-content"
@@ -79,7 +80,7 @@ export default function WriteArticle() {
 
         <button
           type="submit"
-          onChange={HandleChange}
+          onClick={HandleChange}
           style={{ margin: "5px", padding: "5px" }}
         >
           Publish

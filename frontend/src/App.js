@@ -6,11 +6,11 @@ import InfoProvider from "./components/InfoProvider.jsx";
 
 function App() {
   return (
-    <WriteArticle />
-
-    // <InfoProvider>
-    //   <RouterComponents />
-    // </InfoProvider>
+    <div>
+      <InfoProvider>
+        <RouterComponents />
+      </InfoProvider>
+    </div>
   );
 }
 
