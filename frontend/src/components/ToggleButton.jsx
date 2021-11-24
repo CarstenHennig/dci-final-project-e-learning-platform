@@ -15,7 +15,17 @@ export default function ToggleButtons() {
   const handleChange = (val) => setValue(val);
 
   return (
-    <ToggleButtonGroup type="checkbox" value={value} onChange={handleChange}>
+    <ToggleButtonGroup
+      type="checkbox"
+      value={value}
+      onChange={handleChange}
+      style={{
+        display: "flex",
+        flexwrap: "wrap",
+        width: "75%",
+        margin: "6px",
+      }}
+    >
       <ToggleButton id="tbg-btn-1" value={1}>
         Offer
       </ToggleButton>
