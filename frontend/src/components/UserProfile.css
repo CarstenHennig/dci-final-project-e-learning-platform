@@ -1,0 +1,10 @@
+.div-wrap-nav {
+    display: flex;
+    justify-content: space-between;
+
+}
+.titel, .wellcome{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
