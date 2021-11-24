@@ -8,9 +8,9 @@ import Imprint from './Imprint.jsx'
 import About from './About.jsx'
 import Footer from './Footer.jsx'
 import Logout from './Logout.jsx'
-
 import {UserContext} from './InfoProvider.jsx'
 import Home from './Home.jsx';
+import UserProfile from './UserProfile.jsx';
 
 function RouterComponents() {
     const [user, setUser] = useState(false);
@@ -30,7 +30,7 @@ function RouterComponents() {
               <Route path="/About" component={About} />
               <Route path="/Logout" component={Logout} />
               <Route path="/Home" component={Home} />
-             
+              <Route path="/UserProfile" component={UserProfile} />
 
             </Switch>
           </main>
