@@ -1,3 +1,21 @@
+
+###
+PUT http://localhost:9000/blogPosts
+Content-Type: application/json
+
+
+	
+	{	"email": "mathewMoney@gazaphili.com",
+		"title": "Mother's love",
+		"content": "From the precipice and over the valleys of death hangs a rope swinging through the chasm like an old ghost!"
+		
+	}
+
+
+
+
+
+###
 POST http://localhost:9000/login
 Content-Type: application/json
 
@@ -13,15 +31,14 @@ GET http://localhost:9000/users/619054d2c33a59fa7a362022
 
 
 
-
 ###
 POST http://localhost:9000/register
 Content-Type: application/json
 
 {
-"firstName": "Hackers235",
+"firstName": "MathewMoney",
 "lastName": "235HAckers",
-"email": "Hackers@gazaphili.com",
+"email": "mathewMoney@gazaphili.com",
 "password": "12345678",
 "avatar": "😥",
 "dateOfBirth": 13122000,
@@ -32,13 +49,13 @@ Content-Type: application/json
 		"country": "Germany"
 	},
 	"phoneNumber": "0124567844",
-	"blogPosts": {
+	"blogPosts": [{
 
 		"title": "Fangs in the skies",
 		"body":"Circling the deaf zones of human accoustic competence. Also, in some situations I do need to get the password field, like when the user wants to login or change the password. Also, in some situations I do need to get the password field, like when the user wants to login or change the password."
-	}, 
+	}]
 
-"blogPosts": []
+
 
 }
 
