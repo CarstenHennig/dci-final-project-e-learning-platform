@@ -24,10 +24,7 @@ const history = useHistory()
         console.log('hsello',result.data);
          if(result.data.token){
            setIsLog({...isLog, isLog:true, user: result.data.user})
-          history.push('/Home') //redirect to home page
-        //   setIsLog(true)
-        //   props.setUser(result.data.user)
-        //  return history.push('/Logout')
+          history.push('/Home')
          }
       })
       .catch((error) => console.log(error));

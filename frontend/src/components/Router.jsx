@@ -9,13 +9,12 @@ import About from "./About.jsx";
 import Article from "./Article.jsx";
 import Footer from "./Footer.jsx";
 import Logout from "./Logout.jsx";
-
 import { UserContext } from "./InfoProvider.jsx";
 import Home from "./Home.jsx";
 
+import UserProfile from './UserProfile.jsx';
 function RouterComponents() {
   const [user, setUser] = useState(false);
-
   const [isLog, setIsLog] = useContext(UserContext);
   return (
     <Router>
@@ -36,6 +35,7 @@ function RouterComponents() {
       </div>
     </Router>
   );
+
 }
 
 export default RouterComponents;
