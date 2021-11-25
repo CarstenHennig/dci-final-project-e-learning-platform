@@ -1,0 +1,19 @@
+@media screen and (max-width: 992px) {
+    .carousel-item {
+        height: 60vh;
+    
+    }
+    .about-img{
+    object-fit: contain;
+    width: 100%!important;
+
+    }
+    .small-font{
+        font-size: small;
+        text-shadow: 2px 2px grey;
+    }
+    h4{
+        text-shadow: 2px 2px grey;
+    }
+
+}

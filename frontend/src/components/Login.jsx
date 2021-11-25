@@ -4,6 +4,7 @@ import {UserContext} from "./InfoProvider.jsx"
 import axios from "axios";
 import { Link,useHistory } from "react-router-dom";
 
+
 function Login(props) {
 
 const history = useHistory()
@@ -22,11 +23,8 @@ const history = useHistory()
       .then((result) => {
         console.log('hsello',result.data);
          if(result.data.token){
-           setIsLog({...isLog, user: result.data.user})
-          history.push('/Home') //redirect to home page
-        //   setIsLog(true)
-        //   props.setUser(result.data.user)
-        //  return history.push('/Logout')
+           setIsLog({...isLog, isLog:true, user: result.data.user})
+          history.push('/Home')
          }
       })
       .catch((error) => console.log(error));
