@@ -1,13 +1,13 @@
 import "./App.css";
 import React from "react";
 import RouterComponents from './components/Router.jsx'
-import WriteArticle from "./components/BlogPost.jsx"
+import PostArticle from "./components/PostArticle.jsx"
 import InfoProvider from "./components/InfoProvider.jsx";
  
 function App() {
   
     return (
-      <WriteArticle/>
+      <PostArticle/>
      /*  <InfoProvider>
         <RouterComponents/>
       </InfoProvider> */

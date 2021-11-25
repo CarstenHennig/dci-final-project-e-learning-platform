@@ -20,13 +20,6 @@ app.use(express.static('User'));
 app.use(express.urlencoded({ extended: true }));
 //=============== 
 
-// Test server connection
-/*  app.use("/", (req,res)=>{
-	res.send("Welcome")
-	console.log("Backend here!")
-})  */
-//============
-
 // Register New User ==
 
 app.post("/register", async (req, res) => {
@@ -97,7 +90,7 @@ const validate = (rules) => {
 // Blog Post endpoint
 
 /* Create messages by one user */
-app.put('/blogPosts', async (req, res, next) => {
+app.put('/article', async (req, res, next) => {
 	const data = req.body
 	console.log(req.body)
 	console.log(data.title);

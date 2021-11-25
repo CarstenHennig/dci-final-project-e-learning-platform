@@ -1,6 +1,6 @@
 
 ###
-PUT http://localhost:9000/blogPosts
+PUT http://localhost:9000/article
 Content-Type: application/json
 
 
