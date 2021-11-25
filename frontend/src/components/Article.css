@@ -1,0 +1,30 @@
+/** Style sheet only for Article.jsx */
+/** Improving should contain responsive design */
+
+.write-article-headline {
+  width: 75%;
+  height: 100px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.write-article-content {
+  width: 75%;
+  padding: 5px;
+  margin: 5px;
+}
+
+.headline {
+  padding: 5px;
+  margin: 5px;
+}
+
+.labels {
+  padding: 5px;
+  margin: 5px;
+}
+
+.toggleButtons {
+  padding: 5px;
+  margin: 5px;
+}
