@@ -24,6 +24,7 @@ export default function WriteArticle() {
         title,
         content,
         // Hard coded email to target the blogging user
+        // Removed after improved to local stored UserID
         email: "mathewMoney@gazaphili.com",
       })
       .then(
@@ -76,7 +77,7 @@ export default function WriteArticle() {
           </FloatingLabel>
         </>
 
-        {/** Texareas should be responsive for mobile use */}
+        {/** Text areas should be responsive for mobile use */}
 
         {/* Selecting blog category */}
 
