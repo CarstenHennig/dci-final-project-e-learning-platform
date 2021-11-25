@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
 import { connect } from './libs/database.js';
+import Mess from './models/StoreMessages.js'
 import User from "./models/UserProfile.js";
 import { messageRules } from "./validation/messageValidation.js";
 
@@ -15,14 +16,9 @@ await connect()
 const app = express();
 app.use(express.json());
 app.use(cors())
+app.use(express.static('User'));
+app.use(express.urlencoded({ extended: true }));
 //=============== 
-
-// Test server connection
-/*  app.use("/", (req,res)=>{
-	res.send("Welcome")
-	console.log("Backend here!")
-})  */
-//============
 
 // Register New User ==
 
@@ -32,9 +28,9 @@ app.post("/register", async (req, res) => {
 	if (!user) {
 		return res.status(400).json({ success: false });
 	}
-	
+
 	res.status(201).json({ success: true, user: user });
-	
+
 });
 
 // Login User with password and email
@@ -92,10 +88,22 @@ const validate = (rules) => {
 }
 
 // Blog Post endpoint
-const messages = ["First!"];
-app.post("/message", checkLogin, validate(messageRules), (req, res) => {
-	messages.push(req.body.message);
-	res.send(messages);
+
+/* Create messages by one user */
+app.put('/article', async (req, res, next) => {
+	const data = req.body
+	console.log(req.body)
+	console.log(data.title);
+	const storePost = await User.findOne({ email: req.body.email })
+
+	if (storePost) {
+		storePost.blogPosts.push({ title: req.body.title, content: req.body.content })
+		await storePost.save()
+		return res.status(201).json({ content: storePost.blogPosts })
+
+	}
+	console.log("I store your posts " + storePost);
+	res.json({ error: "User cannot be updated" })
 });
 
 
@@ -105,8 +113,8 @@ app.get("/users/:_id", async (req, res) => {
 
 	try {
 		let user = await User.findById(req.params._id);
-console.log( 'USER_PROFILE: ',user)
-const data = user
+		console.log('USER_PROFILE: ', user)
+		const data = user
 		res.status(200)
 		return res.send(data);
 	} catch (err) {

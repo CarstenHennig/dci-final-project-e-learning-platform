@@ -43,10 +43,17 @@ const userSchema = mongoose.Schema({
 		type: Number,
 		default: 0,
 	},
-	blogPosts: {
-		title: String,
-		body: String,
-	},
+	blogPosts: [{
+
+		title: {
+			type: String,
+			default: 'Killing the Goose'
+		},
+		content: {
+			type: String,
+			default: 'From the land passed hope and fear. from the land of the muses, where Medusa is a gift, let the golden river flow for eternity'
+		},
+	}],
 	postsCount: {
 		type: Number,
 		default: 0,
@@ -97,7 +104,7 @@ userSchema.statics.login = async (userData) => {
 };
 
 // THIS RETURNS USER VALUES AFTER LOGIN from frontend
-// And everything should be cool!
+
 userSchema.methods.toJSON= function(){
 	const user = this.toObject()
 	delete user.password;
