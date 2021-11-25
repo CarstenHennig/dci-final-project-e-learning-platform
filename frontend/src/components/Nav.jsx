@@ -1,6 +1,5 @@
 import "./Nav.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "./InfoProvider.jsx";
@@ -38,47 +37,47 @@ function Nav(props) {
                   Login
                 </Link>
               </li>
-              <div className="nav-item">
+
+              <li className="nav-item">
                 <Link className="nav-link" style={navStyle} to="/Registration">
-                  <li> SignUp</li>
+                  SignUp
                 </Link>
-              </div>
-              <div className="nav-item">
-                <Link className="nav-link" style={navStyle} to="/Imprint">
-                  <li>Imprint</li>
-                </Link>
-              </div>
-              <div className="nav-item">
-                <Link className="nav-link" style={navStyle} to="/About">
-                  <li>About</li>
-                </Link>
-              </div>
+              </li>
             </>
           ) : (
             <>
-              <div className="nav-item">
+              <li className="nav-item">
                 <button onClick={logOutHandler} className="nav-link">
                   Logout
                 </button>
-              </div>
+              </li>
 
-              <div className="nav-item">
-                <Link className="nav-link" style={navStyle} to="/Imprint">
-                  <li>Imprint</li>
-                </Link>
-              </div>
-              <div className="nav-item">
-                <Link className="nav-link" style={navStyle} to="/About">
-                  <li>About</li>
-                </Link>
-              </div>
-              <div className="nav-item">
+              <li className="nav-item">
+            <Link className="nav-link" style={navStyle} to="/UserProfile">
+              Profile
+            </Link>
+            </li>
+
+              <li className="nav-item">
                 <Link className="nav-link" style={navStyle} to="/Article">
                   <li>Post article</li>
                 </Link>
-              </div>
+              </li>
             </>
           )}
+          
+          <li className="nav-item">
+            <Link className="nav-link" style={navStyle} to="/Imprint">
+              Imprint
+            </Link>
+          </li>
+
+          <li className="nav-item">
+            <Link className="nav-link" style={navStyle} to="/About">
+              About
+            </Link>
+          </li>
+
         </ul>
       </div>
     </nav>
@@ -86,37 +85,3 @@ function Nav(props) {
 }
 
 export default Nav;
-
-// <nav>
-//   <h1 className="logo">YouLearn</h1>
-//   <div>
-//     <ul className="nav-links">
-// <div className="div-nav">
-//   <Link style={navStyle} to="/Login">
-//     <li>Login</li>
-//   </Link>
-// </div>
-// <div className="div-nav">
-//   <Link style={navStyle} to="/Home">
-//     <li>Logout</li>
-//   </Link>
-// </div>
-// <div className="div-nav">
-//   <Link style={navStyle} to="/Registration">
-//     <li> SignUp</li>
-//   </Link>
-// </div>
-// <div className="div-nav">
-//   <Link style={navStyle} to="/Imprint">
-//     <li>Imprint</li>
-//   </Link>
-// </div>
-// <div className="div-nav">
-//   <Link style={navStyle} to="/About">
-//     <li>About</li>
-//   </Link>
-// </div>
-//     </ul>
-//   </div>
-
-// </nav>
