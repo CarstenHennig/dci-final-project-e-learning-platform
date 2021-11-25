@@ -11,6 +11,10 @@ import Footer from "./Footer.jsx";
 import Logout from "./Logout.jsx";
 import { UserContext } from "./InfoProvider.jsx";
 import Home from "./Home.jsx";
+import EditProfilePage from "./EditProfilePage.jsx"
+// import WriteArticle from "./components/Article";
+
+
 
 import UserProfile from './UserProfile.jsx';
 function RouterComponents() {
@@ -30,6 +34,8 @@ function RouterComponents() {
             <Route path="/UserProfile" component={UserProfile} />
             <Route path="/Logout" component={Logout} />
             <Route path="/Home" component={Home} />
+            <Route path="/EditProfilePage" component={EditProfilePage} />
+            {/* <Route path="/WriteArticle" component={WriteArticle} /> */}
           </Switch>
         </main>
         <Footer />

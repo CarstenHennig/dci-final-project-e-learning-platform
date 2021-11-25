@@ -1,14 +1,14 @@
 import { useContext } from "react";
 import {UserContext} from './InfoProvider';
-import "../App.css";
 
 
-function Home() {
+
+function EditProfilePage() {
   const [isLog, setIsLog] = useContext(UserContext)
   
   return (<div> 
-    Welcome {isLog.user.firstName || 'Guest'}
+    Heloo {isLog.user.firstName} here you can Edit your profile.
   </div>)
 }
 
-export default Home;
+export default EditProfilePage;
