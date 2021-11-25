@@ -5,22 +5,17 @@ import { Dropdown } from "react-bootstrap";
 import { useState } from "react";
 
 export default function DropdownBlogCategory() {
-  const [value, setValue] = useState([1, 3]);
+  const [value, setValue] = useState();
 
-  const handleChange = (val) => setValue(val);
+  const handleChange = (e) => setValue(e.target.value);
 
   return (
     <Dropdown>
-      <Dropdown.Toggle
-        variant="success"
-        id="dropdown-basic"
-        value={value}
-        onChange={handleChange}
-      >
+      <Dropdown.Toggle variant="warning" id="dropdown-basic">
         Select category
       </Dropdown.Toggle>
 
-      <Dropdown.Menu>
+      <Dropdown.Menu value={value} onChange={handleChange}>
         <Dropdown.Item value={1}>Web Dev</Dropdown.Item>
         <Dropdown.Item value={2}>Online Marketing</Dropdown.Item>
         <Dropdown.Item value={3}>Cloud Computing</Dropdown.Item>
