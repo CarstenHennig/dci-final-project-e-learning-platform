@@ -11,26 +11,30 @@ import DropdownBlogCategory from "./ArticleDropdownButton.jsx";
 /** Function to write a blog post */
 
 export default function WriteArticle() {
-  const [headline, setHeadline] = useState(null);
-  const [text, setText] = useState(null);
+  const [title, setTitle] = useState(null);
+  const [content, setContent] = useState(null);
+  const [value, setValue] = useState();
 
   /** Function HandleChange sending form data via axios to backend */
   const HandleChange = (e) => {
-    console.log("Blog post send!");
+    console.log(title, content, value);
     e.preventDefault();
-    // axios.post("http://localhost:9000/postBlog", { headline, text }).then(
-    //   (response) => {
-    //     console.log(response.data);
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    // );
+    axios
+      .put("http://localhost:9000/article", {
+        title,
+        content,
+        // Hard coded email to target the blogging user
+        email: "mathewMoney@gazaphili.com",
+      })
+      .then(
+        (response) => {
+          alert("Blog post saved");
+        },
+        (error) => {
+          alert(error);
+        }
+      );
   };
-
-  // const formData = new FormData();
-
-  // axios.post("http://localhost:9000/postBlog", formData);
 
   return (
     <div>
@@ -38,7 +42,7 @@ export default function WriteArticle() {
         <h4>Publish your blog posts</h4>
       </div>
 
-      <form onChange={HandleChange}>
+      <form>
         <>
           {/* Inserting blog headline */}
           <p className="labels">Headline</p>
@@ -50,6 +54,8 @@ export default function WriteArticle() {
               as="textarea"
               placeholder="Write your headline"
               name="headline"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
               // style={{ height: "100px", margin: "5px", padding: "5px" }}
             />
           </FloatingLabel>
@@ -63,6 +69,8 @@ export default function WriteArticle() {
               as="textarea"
               placeholder="Write your content"
               name="text"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
               style={{ height: "500px", margin: "5px", padding: "5px" }}
             />
           </FloatingLabel>
@@ -71,9 +79,10 @@ export default function WriteArticle() {
         {/** Texareas should be responsive for mobile use */}
 
         {/* Selecting blog category */}
+
         <div className="dropdownButtons">
           <p>Select a category</p>
-          <DropdownBlogCategory />
+          <DropdownBlogCategory value={value} setValue={setValue} />
         </div>
 
         {/* Button to publish */}
