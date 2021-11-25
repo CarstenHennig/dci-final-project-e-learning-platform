@@ -90,7 +90,7 @@ const validate = (rules) => {
 // Blog Post endpoint
 
 /* Create messages by one user */
-app.put('/article', async (req, res, next) => {
+app.post('/article', async (req, res, next) => {
 	const data = req.body
 	console.log(req.body)
 	console.log(data.title);
