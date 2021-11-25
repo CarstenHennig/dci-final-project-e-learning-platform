@@ -90,9 +90,9 @@ const validate = (rules) => {
 // Blog Post endpoint
 
 /* Create messages by one user */
-app.post('/article', async (req, res, next) => {
+app.put('/article', async (req, res, next) => {
 	const data = req.body
-	console.log(req.body)
+	console.log("FRONTEND DATA: ", req.body)
 	console.log(data.title);
 	const storePost = await User.findOne({ email: req.body.email })
 
@@ -102,9 +102,55 @@ app.post('/article', async (req, res, next) => {
 		return res.status(201).json({ content: storePost.blogPosts })
 
 	}
-	console.log("I store your posts " + storePost);
+	console.log("I store your posts: ", storePost);
 	res.json({ error: "User cannot be updated" })
 });
+
+
+// GET MESSAGE ARCHIVE 
+
+//===== Get messages of all users
+app.get('/getPosts', async (req, res, next) => {
+	const userPosts = await User.find({})
+	console.log(userPosts)
+for (let index = 0; index < userPosts.length; index++) {
+	const element = userPosts[index];
+	console.log("ELEMENT HERE: " ,element.blogPosts)
+}
+	/* let mapData = userPosts.map((person, index) =>
+
+		person.message
+	)
+	console.log(mapData)
+	if (userPosts) {
+
+		return res.json(mapData)
+		
+		
+	} */
+
+});
+
+app.get("/users/:_id", async (req, res) => {
+
+	try {
+		let user = await User.findById(req.params._id);
+		console.log('USER_PROFILE: ', user)
+		const data = user
+		res.status(200)
+		return res.send(data);
+	} catch (err) {
+		res.status(500).json({
+			Message: err.message
+
+		})
+	}
+})
+
+//========
+
+
+
 
 
 // GET USER PROFILE

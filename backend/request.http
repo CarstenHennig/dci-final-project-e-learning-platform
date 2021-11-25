@@ -1,18 +1,20 @@
 
 ###
-POST http://localhost:9000/article
+
+GET http://localhost:9000/getPosts 
+
+
+PUT http://localhost:9000/article
 Content-Type: application/json
 
 
 	
 	{	"email": "mathewMoney@gazaphili.com",
-		"title": "Mother's love",
-		"content": "From the precipice and over the valleys of death hangs a rope swinging through the chasm like an old ghost!"
+		"title": " vaccination certificates",
+		"content": "BRUSSELS (Reuters) - The European Commission on Thursday proposed that from Jan. 10 next year the European Union's COVID-19 vaccination certificates be valid for nine months after full vaccination, and also opened the way for boosters to be linked to such passes."
+
 		
 	}
-
-
-
 
 
 ###
@@ -21,13 +23,13 @@ Content-Type: application/json
 
 	{  
 	"password": "12345678", 
-	"email": "test@test.com"
+	"email": "mathewMoney@gazaphili.com"
     
 
 	}
 
 ###
-GET http://localhost:9000/users/619054d2c33a59fa7a362022
+GET http://localhost:9000/users/619f81cca1e28e5c34203351
 
 
 
@@ -36,9 +38,9 @@ POST http://localhost:9000/register
 Content-Type: application/json
 
 {
-"firstName": "MathewMoney",
-"lastName": "235HAckers",
-"email": "mathewMoney@gazaphili.com",
+"firstName": "solutions",
+"lastName": "Mantra",
+"email": "mantrame@gazaphili.com",
 "password": "12345678",
 "avatar": "😥",
 "dateOfBirth": 13122000,
@@ -51,8 +53,9 @@ Content-Type: application/json
 	"phoneNumber": "0124567844",
 	"blogPosts": [{
 
-		"title": "Fangs in the skies",
-		"body":"Circling the deaf zones of human accoustic competence. Also, in some situations I do need to get the password field, like when the user wants to login or change the password. Also, in some situations I do need to get the password field, like when the user wants to login or change the password."
+		"title": "we have event.stopPropagation() method will stop the cycle of events so we have to take care of this in our code. Because if a child calls this method then the parent will not fire the event.
+Not all events are propagated like scroll and window resize.
+This article is my notes from this video. Go check out this and hope you get something new to learn out of this."
 	}]
 
 
