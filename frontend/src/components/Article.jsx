@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Article.css";
 import { FloatingLabel, Form } from "react-bootstrap";
-import ToggleButtons from "./ToggleButton.jsx";
+import DropdownBlogCategory from "./ArticleDropdownButton.jsx";
 
 /** Function to write a blog post */
 
@@ -71,9 +71,9 @@ export default function WriteArticle() {
         {/** Texareas should be responsive for mobile use */}
 
         {/* Selecting blog category */}
-        <div className="toggleButtons">
+        <div className="dropdownButtons">
           <p>Select a category</p>
-          <ToggleButtons />
+          <DropdownBlogCategory />
         </div>
 
         {/* Button to publish */}
