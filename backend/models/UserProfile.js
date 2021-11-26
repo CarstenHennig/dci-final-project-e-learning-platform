@@ -26,7 +26,10 @@ const userSchema = mongoose.Schema({
 
 
 	},
-	avatar: String,
+	avatar:{
+		type: String,
+		default: 'http://placekitten.com/g/150/150'
+	},
 	dateOfBirth: Number,
 	address: {
 		city: String,

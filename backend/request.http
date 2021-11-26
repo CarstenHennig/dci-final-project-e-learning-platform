@@ -25,13 +25,13 @@ Content-Type: application/json
 
 	{  
 	"password": "12345678", 
-	"email": "mathewMoney@gazaphili.com"
+	"email": "gentlesoul@gazaphili.com"
     
 
 	}
 
 ###
-GET http://localhost:9000/users/619f81cca1e28e5c34203351
+GET http://localhost:9000/users/61a0a72010d9efe46b27591e
 
 
 
@@ -40,11 +40,11 @@ POST http://localhost:9000/register
 Content-Type: application/json
 
 {
-"firstName": "Licun",
-"lastName": "Zhang",
-"email": "gentlesoul@gazaphili.com",
+"firstName": "Zonglei",
+"lastName": "Liu",
+"email": "zhonglei@gmail.com",
 "password": "12345678",
-"avatar": "😥",
+"avatar": "{image: src='http://placekitten.com/g/150/150'}",
 "dateOfBirth": 13122000,
 "address": {
 		"city": "Azi",
@@ -57,7 +57,7 @@ Content-Type: application/json
 		
 		"author": "Zhang Licun",
 		"email": "licunana@gazaphili.com",
-		"title": " vaccination certificates",
+		"title": "The Day the World Got Duped",
 		"content": "BRUSSELS (Reuters) - The European Commission on Thursday proposed that from Jan. 10 next year the European Union's COVID-19 vaccination certificates be valid for nine months after full vaccination, and also opened the way for boosters to be linked to such passes."
 		
 				
