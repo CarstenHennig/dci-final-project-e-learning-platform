@@ -1,19 +1,21 @@
 
 ###
-
 GET http://localhost:9000/getPosts 
 
+###
 
 PUT http://localhost:9000/article
 Content-Type: application/json
-
-
 	
-	{	"email": "mathewMoney@gazaphili.com",
-		"title": " vaccination certificates",
-		"content": "BRUSSELS (Reuters) - The European Commission on Thursday proposed that from Jan. 10 next year the European Union's COVID-19 vaccination certificates be valid for nine months after full vaccination, and also opened the way for boosters to be linked to such passes."
-
+	{	
 		
+		
+		"email": "gentlesoul@gazaphili.com",
+		"title": "Worm birds raising storms",
+		"content": "PRAGUE (Reuters) -The Czech Republic reported 27,717 new coronavirus cases for Thursday, the highest daily tally in the country of 10.7 million since the pandemic started, Health Ministry data showed on Friday. The data showed the epidemic gaining pace with 131,731 cases detected over past seven days, compared to 73,200 cases reported for all of October.",
+		"author": "Zhang Licun"
+		
+				
 	}
 
 
@@ -38,9 +40,9 @@ POST http://localhost:9000/register
 Content-Type: application/json
 
 {
-"firstName": "solutions",
-"lastName": "Mantra",
-"email": "mantrame@gazaphili.com",
+"firstName": "Licun",
+"lastName": "Zhang",
+"email": "gentlesoul@gazaphili.com",
 "password": "12345678",
 "avatar": "😥",
 "dateOfBirth": 13122000,
@@ -51,12 +53,15 @@ Content-Type: application/json
 		"country": "Germany"
 	},
 	"phoneNumber": "0124567844",
-	"blogPosts": [{
-
-		"title": "we have event.stopPropagation() method will stop the cycle of events so we have to take care of this in our code. Because if a child calls this method then the parent will not fire the event.
-Not all events are propagated like scroll and window resize.
-This article is my notes from this video. Go check out this and hope you get something new to learn out of this."
-	}]
+	"posts" :{	
+		
+		"author": "Zhang Licun",
+		"email": "licunana@gazaphili.com",
+		"title": " vaccination certificates",
+		"content": "BRUSSELS (Reuters) - The European Commission on Thursday proposed that from Jan. 10 next year the European Union's COVID-19 vaccination certificates be valid for nine months after full vaccination, and also opened the way for boosters to be linked to such passes."
+		
+				
+	}
 
 
 
