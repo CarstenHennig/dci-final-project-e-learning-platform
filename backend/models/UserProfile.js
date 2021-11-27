@@ -118,7 +118,7 @@ userSchema.statics.login = async (userData) => {
 
 userSchema.methods.toJSON = function () {
 	const user = this.toObject()
-	delete user.password;
+	delete user.password; // prevents passing password to client side
 	return user
 }
 

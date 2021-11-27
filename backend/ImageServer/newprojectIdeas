@@ -1,0 +1,36 @@
+
+PLEASE READ THIS AND LET US MEET IN THE NEXT 5 MINUTES Pump new energy into our project.
+Please, we are in this together. It is my honest wish that none of us should feel inadequate. Myself I am still struggling with lots of stuff. BUt I trust we shall overcome in the end!
+
+Let's look at it this way:
+
+Agreeing that we are dropping the CHAT function
+Agreeing that we suspend the video blog function
+We are left with a text CMS System
+
+## TEXT CMS System involves 
+GUI with FOUR PRINCIPAL features
+1) Home Page containing display of blog articles by category
+2) User profile page  - to manage user info like name, address, number of posts, etc
+3) Blog writing interface - where the user can write blog posts, embed videos, audios, upload photos
+4) Reading Interface: where the article gets loaded when user clicks a title
+   - Reading interface permits users to comment, like, dislike
+   - Reading interface also includes links to other categories and recommended articles   
+
+=============
+IF WE ARE COOL WITH THE ABOVE THEN THE NEXT STEP IS WHO WILL CODE WHAT?
+
+FERDINAND: Lead Backend Developer, supplies all APIs needed by frontend 
+KARIN: Lead Frontend Developer 
+CARSTEN: Frontend Developer but can also take backend tasks as need be
+
+=============
+
+SO FAR WHAT HAS BEEN HANDLED?
+
+BACKEND (Ferdinand): User signup, login, profile API
+FRONTEND (Karin): User signup, login accessing server already
+NON_CODE TASKS (Carsten):  About Page, (And what else? Please fill the gaps)
+
+
+TASKS TO HANDLE: We have to carve out tasks based on the GUI features listed above. 

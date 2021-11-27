@@ -3,16 +3,16 @@ import cors from 'cors';
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
 import { connect } from './libs/database.js';
-import Mess from './models/StoreMessages.js'
 import User from "./models/UserProfile.js";
 import { messageRules } from "./validation/messageValidation.js";
+
+import multer, { diskStorage } from 'multer';
 
 //connect NodeJS to database
 dotenv.config();
 await connect()
 
 //============
-
 const app = express();
 app.use(express.json());
 app.use(cors())
@@ -159,13 +159,13 @@ app.get("/users/:_id", async (req, res) => {
 })
 
 //==========================
-
-
 // Final error check middleware
 app.use((req, res) => {
 	res.status(404);
 	res.json({ error: "Resource not found 😥" });
 });
+
+
 
 
 app.listen(process.env.PORT, () => {
