@@ -5,7 +5,6 @@ import jwt from "jsonwebtoken";
 import { connect } from './libs/database.js';
 import User from "./models/UserProfile.js";
 import { messageRules } from "./validation/messageValidation.js";
-
 import multer, { diskStorage } from 'multer';
 
 //connect NodeJS to database
@@ -164,7 +163,35 @@ app.use((req, res) => {
 	res.status(404);
 	res.json({ error: "Resource not found 😥" });
 });
+//===================
 
+
+// STORE IMAGES LOCALLY: 
+const storageEngine = diskStorage({
+	destination: (req, file, cb) => {
+		cb(null, './images')
+	},
+	filename: (req, file, cb) => {
+		cb(null, Date.now() + '_' + file.originalname)
+	}
+});
+const upload = multer({ storage: storageEngine })
+
+
+
+// IMAGE POST ENDPOINT
+
+// For Single image upload
+app.post('/single', upload.single("myImage"), async (req, res, next) => {
+	const data = req.file
+	console.log(data)
+
+
+
+})
+app.use(express.static('ProfileImg'))
+
+// =================
 
 
 

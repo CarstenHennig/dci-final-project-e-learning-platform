@@ -17,8 +17,8 @@ export default function PostImage() {
     const onSubmitHandler = (e) => {
         e.preventDefault();
         const data = new FormData()
-        data.append('image', fileData)
-        fetch(baseUrl + '/single', {
+        data.append('myImage', fileData)
+        fetch('http://localhost:9000/single', {
 
             method: 'POST',
             body: data
@@ -41,9 +41,9 @@ export default function PostImage() {
             <Alert variant="success" style={{width: '30vw', margin: "auto", borderRadius: "15%", alignContent: "center",}}>
   <Alert.Heading>Upload a Photo</Alert.Heading>
   <hr />
-         
+  
             <form onSubmit={onSubmitHandler}>
-                <input type="file" name="image"
+                <input type="file" name="myImage"
                     onChange={fileChangeHandler}/>
                     
               <hr style={{width: "70%", height: "6px", color: "white"}} />
@@ -54,7 +54,7 @@ export default function PostImage() {
 			<hr />
             <div> {
                 filename ? <img style={{width: '150px', height: '150px'}} src={
-                   "http://localhost:8055/" + filename
+                   "http://localhost:9000/" + filename
                    
                 }alt="uploaded file test" /> : null
             } </div>
