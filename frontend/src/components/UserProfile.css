@@ -1,0 +1,77 @@
+*{ box-sizing: border-box; }
+
+.div-wrap-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.titel, .wellcome {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.div-wrap-main {
+    border: 2px solid transparent;
+    display: flex;
+    justify-content:space-evenly;
+    padding-bottom: 40px;
+    padding-top:5px;
+}
+
+.insid-div {
+    border: 2px solid transparent;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    padding: 20px;
+}
+
+.insid-div:hover {
+    animation-duration: 0.5s;
+    animation-name: hovershadow;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hovershadow {
+    0% { box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; }
+    100% { box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px inset, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; }
+}
+
+.btn-back,  .btn-message-alert,.btn-pd, .btn-add-profile-picture {
+    width: 90%;
+    background-color: #1a3be6;
+    color: white;
+    padding: 10px 15px;
+    margin: 4px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-bottom: 10px;; 
+}
+.btn-add-profile-picture:hover {
+    background-color: #3541808b;
+}
+
+.btn-pd:hover {
+    background-color: #3541808b;
+}
+
+.btn-message-alert:hover {
+    background-color: #3541808b;
+}
+
+.btn-back:hover {
+    background-color: #3541808b;
+}
+
+.div-wrap-pd {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 3px;
+}
+
+.profile-img{
+    border: 2px solid black;
+    padding: 10px 10px ;
+    width: 50%;
+}

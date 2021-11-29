@@ -7,7 +7,7 @@ function Home() {
   const [isLog, setIsLog] = useContext(UserContext)
   
   return (<div> 
-    Wlecome {isLog.user.firstName || 'Guest'}
+    Welcome {isLog.user.firstName || 'Guest'}
   </div>)
 }
 
