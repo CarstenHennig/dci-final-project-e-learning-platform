@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "docs": "apidoc -i . -o docs"
   },
   "keywords": [],
   "author": "",
@@ -20,5 +21,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.12",
     "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "apidoc": "^0.50.2"
   }
 }

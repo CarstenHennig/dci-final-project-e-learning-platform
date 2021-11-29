@@ -11,7 +11,6 @@ function App() {
       </InfoProvider>
     </div>
   );
-
 }
 
 export default App;
