@@ -11,22 +11,25 @@ const userSchema = mongoose.Schema({
 		minLength: 3
 	},
 	lastName: {
-		type: String,required,
+		type: String, required,
 		minLength: 3
 	},
 	email: {
 		type: String, required,
-		
-		
+
+
 	},
 	password: {
 		type: String, required,
 		minLength: 8,
-		
-		
-		
+
+
+
 	},
-	avatar: String,
+	avatar:{
+		type: String,
+		default: 'http://placekitten.com/g/150/150'
+	},
 	dateOfBirth: Number,
 	address: {
 		city: String,
@@ -43,7 +46,7 @@ const userSchema = mongoose.Schema({
 		type: Number,
 		default: 0,
 	},
-	blogPosts: [{
+	posts: [{
 
 		title: {
 			type: String,
@@ -53,6 +56,14 @@ const userSchema = mongoose.Schema({
 			type: String,
 			default: 'From the land passed hope and fear. from the land of the muses, where Medusa is a gift, let the golden river flow for eternity'
 		},
+		author: {
+			type: String,
+			default: "Sally Santus"
+		},
+		createdAt: {
+			type: Date,
+			default: new Date().toString()
+		}
 	}],
 	postsCount: {
 		type: Number,
@@ -87,27 +98,27 @@ userSchema.statics.register = async (userData) => {
 
 ///  2) LOGIN controller
 userSchema.statics.login = async (userData) => {
-	
+
 	const user = await User.findOne({ email: userData.email });
-	
+
 	if (!user) {
 		return null;
 	}
 	const success = await compare(userData.password, user.password);
-	
+
 	if (!success) {
-		
+
 		return "This user does not exist. Check credentials";
 	}
-	
+
 	return user.toJSON();
 };
 
 // THIS RETURNS USER VALUES AFTER LOGIN from frontend
 
-userSchema.methods.toJSON= function(){
+userSchema.methods.toJSON = function () {
 	const user = this.toObject()
-	delete user.password;
+	delete user.password; // prevents passing password to client side
 	return user
 }
 

@@ -14,14 +14,14 @@ const history = useHistory()
   const changeHandler = (e) => {
     setLogin({ ...login, [e.target.name]: e.target.value });
   };
-
+  
   const submitHandler = async (e) => {
     e.preventDefault();
     console.log("come from Login", login);
     return await axios
       .post("http://localhost:9000/login", login)
       .then((result) => {
-        console.log('hsello',result.data);
+        console.log('hello',result.data);
          if(result.data.token){
            setIsLog({...isLog, isLog:true, user: result.data.user})
           history.push('/Home')
