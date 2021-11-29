@@ -44,22 +44,52 @@ export default function PostImage() {
     }
     return (
 
-        <div className="App">
-            <h1>LernStubeR File Upload</h1>
-            <form onSubmit={onSubmitHandler}>
+        <div>
+            
+            
+{/* FOR CARSTEN */}
+<div style={{backgroundColor:"tomato", width:"50vw", margin:"auto", padding:"10px"}}>
+            <h4>Write Article</h4>
+             <form onSubmit={onSubmitHandler}>
+               <textarea placeholder="Article title" style={{backgroundColor:"salmon", width:"100%",  margin:"auto", padding:"10px"}}/>
+               <hr />
+               <textarea name="description" placeholder="Write your article here" style={{backgroundColor:"sandybrown", width:"100%", height:"450px",margin:"auto", padding:"10px"}}/>
+               <hr />
                 <input type="file" name="image"
                     onChange={fileChangeHandler}/>
-                <br/>
-                <br/>
-                <br/>
-                <button>Upload</button>
+                <button>Publish</button>
             </form>
-			
+			 
             <div> {
-                filename ? <img style={{width: '150px', height: '150px'}} src={
+                filename ? <img style={{width: '150px', height: '150px', borderRadius: '50%'}} src={
                     "http://localhost:9000/" + filename
                 }/> : null
             } </div>
+
+             </div>
+<hr />
+{/* FOR KARIN */}
+<div style={{backgroundColor:"tomato", width:"30vw", margin:"auto", padding:"10px"}}>
+            <h4>Update Your Profile</h4>
+              <form onSubmit={onSubmitHandler}>
+               <textarea placeholder="Say something about yourself" style={{backgroundColor:"salmon", width:"100%",  margin:"auto", padding:"10px"}}/>
+               <hr />
+               <p>name: Amanda Holding</p>
+               <hr />
+            
+               <p>Email: amandaholding@gmail.com</p>
+               <hr />
+               <p>Location: Leads, England</p>
+               <hr />
+               <p>Posts Count: 250</p>
+               <hr />
+                <p>Member Since: March, 2013</p>
+               <hr />
+                <input type="file" name="image"
+                    onChange={fileChangeHandler}/>
+                <button>Publish</button>
+            </form> 
+            </div>
         </div>
     )
 }

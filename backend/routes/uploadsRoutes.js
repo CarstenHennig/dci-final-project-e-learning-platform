@@ -14,7 +14,13 @@ router
 	res.send(file)
 })
 
-
+router
+	.route ("/bulk")
+    .post(upload.array("file", 10), (req, res) => {
+	const files = req.files //  "files" are coming from client side
+  console.log(files)
+  return res.send(files)
+})
 
 
 
