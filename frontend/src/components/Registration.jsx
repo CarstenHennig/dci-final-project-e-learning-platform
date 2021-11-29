@@ -17,7 +17,7 @@ function Registration(props) {
     e.preventDefault();
     if (register.password === register.repassword) {
       return await axios
-        .post("http://localhost:9000/register", register)
+        .post("http://localhost:9000/users/register", register)
         .then((result) => {
           console.log("User Is registered", result);
           history.push("/Login")
