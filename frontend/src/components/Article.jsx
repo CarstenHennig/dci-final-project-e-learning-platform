@@ -7,6 +7,7 @@ import axios from "axios";
 import "./Article.css";
 import { FloatingLabel, Form } from "react-bootstrap";
 import DropdownBlogCategory from "./ArticleDropdownButton.jsx";
+import UploadImageToArticle from "./UploadImageToArticle.jsx";
 
 /** Function to write a blog post */
 
@@ -16,13 +17,15 @@ export default function WriteArticle() {
   const [value, setValue] = useState();
 
   /** Function HandleChange sending form data via axios to backend */
+
   const HandleChange = (e) => {
     console.log(title, content, value);
     e.preventDefault();
     axios
-      .put("http://localhost:9000/article", {
+      .put("http://localhost:9000/post/writearticle", {
         title,
         content,
+
         // Hard coded email to target the blogging user
         // Removed after improved to local stored UserID
         email: "mathewMoney@gazaphili.com",
@@ -46,6 +49,7 @@ export default function WriteArticle() {
       <form>
         <>
           {/* Inserting blog headline */}
+
           <p className="labels">Headline</p>
           <FloatingLabel
             controlId="floatingTextarea"
@@ -60,7 +64,9 @@ export default function WriteArticle() {
               // style={{ height: "100px", margin: "5px", padding: "5px" }}
             />
           </FloatingLabel>
+
           {/* Inserting blog text */}
+
           <p className="labels">Content</p>
           <FloatingLabel
             controlId="floatingTextarea2"
@@ -78,6 +84,9 @@ export default function WriteArticle() {
         </>
 
         {/** Text areas should be responsive for mobile use */}
+
+        {/* Inserting component to upload a picture */}
+        <UploadImageToArticle />
 
         {/* Selecting blog category */}
 
