@@ -13,3 +13,14 @@ function EditProfilePage() {
 }
 
 export default EditProfilePage;
+
+// async function MakeRequest() {
+//   const config = {
+//       method: 'get',
+//       url: 'http://localhost:9000/users/61a0a72010d9efe46b27591e'
+//   }
+//   let res = await axios(config)
+//   const status = localStorage.setItem('status',res.statusText)
+//   const orient = res.statusText 
+//   console.log("Message: ",res.data, "and STATUS:" , orient);
+// }

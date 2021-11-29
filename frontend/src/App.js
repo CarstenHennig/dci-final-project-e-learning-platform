@@ -4,11 +4,13 @@ import RouterComponents from "./components/Router.jsx";
 import InfoProvider from "./components/InfoProvider.jsx";
 
 function App() {
-  return (
-    <div>
-      <InfoProvider>
+  
+    return (
+      <div>
+      
+     {/*  <InfoProvider>
         <RouterComponents />
-      </InfoProvider>
+      </InfoProvider> */}
     </div>
   );
 }

@@ -74,7 +74,12 @@ function UserProfile() {
         </div>
       </div>
     </div>
-  );
+  )  
+  
 }
 
 export default UserProfile;
+
+
+
+
