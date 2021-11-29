@@ -6,9 +6,11 @@ import "../App.css";
 function Home() {
   const [isLog, setIsLog] = useContext(UserContext)
   
-  return (<div> 
+  return (
+  <div> 
     Welcome {isLog.user.firstName || 'Guest'}
-  </div>)
+  </div>
+  )
 }
 
 export default Home;

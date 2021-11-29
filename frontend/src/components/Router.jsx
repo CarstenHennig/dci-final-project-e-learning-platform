@@ -8,32 +8,28 @@ import Imprint from "./Imprint.jsx";
 import About from "./About.jsx";
 import Article from "./Article.jsx";
 import Footer from "./Footer.jsx";
-import Logout from "./Logout.jsx";
 import { UserContext } from "./InfoProvider.jsx";
 import Home from "./Home.jsx";
 import EditProfilePage from "./EditProfilePage.jsx"
-// import WriteArticle from "./components/Article";
-
-
 
 import UserProfile from './UserProfile.jsx';
 function RouterComponents() {
-  const [user, setUser] = useState(false);
   const [isLog, setIsLog] = useContext(UserContext);
+  console.log(isLog); 
   return (
     <Router>
       <div>
         <Nav user={isLog} />
         <main className="main">
           <Switch>
+            <Route path="/" exact component={Login} /> 
             <Route path="/Login" component={Login} />
             <Route path="/Registration" component={Registration} />
             <Route path="/Imprint" component={Imprint} />
             <Route path="/About" component={About} />
             <Route path="/Article" component={Article} />
             <Route path="/UserProfile" component={UserProfile} />
-            <Route path="/Logout" component={Logout} />
-            <Route path="/Home" component={Home} />
+            {isLog ? <Route path="/Home" component={Home} /> : null}
             <Route path="/EditProfilePage" component={EditProfilePage} />
             {/* <Route path="/WriteArticle" component={WriteArticle} /> */}
           </Switch>
