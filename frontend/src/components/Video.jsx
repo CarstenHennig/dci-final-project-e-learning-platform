@@ -1,30 +1,34 @@
-/** Frontend component to create a blog post
+/** Frontend component to post a video
  * using React, Axios, own style sheet and Bootstrap
  */
 
+/** Text areas should be responsive for mobile use */
+
 import React, { useState } from "react";
 import axios from "axios";
-import "./Article.css";
+import "./Video.css";
 import { FloatingLabel, Form } from "react-bootstrap";
 import DropdownBlogCategory from "./ArticleDropdownButton.jsx";
-import UploadImageToArticle from "./UploadImageToArticle.jsx";
 
-/** Function to write a blog post */
+/** Function to post a video */
 
-export default function WriteArticle() {
+export default function PostVideo() {
   const [title, setTitle] = useState(null);
   const [content, setContent] = useState(null);
+  const [videourl, setVideourl] = useState(null);
   const [value, setValue] = useState();
 
   /** Function HandleChange sending form data via axios to backend */
 
   const HandleChange = (e) => {
-    console.log(title, content, value);
+    console.log(title, content, videourl, value);
     e.preventDefault();
     axios
-      .put("http://localhost:9000/posts/writePost", {
+      // To paste video posting endpoint from Ferdinand
+      .put("http://localhost:9000/uploads", {
         title,
         content,
+        videourl,
 
         // Hard coded email to target the blogging user
         // Removed after improved to local stored UserID
@@ -32,7 +36,7 @@ export default function WriteArticle() {
       })
       .then(
         (response) => {
-          alert("Blog post saved");
+          alert("Video sent");
         },
         (error) => {
           alert(error);
@@ -43,7 +47,7 @@ export default function WriteArticle() {
   return (
     <div>
       <div className="headline">
-        <h4>Publish your blog posts</h4>
+        <h4>Post your video</h4>
       </div>
 
       <form>
@@ -53,11 +57,11 @@ export default function WriteArticle() {
           <p className="labels">Headline</p>
           <FloatingLabel
             controlId="floatingTextarea"
-            className="write-article-headline"
+            className="write-video-headline"
           >
             <Form.Control
               as="textarea"
-              placeholder="Write your headline"
+              placeholder="Write headline of video"
               name="headline"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -65,28 +69,40 @@ export default function WriteArticle() {
             />
           </FloatingLabel>
 
-          {/* Inserting blog text */}
+          {/* Inserting description */}
 
           <p className="labels">Content</p>
           <FloatingLabel
             controlId="floatingTextarea2"
-            className="write-article-content"
+            className="write-video-description"
           >
             <Form.Control
               as="textarea"
-              placeholder="Write your content"
+              placeholder="Write your video description"
               name="text"
               value={content}
               onChange={(e) => setContent(e.target.value)}
-              style={{ height: "500px", margin: "5px", padding: "5px" }}
+              style={{ height: "150px", margin: "5px", padding: "5px" }}
+            />
+          </FloatingLabel>
+
+          {/* Inserting video url */}
+
+          <p className="labels">Video URL</p>
+          <FloatingLabel
+            controlId="floatingTextarea3"
+            className="post-video-url"
+          >
+            <Form.Control
+              as="textarea"
+              placeholder="Paste your video URL"
+              name="text"
+              value={videourl}
+              onChange={(e) => setVideourl(e.target.value)}
+              style={{ height: "150px", margin: "5px", padding: "5px" }}
             />
           </FloatingLabel>
         </>
-
-        {/** Text areas should be responsive for mobile use */}
-
-        {/* Inserting component to upload a picture */}
-        <UploadImageToArticle />
 
         {/* Selecting blog category */}
 
