@@ -8,9 +8,10 @@ function App() {
     return (
       <div>
       
-     {/*  <InfoProvider>
+       
+     <InfoProvider>
         <RouterComponents />
-      </InfoProvider> */}
+      </InfoProvider> 
     </div>
   );
 }

@@ -24,18 +24,18 @@ router
 // USER LOGIN
 // Login User with password and email
 router
-.route("/login")
-.post(async (req, res) => {
-	const user = await User.login(req.body);
-	if (!user) {
-		return res.status(400).json({ user });
-	}
-	// create JWT token
-	const token = jwt.sign({ _id: user._id }, process.env.SECRET);
+	.route("/login")
+	.post(async (req, res) => {
+		const user = await User.login(req.body);
+		if (!user) {
+			return res.status(400).json({ user });
+		}
+		// create JWT token
+		const token = jwt.sign({ _id: user._id }, process.env.SECRET);
 
-	res.json({ user, token })
-	console.log(user);
-})
+		res.json({ user, token })
+		console.log(user);
+	})
 // JWT validation middleware
 const checkLogin = (req, res, next) => {
 	const rawJWTHeader = req.headers.authorization;
@@ -71,21 +71,35 @@ const validate = (rules) => {
 
 // GET USER PROFILE
 router
-.route("/users/:_id")
-.get( async (req, res) => {
-	try {
-		let user = await User.findById(req.params._id);
-		console.log('USER_PROFILE: ', user)
-		const data = user
-		res.status(200)
-		return res.send(data);
-	} catch (err) {
-		res.status(500).json({
-			Message: err.message
+	.route("/:_id")
+	.get(async (req, res) => {
+		try {
+			let user = await User.findById(req.params._id);
+			console.log('USER_PROFILE: ', user)
+			const data = user
+			res.status(200)
+			return res.send(data);
+		} catch (err) {
+			res.status(500).json({
+				Message: err.message
+				
+			})
 
-		})
+		}
+	})
+router
+	.route("/:_id")
+	.delete(async (req, res, next) => {
+		console.log(req.params._id)
+		const user = await User.findOneAndDelete({_id:req.params._id})
+		if (user) {
+			console.log("DELETED " ,user)
+			return res.status(200).json({message: "success"})
+		}
+		res.json({message: "What ent wrong? (.:.)"})
+			
 
-	}
-})
+	})
+
 
 export default router
