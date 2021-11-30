@@ -1,29 +1,65 @@
-POST http://localhost:9000/login
+
+###
+PUT  http://localhost:9000/editUsers/address/61a619a59abc09ee1dbffd4e
+Content-Type: application/json
+
+
+    {"city" : "Ndungalleh",
+    "street" : "Nchukro New Layout",
+    "zip": "15632",
+    "country" : "Ndungallehnia"}
+  
+
+###
+DELETE  http://localhost:9000/users/61a60237cf7160d6f56f1589
+
+
+###
+GET http://localhost:9000/posts/getPost
+
+
+###
+
+PUT http://localhost:9000/posts/writePost
+Content-Type: application/json
+	
+	{	
+		
+		
+		"email":"zhonglei@gmail.com",
+		"title": "PART III: The rustle in the mount ",
+		"content": "They took my scarf and my staff. They robbed me of my dignity and thought that would emasciate my humanity. But I rose up like the proverbial phoneix, and like a lark sang to the heavens the perreniality of my humanity. The data showed the epidemic gaining pace with 131,731 cases detected over past seven days, compared to 73,200 cases reported for all of October.",
+		"author": "Zhang Licun"
+		
+				
+	}
+
+
+###
+POST http://localhost:9000/users/login
 Content-Type: application/json
 
 	{  
 	"password": "12345678", 
-	"email": "test@test.com"
+	"email": "zhonglei@gmail.com"
     
 
 	}
 
 ###
-GET http://localhost:9000/users/619054d2c33a59fa7a362022
-
-
+GET http://localhost:9000/users/61a5fca4b24250cd5ea94538
 
 
 ###
-POST http://localhost:9000/register
+POST http://localhost:9000/users/register
 Content-Type: application/json
 
 {
-"firstName": "Hackers235",
-"lastName": "235HAckers",
-"email": "Hackers@gazaphili.com",
+"firstName": "Joel",
+"lastName": "The Finn",
+"email": "Joel@gmail.com",
 "password": "12345678",
-"avatar": "😥",
+"avatar": "{image: src='http://placekitten.com/g/150/150'}",
 "dateOfBirth": 13122000,
 "address": {
 		"city": "Azi",
@@ -32,13 +68,17 @@ Content-Type: application/json
 		"country": "Germany"
 	},
 	"phoneNumber": "0124567844",
-	"blogPosts": {
+	"posts" :{	
+		
+		"author": "Joel",
+		"email": "licunana@gazaphili.com",
+		"title": "Vera Cat",
+		"content": "Joel and cats!"
+		
+				
+	}
 
-		"title": "Fangs in the skies",
-		"body":"Circling the deaf zones of human accoustic competence. Also, in some situations I do need to get the password field, like when the user wants to login or change the password. Also, in some situations I do need to get the password field, like when the user wants to login or change the password."
-	}, 
 
-"blogPosts": []
 
 }
 
