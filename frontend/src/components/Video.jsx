@@ -23,6 +23,7 @@ export default function PostVideo() {
   const HandleChange = (e) => {
     console.log(title, content, videourl, value);
     e.preventDefault();
+
     axios
       // To paste video posting endpoint from Ferdinand
       .put("http://localhost:9000/uploads", {
