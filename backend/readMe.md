@@ -17,3 +17,11 @@ http://localhost:9000/editUsers/address/61a619a59abc09ee1dbffd4e
     "street" : "Nchukro New Layout",
     "zip": "15632",
     "country" : "Ndungallehnia"}
+
+	================== VIDEO GALLERY =================
+
+8) CREATE VIDEO GALLERY: Post  http://localhost:9000/galleries/register/  
+9) LOG IN TO VIDEO GALLERY using email: POST http://localhost:9000/galleries/login
+	
+10) EMBED A VIDEO: PUT http://localhost:9000/galleries/createClip
+11) DISPLAY ALL USER'S GALLERIES: GET http://localhost:9000/galleries/getClips
