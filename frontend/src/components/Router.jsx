@@ -21,6 +21,7 @@ function RouterComponents() {
       <div>
         <Nav user={isLog} />
         <main className="main">
+          
           <Switch>
             <Route path="/" exact component={Login} /> 
             <Route path="/Login" component={Login} />
@@ -28,10 +29,9 @@ function RouterComponents() {
             <Route path="/Imprint" component={Imprint} />
             <Route path="/About" component={About} />
             <Route path="/Article" component={Article} />
-            <Route path="/UserProfile" component={UserProfile} />
+            {isLog ? <Route path="/UserProfile" component={UserProfile}/> : null }
             {isLog ? <Route path="/Home" component={Home} /> : null}
             <Route path="/EditProfilePage" component={EditProfilePage} />
-            {/* <Route path="/WriteArticle" component={WriteArticle} /> */}
           </Switch>
         </main>
         <Footer />

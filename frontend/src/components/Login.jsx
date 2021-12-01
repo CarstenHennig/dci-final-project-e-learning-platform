@@ -21,7 +21,7 @@ const history = useHistory()
     return await axios
       .post("http://localhost:9000/users/login", login)
       .then((result) => {
-        console.log('hello',result.data);
+        console.log('hello',result.data.user);
          if(result.data.token){
            setIsLog({...isLog, isLog:true, user: result.data.user})
           history.push('/Home')

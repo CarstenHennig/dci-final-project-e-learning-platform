@@ -40,14 +40,12 @@ function UserProfile() {
             <div>
               <button className="btn-add-profile-picture">Edit your profile picture</button>
             </div>
-
-            <ul className="ul-list">
-            <li>{isLog.user.firstName}</li>
-            <li>{isLog.user.lastName}</li>
-            {/* <li>{isLog.user.dateOfBirth}</li> */}
-              <li>{isLog.user.email}</li>
-              <li>{isLog.user.address}</li>
-              <li>{isLog.user.phoneNumber}</li>
+              <ul className="ul-list">
+                <li>{isLog.user.firstName}</li>
+                <li>{isLog.user.lastName}</li>
+                <li>{isLog.user.email}</li>
+                <li>{isLog.user.address.city}</li>
+                <li>{isLog.user.phoneNumber}</li>
              
             </ul>
 
@@ -63,9 +61,16 @@ function UserProfile() {
         <div className="insid-div">
           <h3>Your Blogs</h3>
           <div>
-            <ul>
-              <li>{isLog.user.blogPosts}</li>
-            </ul>
+          <ul>
+                {isLog.user.posts.map((post)=>
+                  <li key={post._id}> 
+                    <a href={post._id}>
+                      {post.title}
+                    </a>
+                  </li>
+                )}
+               
+              </ul>
           </div>
         </div>
 

@@ -1,0 +1,27 @@
+.wrap-div-home{
+    display: flex;
+    justify-content: space-between;
+  
+}
+
+.insid-wrap-div-2{
+    display: flex;
+    flex-direction:column;
+}
+
+.insid-wrap-div-1,.insid-wrap-div-2,.insid-wrap-div-3 {
+    border: 2px solid blue;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Featured-content-slider,.Featured-category-1,.Featured-category-2,.Random-content {
+    border: 2px solid yellow;
+    padding-bottom: 20px;
+
+}
+.wellcom-div{
+    text-align: center;
+    padding-bottom: 16px;
+    font-size: 30px;
+}
