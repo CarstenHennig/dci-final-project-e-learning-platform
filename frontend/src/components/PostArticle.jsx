@@ -34,19 +34,7 @@ export default function PostArticle() {
          
      }
        
-    //    /*  formData.append("image", fileData)
-    //     console.log(fileData) */
-    //     console.log("I AM POSTS! ", postFormData );
-
-
-
-    //    axios.put(url, formData  )
-    //     .then((response) => {
-    //         const incomingData = response.config.data
-    //         console.log("BACKENDo: ", incomingData);
-    //     }).catch(function (error) {
-    //         console.log(error)
-    //     }) 
+   
     };
 
 

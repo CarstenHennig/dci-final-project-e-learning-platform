@@ -47,9 +47,9 @@ function Nav(props) {
           ) : (
             <>
               <li className="nav-item">
-                <button onClick={logOutHandler} className="nav-link">
+                <Link onClick={logOutHandler} style={navStyle} className="nav-link" to="#">
                   Logout
-                </button>
+                </Link>
               </li>
 
               <li className="nav-item">
@@ -77,6 +77,7 @@ function Nav(props) {
               About
             </Link>
           </li>
+          
 
         </ul>
       </div>
