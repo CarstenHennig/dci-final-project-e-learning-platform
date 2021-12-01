@@ -7,12 +7,13 @@ import Registration from "./Registration.jsx";
 import Imprint from "./Imprint.jsx";
 import About from "./About.jsx";
 import Article from "./Article.jsx";
+import PostVideo from "./Video.jsx";
 import Footer from "./Footer.jsx";
 import Logout from "./Logout.jsx";
 import { UserContext } from "./InfoProvider.jsx";
 import Home from "./Home.jsx";
 
-import UserProfile from './UserProfile.jsx';
+import UserProfile from "./UserProfile.jsx";
 function RouterComponents() {
   const [user, setUser] = useState(false);
   const [isLog, setIsLog] = useContext(UserContext);
@@ -27,6 +28,7 @@ function RouterComponents() {
             <Route path="/Imprint" component={Imprint} />
             <Route path="/About" component={About} />
             <Route path="/Article" component={Article} />
+            <Route path="/Video" component={PostVideo} />
             <Route path="/Logout" component={Logout} />
             <Route path="/Home" component={Home} />
           </Switch>
@@ -35,7 +37,6 @@ function RouterComponents() {
       </div>
     </Router>
   );
-
 }
 
 export default RouterComponents;
