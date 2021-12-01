@@ -6,9 +6,8 @@ import InfoProvider from "./components/InfoProvider.jsx";
 function App() {
   
     return (
-      <div>
-      
-       
+      <div> 
+     
      <InfoProvider>
         <RouterComponents />
       </InfoProvider> 
