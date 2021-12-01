@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from "dotenv";
 import { connect } from './libs/database.js';
 import users from "./routes/userRoutes.js"
+import editUsers from "./routes/editUsers.js"
 import posts from "./routes/postRoutes.js"
 import uploads from "./routes/uploadsRoutes.js"
 import multer, { diskStorage } from 'multer';
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // USER ROUTER HANDLES ALL USER RELATED REQUESTS
 app.use("/users", users);
+app.use("/editUsers", editUsers);
 
 //POSTS ROUTER HANDLES ALL POSTS RELATED REQUESTS
 app.use("/posts", posts);

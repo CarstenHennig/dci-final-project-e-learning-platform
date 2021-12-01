@@ -12,18 +12,17 @@ router.use(function (req, res, next) {
 router
 	.route("/writePost")
 	.put(async (req, res, next) => {
-		const data = req.body
-		console.log("FRONTEND DATA: ", req.body)
-		console.log("POST TITLE", data.title);
-		const storePost = await User.findOne({ email: req.body.email })
 
+		const storePost = await User.findOne({ email: req.body.email })
 		if (storePost) {
-			storePost.posts.push({ title: req.body.title, content: req.body.content, author: req.body.author })
+			const post = { title: req.body.title, content: req.body.content, author: req.body.author }
+			const output = storePost.posts.push(post)
 			await storePost.save()
-			return res.status(201).json({ content: storePost.posts })
+			console.log(output)
+			return res.status(201).json(post)
 
 		}
-		console.log("I store your posts: ", storePost);
+
 		res.json({ error: "User cannot be updated" })
 	});
 
@@ -32,12 +31,14 @@ router
 	.route("/getPost")
 	.get(async (req, res, next) => {
 		const userPosts = await User.find({})
+		let posts = []
 
 		for (let index = 0; index < userPosts.length; index++) {
 			const element = userPosts[index];
 			console.log("ELEMENT HERE: ", element.posts[0].author, element.posts)
-			return res.send(element.posts)
+			posts = posts.concat(element.posts)
 		}
+		return res.send(posts)
 		next()
 	});
 
