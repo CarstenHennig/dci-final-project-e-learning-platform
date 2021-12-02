@@ -8,6 +8,7 @@ import Imprint from "./Imprint.jsx";
 import About from "./About.jsx";
 import WriteArticle from "./Article.jsx";
 import PostVideo from "./Video.jsx";
+import PostPodcast from "./Podcast.jsx";
 import Footer from "./Footer.jsx";
 import { UserContext } from "./InfoProvider.jsx";
 import Home from "./Home.jsx";
@@ -30,6 +31,7 @@ function RouterComponents() {
             <Route path="/About" component={About} />
             <Route path="/Article" component={WriteArticle} />
             <Route path="/Video" component={PostVideo} />
+            <Route path="/Podcast" component={PostPodcast} />
             <Route path="/UserProfile" component={UserProfile} />
             {isLog ? <Route path="/Home" component={Home} /> : null}
             <Route path="/EditProfilePage" component={EditProfilePage} />
