@@ -36,6 +36,7 @@ export default function PostVideo() {
         title,
         desc,
         videoUrl,
+        valueCategory,
 
         // Hard coded email and posted by name to target the blogging user
         // Removed after improved to local stored UserID
@@ -58,7 +59,7 @@ export default function PostVideo() {
         <h4>
           <i class="fa fa-video-camera" aria-hidden="true"></i> Post your video
         </h4>
-        <button onClick={togglePopUp}>Show Pop-Up</button>
+        <button onClick={togglePopUp}>Get help</button>
         {isOpen ? (
           <Popup handleClose={togglePopUp} content="Lorem ipsum" />
         ) : null}
