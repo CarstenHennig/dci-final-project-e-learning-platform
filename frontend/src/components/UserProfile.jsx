@@ -2,6 +2,8 @@ import "./UserProfile.css";
 import { useContext } from "react";
 import { UserContext } from "./InfoProvider";
 import { Link } from "react-router-dom";
+import  Profile from '../images/profile-img.png';
+
 
 // const [editProfile, setEditProfile] = useContext()
 
@@ -35,7 +37,7 @@ function UserProfile() {
           <div className="user-list">
             <h3>private Details</h3>
             <div className="profile-img">
-              <p> \\Profile picture here\\ </p>
+            <img className="profiile" src={Profile} />
             </div>
             <div>
               <button className="btn-add-profile-picture">Edit your profile picture</button>
@@ -60,22 +62,23 @@ function UserProfile() {
 
         <div className="insid-div">
           <h3>Your Blogs</h3>
-          <div>
-          <ul>
-                {isLog.user.posts.map((post)=>
-                  <li key={post._id}> 
-                    <a href={post._id}>
-                      {post.title}
-                    </a>
-                  </li>
-                )}
+          <div className="wrap-ul-your-blogs">
+            <ul className="your-blogs">
+              {isLog.user.posts.map((post)=>
+                <li key={post._id}> 
+                  <a href={post._id}>
+                    {post.title}
+                  </a>
+                </li>
+              )}
                
-              </ul>
+            </ul>
           </div>
         </div>
 
         <div className="insid-div">
-          <h3>somthing here....</h3>
+          <h3>somthing here...</h3>
+          
         </div>
       </div>
     </div>

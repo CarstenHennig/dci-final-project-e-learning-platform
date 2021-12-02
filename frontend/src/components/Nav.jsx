@@ -1,5 +1,4 @@
 import "./Nav.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "./InfoProvider.jsx";
