@@ -9,10 +9,20 @@ const Popup = (props) => {
           x
         </span>
         <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-          architecto eius aut ipsa, temporibus iusto quod. Itaque vel qui fuga.
-          Dolore deserunt incidunt, dolorem impedit deleniti consequuntur facere
-          modi quos.
+          <h3>Add a catchy headline</h3>
+          <p>Not more than 5 - 7 words</p>
+          <hr />
+          <h3>Add short but complete description</h3>
+          <p>This information are important:</p>
+          <ul>
+            <li>WHAT</li>
+            <li>WHO</li>
+            <li>WHY</li>
+            <li>HOW TO</li>
+          </ul>
+          <hr />
+          <h3>Add the complete URL</h3>
+          <p>I.e. https://www.vimeo.com/pathtovideo</p>
         </div>
         {/* {props.content} */}
       </div>

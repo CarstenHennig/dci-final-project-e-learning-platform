@@ -1,4 +1,4 @@
-/** Frontend component to post a video
+/** Frontend component to post a podcast
  * using React, Axios, own style sheet, Bootstrap and FontAwesome
  */
 
@@ -6,17 +6,17 @@
 
 import React, { useState } from "react";
 import axios from "axios";
-import "./Video.css";
+import "./Podcast.css";
 import { FloatingLabel, Form } from "react-bootstrap";
 import DropdownBlogCategory from "./ArticleDropdownButton.jsx";
 import Popup from "./HelpPopUp.jsx";
 
-/** Function to post a video */
+/** Function to post a podcast */
 
-export default function PostVideo() {
+export default function PostPodcast() {
   const [title, setTitle] = useState(null);
   const [desc, setDesc] = useState(null);
-  const [videoUrl, setVideoUrl] = useState(null);
+  const [podcastUrl, setPodcastUrl] = useState(null);
   const [valueCategory, setValueCategory] = useState();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -27,15 +27,15 @@ export default function PostVideo() {
   /** Function HandleChange sending form data via axios to backend */
 
   const HandleChange = (e) => {
-    console.log(title, desc, videoUrl, valueCategory);
+    console.log(title, desc, podcastUrl, valueCategory);
     e.preventDefault();
 
     axios
-      // To paste video posting endpoint from Ferdinand
+      // To paste podcast posting endpoint from Ferdinand
       .put("http://localhost:9000/galleries/createClip", {
         title,
         desc,
-        videoUrl,
+        podcastUrl,
         valueCategory,
 
         // Hard coded email and posted by name to target the blogging user
@@ -45,7 +45,7 @@ export default function PostVideo() {
       })
       .then(
         (response) => {
-          alert("Video sent");
+          alert("Podcast sent");
         },
         (error) => {
           alert(error);
@@ -57,7 +57,7 @@ export default function PostVideo() {
     <div>
       <div className="headline">
         <h4>
-          <i class="fa fa-video-camera" aria-hidden="true"></i> Post your video
+          <i class="fa fa-podcast" aria-hidden="true"></i> Post your podcast
         </h4>
         <button onClick={togglePopUp}>Get help</button>
         {isOpen ? <Popup handleClose={togglePopUp} /> : null}
@@ -70,11 +70,11 @@ export default function PostVideo() {
           <p className="labels">Headline</p>
           <FloatingLabel
             controlId="floatingTextarea"
-            className="write-video-headline"
+            className="write-podcast-headline"
           >
             <Form.Control
               as="textarea"
-              placeholder="Write headline of video"
+              placeholder="Write headline of podcast"
               name="headline"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -87,11 +87,11 @@ export default function PostVideo() {
           <p className="labels">Description</p>
           <FloatingLabel
             controlId="floatingTextarea2"
-            className="write-video-description"
+            className="write-podcast-description"
           >
             <Form.Control
               as="textarea"
-              placeholder="Write your video description"
+              placeholder="Write your podcast description"
               name="text"
               value={desc}
               onChange={(e) => setDesc(e.target.value)}
@@ -101,17 +101,17 @@ export default function PostVideo() {
 
           {/* Inserting video url */}
 
-          <p className="labels">Video URL</p>
+          <p className="labels">Podcast URL</p>
           <FloatingLabel
             controlId="floatingTextarea3"
-            className="post-video-url"
+            className="post-podcast-url"
           >
             <Form.Control
               as="textarea"
-              placeholder="Paste your video URL"
+              placeholder="Paste your podcast URL"
               name="text"
-              value={videoUrl}
-              onChange={(e) => setVideoUrl(e.target.value)}
+              value={podcastUrl}
+              onChange={(e) => setPodcastUrl(e.target.value)}
               style={{ height: "150px", margin: "5px", padding: "5px" }}
             />
           </FloatingLabel>
