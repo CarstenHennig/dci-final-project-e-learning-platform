@@ -6,11 +6,7 @@ import Login from "./Login.jsx";
 import Registration from "./Registration.jsx";
 import Imprint from "./Imprint.jsx";
 import About from "./About.jsx";
-<<<<<<< HEAD
-import Article from "./Article.jsx";
-=======
 import WriteArticle from "./Article.jsx";
->>>>>>> 523b6102baf51ab9b61a4b81ef37bff8ae9822f6
 import PostVideo from "./Video.jsx";
 import Footer from "./Footer.jsx";
 import { UserContext } from "./InfoProvider.jsx";
@@ -32,7 +28,6 @@ function RouterComponents() {
             <Route path="/Registration" component={Registration} />
             <Route path="/Imprint" component={Imprint} />
             <Route path="/About" component={About} />
-            <Route path="/Logout" component={Logout} />
             <Route path="/Article" component={WriteArticle} />
             <Route path="/Video" component={PostVideo} />
             <Route path="/UserProfile" component={UserProfile} />
