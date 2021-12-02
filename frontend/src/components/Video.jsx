@@ -36,6 +36,7 @@ export default function PostVideo() {
         title,
         desc,
         videoUrl,
+        valueCategory,
 
         // Hard coded email and posted by name to target the blogging user
         // Removed after improved to local stored UserID
