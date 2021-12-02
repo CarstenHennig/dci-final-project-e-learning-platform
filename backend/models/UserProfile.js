@@ -51,7 +51,7 @@ const userSchema = mongoose.Schema({
 		default: 0,
 	},
 	posts: [{
-
+		
 		title: {
 			type: String,
 			default: 'Killing the Goose'

@@ -1,3 +1,37 @@
+###
+Post  http://localhost:9000/galleries/register/
+Content-Type: application/json
+
+{
+	"ownerName": "Shaka",
+	"galleryName": "Sala Sala Nations",
+	"email": "zulu_nation@gmail.com"
+}
+###
+POST http://localhost:9000/galleries/login
+Content-Type: application/json
+
+	{  
+		"email": "zhonleig@gmail.com"
+    
+
+	}
+###
+PUT http://localhost:9000/galleries/createClip
+Content-Type: application/json
+
+	{  
+		"email": "zhonleig@gmail.com",
+		"title": "All Apart",
+		"desc":"Tweets were the seas",
+		"videoUrl": "https://youtu.be/nTeuhbP7wdE",
+		"postedBy": "Alima Lango"
+
+    
+
+	}
+###
+GET http://localhost:9000/galleries/getClips
 
 ###
 PUT  http://localhost:9000/editUsers/address/61a619a59abc09ee1dbffd4e

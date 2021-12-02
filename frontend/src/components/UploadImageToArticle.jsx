@@ -10,7 +10,7 @@ export default function UploadImageToArticle() {
   const fileChangeHandler = (e) => {
     setFileData(e.target.files[0]);
   };
-
+  
   const onSubmitHandler = (e) => {
     e.preventDefault();
     const data = new FormData();
@@ -54,13 +54,14 @@ export default function UploadImageToArticle() {
       >
         <form onSubmit={onSubmitHandler}>
           <input type="file" name="image" onChange={fileChangeHandler} />
+          <button>Click here</button>
         </form>
 
         <div>
           {" "}
           {filename ? (
             <img
-              style={{ margin: "5px", padding: "5px" }}
+              style={{ margin: "5px", padding: "5px", width: "200px", objectFit: "fill"}}
               src={"http://localhost:9000/" + filename}
             />
           ) : null}{" "}

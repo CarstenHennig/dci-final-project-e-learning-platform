@@ -6,6 +6,7 @@ import users from "./routes/userRoutes.js"
 import editUsers from "./routes/editUsers.js"
 import posts from "./routes/postRoutes.js"
 import uploads from "./routes/uploadsRoutes.js"
+import galleries from "./routes/vidGalleryRoute.js"
 import multer, { diskStorage } from 'multer';
 import User from "./models/UserProfile.js";
 //connect NodeJS to database
@@ -23,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 // USER ROUTER HANDLES ALL USER RELATED REQUESTS
 app.use("/users", users);
 app.use("/editUsers", editUsers);
-
+app.use("/galleries", galleries)
 //POSTS ROUTER HANDLES ALL POSTS RELATED REQUESTS
 app.use("/posts", posts);
 //===========
