@@ -1,16 +1,13 @@
 *{ box-sizing: border-box; }
-
 .div-wrap-nav {
     display: flex;
     justify-content: space-between;
 }
-
 .titel, .wellcome {
     display: flex;
     justify-content: center;
     padding-top: 10px;
 }
-
 .div-wrap-main {
     border: 2px solid transparent;
     display: flex;
@@ -18,7 +15,6 @@
     padding-bottom: 40px;
     padding-top:5px;
 }
-
 .insid-div {
     border: 2px solid transparent;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -29,25 +25,21 @@
     animation-name: hovershadow;
     animation-fill-mode: forwards;
 }
-
 .wrap-ul-your-blogs ul{
     list-style: none;
     overflow: scroll;
     padding: 5px;
     height: 430px;
 }
-
 .your-blogs li a {
     color: white;
     text-decoration: none;
     
 }
-
 @keyframes hovershadow {
     0% { box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; }
     100% { box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px inset, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; }
 }
-
 .btn-back,  .btn-message-alert,.btn-pd, .btn-add-profile-picture {
     width: 90%;
     background-color: #1a3be6;
@@ -63,7 +55,6 @@
 .btn-add-profile-picture:hover {
     background-color: #3541808b;
 }
-
 .btn-pd:hover {
     background-color: #3541808b;
 }
@@ -71,17 +62,14 @@
 .btn-message-alert:hover {
     background-color: #3541808b;
 }
-
 .btn-back:hover {
     background-color: #3541808b;
 }
-
 .div-wrap-pd {
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 3px;
 }
-
 .profile-img{
     padding-bottom: 10px;
     width: 40%;

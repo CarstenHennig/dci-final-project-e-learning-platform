@@ -21,19 +21,48 @@ function Home() {
             </div>
             <div className="wrap-list-of-main-categories">
               <ul className="list-of-main-categories">
-                <li>Nature</li>
-                <li>Pets</li>
-                <li>Relationships</li>
-                <li>University</li>
-                <li>Languages</li>
-                <li>Cooking</li>
-                <li>Yoga</li>
-                <li>Music</li>   
-                <li>Travel</li>
-                <li>TV</li>
-                <li>Books</li>
-                <li>Geographical</li>
-                <li>History</li>
+                <li>
+                  <a href="#">Travel</a>
+                </li>
+                <li>
+                  <a href="#">Music</a>
+                </li>
+                <li>
+                  <a href="#">TV</a>
+                </li>
+                <li>
+                  <a href="#">Books</a>
+                </li>
+                <li>
+                  <a href="#">Geographical</a>
+                </li>
+                <li>
+                  <a href="#">History</a>
+                </li>
+                <li>
+                  <a href="#">Music</a>
+                </li>
+                <li>
+                  <a href="#">Yoga</a>
+                </li>
+                <li>
+                  <a href="#">Languages</a>
+                </li>
+                <li>
+                  <a href="#">University</a>
+                </li>
+                <li>
+                  <a href="#">Relationships</a>
+                </li>
+                <li>
+                  <a href="#">University</a>
+                </li>
+                <li>
+                  <a href="#">Pets</a>
+                </li>
+                <li>
+                  <a href="#">Nature</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -43,21 +72,48 @@ function Home() {
             </div>
             <div className="wrap-list-of-main-categories-2">
               <ul className="list-of-main-categories">
-                <li>Nature</li>
-                <li>Pets</li>
-                <li>Relationships</li>
-                <li>University</li>
-                <li>Languages</li>
-                <li>Travel</li>
-                <li>Music</li>
-                <li>TV</li>
-                <li>Books</li>
-                <li>Geographical</li>
-                <li>History</li>
+                <li>
+                  <a href="#">Travel</a>
+                </li>
+                <li>
+                  <a href="#">Music</a>
+                </li>
+                <li>
+                  <a href="#">TV</a>
+                </li>
+                <li>
+                  <a href="#">Books</a>
+                </li>
+                <li>
+                  <a href="#">Geographical</a>
+                </li>
+                <li>
+                  <a href="#">History</a>
+                </li>
+                <li>
+                  <a href="#">Music</a>
+                </li>
                 <li>
                   <a href="#">Yoga</a>
                 </li>
-                <li>Music</li>
+                <li>
+                  <a href="#">Languages</a>
+                </li>
+                <li>
+                  <a href="#">University</a>
+                </li>
+                <li>
+                  <a href="#">Relationships</a>
+                </li>
+                <li>
+                  <a href="#">University</a>
+                </li>
+                <li>
+                  <a href="#">Pets</a>
+                </li>
+                <li>
+                  <a href="#">Nature</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -107,7 +163,6 @@ function Home() {
 
         <div className="inside-wrap-div-3">
           <div>
-            
             <Link to="/UserProfile">
               <p className="p-tag-profile">Your profile</p>
             </Link>

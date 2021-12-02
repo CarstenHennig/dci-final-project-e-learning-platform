@@ -10,26 +10,27 @@ import Article from "./Article.jsx";
 import Footer from "./Footer.jsx";
 import { UserContext } from "./InfoProvider.jsx";
 import Home from "./Home.jsx";
-import EditProfilePage from "./EditProfilePage.jsx"
+import EditProfilePage from "./EditProfilePage.jsx";
+import UserProfile from "./UserProfile.jsx";
 
-import UserProfile from './UserProfile.jsx';
 function RouterComponents() {
   const [isLog, setIsLog] = useContext(UserContext);
-  console.log(isLog); 
+  console.log(isLog);
   return (
     <Router>
       <div>
         <Nav user={isLog} />
         <main className="main">
-          
           <Switch>
-            <Route path="/" exact component={Login} /> 
+            <Route path="/" exact component={Login} />
             <Route path="/Login" component={Login} />
             <Route path="/Registration" component={Registration} />
             <Route path="/Imprint" component={Imprint} />
             <Route path="/About" component={About} />
             <Route path="/Article" component={Article} />
-            {isLog ? <Route path="/UserProfile" component={UserProfile}/> : null }
+            {isLog ? (
+              <Route path="/UserProfile" component={UserProfile} />
+            ) : null}
             {isLog ? <Route path="/Home" component={Home} /> : null}
             <Route path="/EditProfilePage" component={EditProfilePage} />
           </Switch>
@@ -38,7 +39,6 @@ function RouterComponents() {
       </div>
     </Router>
   );
-
 }
 
 export default RouterComponents;
