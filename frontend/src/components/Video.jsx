@@ -9,31 +9,38 @@ import axios from "axios";
 import "./Video.css";
 import { FloatingLabel, Form } from "react-bootstrap";
 import DropdownBlogCategory from "./ArticleDropdownButton.jsx";
+import Popup from "./HelpPopUp.jsx";
 
 /** Function to post a video */
 
 export default function PostVideo() {
   const [title, setTitle] = useState(null);
-  const [content, setContent] = useState(null);
+  const [desc, setDesc] = useState(null);
   const [videoUrl, setVideoUrl] = useState(null);
   const [valueCategory, setValueCategory] = useState();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopUp = () => {
+    setIsOpen(!isOpen);
+  };
 
   /** Function HandleChange sending form data via axios to backend */
 
   const HandleChange = (e) => {
-    console.log(title, content, videoUrl, valueCategory);
+    console.log(title, desc, videoUrl, valueCategory);
     e.preventDefault();
 
     axios
       // To paste video posting endpoint from Ferdinand
-      .put("http://localhost:9000/uploads", {
+      .put("http://localhost:9000/galleries/createClip", {
         title,
-        content,
+        desc,
         videoUrl,
 
-        // Hard coded email to target the blogging user
+        // Hard coded email and posted by name to target the blogging user
         // Removed after improved to local stored UserID
-        email: "carsten.hennig@gmail.com",
+        email: "zulu_nation@gmail.com",
+        postedBy: "Shaka",
       })
       .then(
         (response) => {
@@ -48,7 +55,13 @@ export default function PostVideo() {
   return (
     <div>
       <div className="headline">
-        <h4>Post your video</h4>
+        <h4>
+          <i class="fa fa-video-camera" aria-hidden="true"></i> Post your video
+        </h4>
+        <button onClick={togglePopUp}>Show Pop-Up</button>
+        {isOpen ? (
+          <Popup handleClose={togglePopUp} content="Lorem ipsum" />
+        ) : null}
       </div>
 
       <form>
@@ -72,7 +85,7 @@ export default function PostVideo() {
 
           {/* Inserting description */}
 
-          <p className="labels">Content</p>
+          <p className="labels">Description</p>
           <FloatingLabel
             controlId="floatingTextarea2"
             className="write-video-description"
@@ -81,8 +94,8 @@ export default function PostVideo() {
               as="textarea"
               placeholder="Write your video description"
               name="text"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
+              value={desc}
+              onChange={(e) => setDesc(e.target.value)}
               style={{ height: "150px", margin: "5px", padding: "5px" }}
             />
           </FloatingLabel>
