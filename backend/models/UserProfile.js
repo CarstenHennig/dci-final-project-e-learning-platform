@@ -17,6 +17,10 @@ const userSchema = mongoose.Schema({
 	email: {
 		type: String, required,
 
+	},
+	describeSelf: {
+		type: String, 
+		default: "A country boy from the barkih"
 
 	},
 	password: {
@@ -26,9 +30,9 @@ const userSchema = mongoose.Schema({
 
 
 	},
-	avatar:{
-		type: Object,
-		default:'http://placekitten.com/g/150/150'
+	avatar: {
+		type: String,
+		default: 'http://placekitten.com/g/150/150'
 	},
 
 	dateOfBirth: Number,
@@ -48,7 +52,7 @@ const userSchema = mongoose.Schema({
 		default: 0,
 	},
 	posts: [{
-
+		
 		title: {
 			type: String,
 			default: 'Killing the Goose'
@@ -60,6 +64,11 @@ const userSchema = mongoose.Schema({
 		author: {
 			type: String,
 			default: "Sally Santus"
+		},
+		image: {
+			type: String,
+			default: 'http://placekitten.com/g/450/350'
+
 		},
 		createdAt: {
 			type: Date,

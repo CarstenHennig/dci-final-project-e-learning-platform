@@ -1,6 +1,52 @@
+###
+Post  http://localhost:9000/galleries/register/
+Content-Type: application/json
+
+{
+	"ownerName": "Shaka",
+	"galleryName": "Sala Sala Nations",
+	"email": "zulu_nation@gmail.com"
+}
+###
+POST http://localhost:9000/galleries/login
+Content-Type: application/json
+
+	{  
+		"email": "zhonleig@gmail.com"
+    
+
+	}
+###
+PUT http://localhost:9000/galleries/createClip
+Content-Type: application/json
+
+	{  
+		"email": "zhonleig@gmail.com",
+		"title": "All Apart",
+		"desc":"Tweets were the seas",
+		"videoUrl": "https://youtu.be/nTeuhbP7wdE",
+		"postedBy": "Alima Lango"
+
+    
+
+	}
+###
+GET http://localhost:9000/galleries/getClips
 
 ###
-GET http://localhost:9000/getPost
+PUT  http://localhost:9000/editUsers/address/61a619a59abc09ee1dbffd4e
+Content-Type: application/json
+
+
+    {"city" : "Ndungalleh",
+    "street" : "Nchukro New Layout",
+    "zip": "15632",
+    "country" : "Ndungallehnia"}
+  
+
+###
+DELETE  http://localhost:9000/users/61a60237cf7160d6f56f1589
+
 
 ###
 GET http://localhost:9000/posts/getPost
@@ -15,7 +61,7 @@ Content-Type: application/json
 		
 		
 		"email":"zhonglei@gmail.com",
-		"title": "The rustle in the mount Part III",
+		"title": "PART III: The rustle in the mount ",
 		"content": "They took my scarf and my staff. They robbed me of my dignity and thought that would emasciate my humanity. But I rose up like the proverbial phoneix, and like a lark sang to the heavens the perreniality of my humanity. The data showed the epidemic gaining pace with 131,731 cases detected over past seven days, compared to 73,200 cases reported for all of October.",
 		"author": "Zhang Licun"
 		
@@ -35,8 +81,7 @@ Content-Type: application/json
 	}
 
 ###
-GET http://localhost:9000/users/users/61a0a72010d9efe46b27591e
-
+GET http://localhost:9000/users/61a5fca4b24250cd5ea94538
 
 
 ###
@@ -44,9 +89,9 @@ POST http://localhost:9000/users/register
 Content-Type: application/json
 
 {
-"firstName": "piter",
-"lastName": "Liu",
-"email": "zhongle@gmail.com",
+"firstName": "Joel",
+"lastName": "The Finn",
+"email": "Joel@gmail.com",
 "password": "12345678",
 "avatar": "{image: src='http://placekitten.com/g/150/150'}",
 "dateOfBirth": 13122000,
@@ -59,10 +104,10 @@ Content-Type: application/json
 	"phoneNumber": "0124567844",
 	"posts" :{	
 		
-		"author": "Zhang Licun",
+		"author": "Joel",
 		"email": "licunana@gazaphili.com",
-		"title": "The Day the World Got Duped",
-		"content": "BRUSSELS (Reuters) - The European Commission on Thursday proposed that from Jan. 10 next year the European Union's COVID-19 vaccination certificates be valid for nine months after full vaccination, and also opened the way for boosters to be linked to such passes."
+		"title": "Vera Cat",
+		"content": "Joel and cats!"
 		
 				
 	}

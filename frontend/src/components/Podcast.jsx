@@ -1,21 +1,23 @@
-/** Frontend component to create a blog post
+/** Frontend component to post a podcast
  * using React, Axios, own style sheet, Bootstrap and FontAwesome
  */
 
+/** Text areas should be responsive for mobile use */
+
 import React, { useState } from "react";
 import axios from "axios";
-import "./Article.css";
+import "./Podcast.css";
 import { FloatingLabel, Form } from "react-bootstrap";
 import DropdownBlogCategory from "./ArticleDropdownButton.jsx";
-import UploadImageToArticle from "./UploadImageToArticle.jsx";
 import Popup from "./HelpPopUp.jsx";
 
-/** Function to write a blog post */
+/** Function to post a podcast */
 
-export default function WriteArticle() {
+export default function PostPodcast() {
   const [title, setTitle] = useState(null);
-  const [content, setContent] = useState(null);
-  const [value, setValue] = useState();
+  const [desc, setDesc] = useState(null);
+  const [podcastUrl, setPodcastUrl] = useState(null);
+  const [valueCategory, setValueCategory] = useState();
   const [isOpen, setIsOpen] = useState(false);
 
   const togglePopUp = () => {
@@ -25,20 +27,25 @@ export default function WriteArticle() {
   /** Function HandleChange sending form data via axios to backend */
 
   const HandleChange = (e) => {
-    console.log(title, content, value);
+    console.log(title, desc, podcastUrl, valueCategory);
     e.preventDefault();
-    axios
-      .put("http://localhost:9000/posts/writePost", {
-        title,
-        content,
 
-        // Hard coded email to target the blogging user
+    axios
+      // To paste podcast posting endpoint from Ferdinand
+      .put("http://localhost:9000/galleries/createClip", {
+        title,
+        desc,
+        podcastUrl,
+        valueCategory,
+
+        // Hard coded email and posted by name to target the blogging user
         // Removed after improved to local stored UserID
-        email: "carsten.hennig@gmail.com",
+        email: "zulu_nation@gmail.com",
+        postedBy: "Shaka",
       })
       .then(
         (response) => {
-          alert("Blog post saved");
+          alert("Podcast sent");
         },
         (error) => {
           alert(error);
@@ -50,8 +57,7 @@ export default function WriteArticle() {
     <div>
       <div className="headline">
         <h4>
-          <i class="fa fa-pencil-square" aria-hidden="true"></i> Publish your
-          blog posts
+          <i class="fa fa-podcast" aria-hidden="true"></i> Post your podcast
         </h4>
         <button onClick={togglePopUp}>Get help</button>
         {isOpen ? <Popup handleClose={togglePopUp} /> : null}
@@ -64,11 +70,11 @@ export default function WriteArticle() {
           <p className="labels">Headline</p>
           <FloatingLabel
             controlId="floatingTextarea"
-            className="write-article-headline"
+            className="write-podcast-headline"
           >
             <Form.Control
               as="textarea"
-              placeholder="Write your headline"
+              placeholder="Write headline of podcast"
               name="headline"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -76,34 +82,49 @@ export default function WriteArticle() {
             />
           </FloatingLabel>
 
-          {/* Inserting blog text */}
+          {/* Inserting description */}
 
-          <p className="labels">Content</p>
+          <p className="labels">Description</p>
           <FloatingLabel
             controlId="floatingTextarea2"
-            className="write-article-content"
+            className="write-podcast-description"
           >
             <Form.Control
               as="textarea"
-              placeholder="Write your content"
+              placeholder="Write your podcast description"
               name="text"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              style={{ height: "500px", margin: "5px", padding: "5px" }}
+              value={desc}
+              onChange={(e) => setDesc(e.target.value)}
+              style={{ height: "150px", margin: "5px", padding: "5px" }}
+            />
+          </FloatingLabel>
+
+          {/* Inserting video url */}
+
+          <p className="labels">Podcast URL</p>
+          <FloatingLabel
+            controlId="floatingTextarea3"
+            className="post-podcast-url"
+          >
+            <Form.Control
+              as="textarea"
+              placeholder="Paste your podcast URL"
+              name="text"
+              value={podcastUrl}
+              onChange={(e) => setPodcastUrl(e.target.value)}
+              style={{ height: "150px", margin: "5px", padding: "5px" }}
             />
           </FloatingLabel>
         </>
-
-        {/** Text areas should be responsive for mobile use */}
-
-        {/* Inserting component to upload a picture */}
-        <UploadImageToArticle />
 
         {/* Selecting blog category */}
 
         <div className="dropdownButtons">
           <p>Select a category</p>
-          <DropdownBlogCategory value={value} setValue={setValue} />
+          <DropdownBlogCategory
+            value={valueCategory}
+            setValue={setValueCategory}
+          />
         </div>
 
         {/* Button to publish */}
