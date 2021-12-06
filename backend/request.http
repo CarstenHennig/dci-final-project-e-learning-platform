@@ -44,9 +44,9 @@ POST http://localhost:9000/users/register
 Content-Type: application/json
 
 {
-"firstName": "Zonglei",
+"firstName": "piter",
 "lastName": "Liu",
-"email": "zhonglei@gmail.com",
+"email": "zhongle@gmail.com",
 "password": "12345678",
 "avatar": "{image: src='http://placekitten.com/g/150/150'}",
 "dateOfBirth": 13122000,
