@@ -15,7 +15,7 @@ function Home() {
       </div>
       <div className="wrap-div-home">
         <div className="inside-wrap-div-1">
-          <div className="wrap-Main-Categories">
+          <div>
             <div>
               <h3 className="font-size-home">Main Categories</h3>
             </div>
