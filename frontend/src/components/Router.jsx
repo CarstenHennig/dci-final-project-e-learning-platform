@@ -6,7 +6,7 @@ import Login from "./Login.jsx";
 import Registration from "./Registration.jsx";
 import Imprint from "./Imprint.jsx";
 import About from "./About.jsx";
-import WriteArticle from "./Article.jsx";
+import Article from "./Article.jsx";
 import PostVideo from "./Video.jsx";
 import PostPodcast from "./Podcast.jsx";
 import Footer from "./Footer.jsx";
