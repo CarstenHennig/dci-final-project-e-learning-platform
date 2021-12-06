@@ -8,15 +8,10 @@
   /* border: 3px solid blue; */
   height: 65vh;
 }
-.login .login-container {
-  /* border: 3px solid red; */
-}
-
 .login input[type="submit"],
 label {
   margin-top: 1rem;
 }
-
 .login .sign-in-submit {
   width: 60%;
   background-color: #1a3be6;
@@ -29,7 +24,6 @@ label {
   font-size: 20px;
   margin-bottom: 30px;;
 }
-
 .login .sign-in-submit:hover {
   background-color: #3541808b;
 }
@@ -43,10 +37,7 @@ label {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  
-  
 }
 .login .sign-up-submit:hover {
   background-color:#a7d5d46b;
-
 }

@@ -1,8 +1,8 @@
 import "./Nav.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "./InfoProvider.jsx";
+import  Logo from '../images/Logo01.png'; 
 
 function Nav(props) {
   const navStyle = {
@@ -16,7 +16,10 @@ function Nav(props) {
   };
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
-      <h1 className="logo">YouLearn</h1>
+      <div className="logo">
+      <img src={Logo} />
+      </div>
+      
       <button
         className="navbar-toggler"
         type="button"
@@ -63,6 +66,12 @@ function Nav(props) {
                   <li>Post article</li>
                 </Link>
               </li>
+
+              <li className="nav-item">
+                <Link className="nav-link" style={navStyle} to="/Home">
+                  <li>Home</li>
+                </Link>
+              </li>
             </>
           )}
           
@@ -77,8 +86,6 @@ function Nav(props) {
               About
             </Link>
           </li>
-          
-
         </ul>
       </div>
     </nav>

@@ -1,31 +1,29 @@
 import "./Login.css";
-import React, { useState , useContext} from "react";
-import {UserContext} from "./InfoProvider.jsx"
+import React, { useState, useContext } from "react";
+import { UserContext } from "./InfoProvider.jsx";
 import axios from "axios";
-import { Link,useHistory } from "react-router-dom";
-
+import { Link, useHistory } from "react-router-dom";
 
 function Login(props) {
-
-const history = useHistory()
+  const history = useHistory();
 
   const [login, setLogin] = useState({});
-  const [isLog, setIsLog]= useContext(UserContext)
+  const [isLog, setIsLog] = useContext(UserContext);
   const changeHandler = (e) => {
     setLogin({ ...login, [e.target.name]: e.target.value });
   };
-  
+
   const submitHandler = async (e) => {
     e.preventDefault();
     console.log("come from Login", login);
     return await axios
       .post("http://localhost:9000/users/login", login)
       .then((result) => {
-        console.log('hello',result.data);
-         if(result.data.token){
-           setIsLog({...isLog, isLog:true, user: result.data.user})
-          history.push('/Home')
-         }
+        console.log("hello", result.data.user);
+        if (result.data.token) {
+          setIsLog({ ...isLog, isLog: true, user: result.data.user });
+          history.push("/Home");
+        }
       })
       .catch((error) => console.log(error));
   };
@@ -59,7 +57,11 @@ const history = useHistory()
           </div>
 
           <input className="sign-in-submit" type="submit" value="Sign in" />
-          <h4><Link className="sign-up-submit" to="/Registration"> Sign Up</Link> </h4>
+          <h4>
+            <Link className="sign-up-submit" to="/Registration">
+              Sign Up
+            </Link>
+          </h4>
           {/* <input className="sign-up-submit" type="submit" value="Sign Up"  /> */}
         </form>
       </div>
