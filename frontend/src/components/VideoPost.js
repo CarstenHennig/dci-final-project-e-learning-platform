@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
-import { Row, Col, ListGroup, Card, ListGroupItem, Button, Alert } from "react-bootstrap"
+import {ListGroup, Card, ListGroupItem, Button} from "react-bootstrap"
 import axios from "axios"
 import moment from "moment"
 
@@ -10,6 +10,7 @@ function YoutubeEmbed() {
 
 	let [videoData, setVideoData] = useState([])
 	const [count, setCount] = useState(0);
+
 	useEffect(() => {
 		axios.get(baseUrl)
 			.then(response => {
@@ -26,34 +27,25 @@ function YoutubeEmbed() {
 			});
 
 	}, []);
-	/* console.log("VIDEODATA: ", videoData) */
+
+	const data = videoData.length ? videoData[count] : null
 
 	function Counter() {
-		let prev = count - 1
 		return (
 			<div>
-				<p>Playing: {count} </p>
 				<Button onClick={() => setCount(count - 1)}>
 					Play Prev
 				</Button>
 				<Button onClick={() => setCount(count + 1)}>
 					Play Next
 				</Button>
+				<p style={{ color: 'tomato' }}>Playing : {data ? data.title : null} </p>
+				<hr />
+				{videoData ? videoData.map((item, i) => <li >{item.title}</li>) : null}
+
 			</div>
 		);
 	}
-	/* function Playlist() {
-		let list = ""
-		for (let index = 0; index < videoData.length; index++) {
-			const element = videoData[index]
-			
-			console.log("ELEMENT: ", element.title);
-
-		}
-	}
-	Playlist() */
-	const data = videoData.length ? videoData[count] : null
-
 	return (<div>
 		<h1>YOULEARN !</h1>
 
@@ -62,7 +54,7 @@ function YoutubeEmbed() {
 
 				<Card.Body>
 					<Card.Title>{data ? <p>Title: {data.title}</p> : null}</Card.Title>
-					{data ? <ReactPlayer url={data.videoUrl} /> : null}
+					{data ? <ReactPlayer muted={true} autoplay={true} onReady={true} controls={true} url={data.videoUrl} /> : null}
 				</Card.Body>
 
 				<ListGroup className="list-group-flush">
@@ -90,22 +82,14 @@ function YoutubeEmbed() {
 					<Card.Header>Related Videos</Card.Header>
 					<ListGroup variant="flush">
 						<ListGroup.Item> <Counter /></ListGroup.Item>
-						<ListGroup.Item>{videoData ? videoData.map((item) =>  <li>{item.videoUrl}</li>) : null}</ListGroup.Item>
-						
+						<ListGroup.Item></ListGroup.Item>
+
 					</ListGroup>
 				</Card>
-				
-					
 
-
-			
 			</div>
 		</div>
 
-
-
 	</div>)
-
 }
-
 export default YoutubeEmbed;
