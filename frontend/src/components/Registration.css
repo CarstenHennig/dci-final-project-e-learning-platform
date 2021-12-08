@@ -9,27 +9,12 @@
   border-radius: 4px;
   box-sizing: border-box;
 }
-
-/* .registration input[type="submit"] {
-  width: 40%;
-  background-color: #1a3be6;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-} */
 .registration div {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
 }
-/* .registration input[type="submit"]:hover {
-  background-color: #1a3ce68b;
-} */
-
 .registration h1 {
   display: flex;
   justify-content: space-around;
@@ -50,16 +35,13 @@
   border-radius: 4px;
   cursor: pointer;
 }
-
 .registration .SignUp-button:hover {
   background-color: #1a3ce68b;
 }
-
 @media screen and (max-width: 600px) {
   .registration {
     font-size: 12px;
   }
-
   .registration input[type="text"],
   .registration input[type="email"],
   .registration input[type="password"] {

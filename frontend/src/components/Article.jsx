@@ -1,5 +1,5 @@
 /** Frontend component to create a blog post
- * using React, Axios, own style sheet and Bootstrap
+ * using React, Axios, own style sheet, Bootstrap and FontAwesome
  */
 
 import React, { useState } from "react";
@@ -8,6 +8,7 @@ import "./Article.css";
 import { FloatingLabel, Form } from "react-bootstrap";
 import DropdownBlogCategory from "./ArticleDropdownButton.jsx";
 import UploadImageToArticle from "./UploadImageToArticle.jsx";
+import Popup from "./HelpPopUp.jsx";
 
 /** Function to write a blog post */
 
@@ -15,6 +16,11 @@ export default function WriteArticle() {
   const [title, setTitle] = useState(null);
   const [content, setContent] = useState(null);
   const [value, setValue] = useState();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopUp = () => {
+    setIsOpen(!isOpen);
+  };
 
   /** Function HandleChange sending form data via axios to backend */
 
@@ -43,7 +49,12 @@ export default function WriteArticle() {
   return (
     <div>
       <div className="headline">
-        <h4>Publish your blog posts</h4>
+        <h4>
+          <i class="fa fa-pencil-square" aria-hidden="true"></i> Publish your
+          blog posts
+        </h4>
+        <button onClick={togglePopUp}>Get help</button>
+        {isOpen ? <Popup handleClose={togglePopUp} /> : null}
       </div>
 
       <form>
