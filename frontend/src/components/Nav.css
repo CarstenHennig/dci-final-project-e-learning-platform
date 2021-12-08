@@ -22,6 +22,10 @@ nav {
   align-items: center;
   list-style: none;
 }
+.logo{
+  padding: 10px;
+  padding-bottom:30px;
+}
 .navbar {
   background-color: #a8a9ad;
 }
