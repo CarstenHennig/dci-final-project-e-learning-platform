@@ -1,20 +1,21 @@
 import { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
-import {ListGroup, Card, ListGroupItem, Button} from "react-bootstrap"
+import { Alert, Card, Button } from "react-bootstrap"
 import axios from "axios"
 import moment from "moment"
 
 const baseUrl = "http://localhost:9000/galleries/getClips"
 
-function YoutubeEmbed() {
+function EmbeddedMedia() {
 
 	let [videoData, setVideoData] = useState([])
-	const [count, setCount] = useState(0);
+	let [vidUrl, setVidUrl] = useState("https://www.youtube.com/watch?v=W2FVN8AYYx8")
 
 	useEffect(() => {
 		axios.get(baseUrl)
 			.then(response => {
 				const clips = response.data
+
 				let gallery = []
 				clips.forEach((video) => {
 					gallery = gallery.concat(video.videos)
@@ -28,68 +29,48 @@ function YoutubeEmbed() {
 
 	}, []);
 
-	const data = videoData.length ? videoData[count] : null
+	const data = videoData.length ? videoData[0] : null
 
-	function Counter() {
+	function VideoPlayer() {
 		return (
-			<div>
-				<Button onClick={() => setCount(count - 1)}>
-					Play Prev
-				</Button>
-				<Button onClick={() => setCount(count + 1)}>
-					Play Next
-				</Button>
-				<p style={{ color: 'tomato' }}>Playing : {data ? data.title : null} </p>
-				<hr />
-				{videoData ? videoData.map((item, i) => <li >{item.title}</li>) : null}
+			<div style={{ display: 'flex' }}>
 
+				<hr />
+				<Alert style={{ width: '50%', margin: 'auto' }}>
+					<Alert.Heading>{videoData ? videoData.map(x => x.videoUrl == vidUrl ? <p>{x.title}</p> : null) : null}</Alert.Heading>
+					<p>{<ReactPlayer width="100%" muted={true} autoplay={true}
+						onReady={true} controls={true} url={vidUrl} />}</p>
+					<hr />
+					<p className="mb-0">
+						<Card.Img variant="top" style={{
+							width: '10%', height: '20%',
+							borderRadius: '10%'
+						}} src="http://placekitten.com/g/150/150" />
+						{videoData ? videoData.map(x => x.videoUrl === vidUrl ?
+							<>
+								<p>{x.postedBy}</p>
+								<p>{moment(x.createdAt).format(' DD - MM - YYYY')}</p>
+								<hr />
+								<p>{x.desc}</p>
+							</> : null)
+							: null}
+					</p>
+				</Alert>
+				<Card style={{ width: '35rem' }}>
+					<Card.Body>
+						<Card.Title>Playlist</Card.Title>
+						<Card.Text>
+							{videoData ? videoData.map((item, i) => <li key={item + i} onClick={() => setVidUrl(item.videoUrl)}  >{item.title}</li>) : null}
+						</Card.Text>
+					</Card.Body>
+				</Card>
 			</div>
 		);
 	}
 	return (<div>
 		<h1>YOULEARN !</h1>
-
-		<div className="ReactPlayer" style={{ display: 'flex', flexDirection: 'row' }}>
-			<Card style={{ width: '42rem' }}>
-
-				<Card.Body>
-					<Card.Title>{data ? <p>Title: {data.title}</p> : null}</Card.Title>
-					{data ? <ReactPlayer muted={true} autoplay={true} onReady={true} controls={true} url={data.videoUrl} /> : null}
-				</Card.Body>
-
-				<ListGroup className="list-group-flush">
-					<ListGroupItem style={{ marginLeft: "2%", backgroundColor: "#e6d1da" }}>
-						<Card.Img variant="top" style={{
-							width: '10%', height: '20%',
-							borderRadius: '10%'
-						}} src="http://placekitten.com/g/150/150" />
-						{data ? <p >{data.postedBy}</p> : null}
-						{data ? <p> Date: {moment(data.createdAt).format('YYYY : MM : DD : HH :mm')}</p> : null}
-					</ListGroupItem>
-
-					<ListGroupItem>{data ? <p>Description: {data.desc}</p> : null}</ListGroupItem>
-
-				</ListGroup>
-				<Card.Body>
-					<h3>Production note:</h3>
-					<p style={{ color: 'red' }}>
-						Viewers' comments will appear here
-					</p>
-				</Card.Body>
-			</Card>
-			<div>
-				<Card style={{ width: '30rem', height: '50rem', backgroundColor: 'skyBlue' }}>
-					<Card.Header>Related Videos</Card.Header>
-					<ListGroup variant="flush">
-						<ListGroup.Item> <Counter /></ListGroup.Item>
-						<ListGroup.Item></ListGroup.Item>
-
-					</ListGroup>
-				</Card>
-
-			</div>
-		</div>
-
+		<hr />
+		<VideoPlayer />
 	</div>)
 }
-export default YoutubeEmbed;
+export default EmbeddedMedia;
