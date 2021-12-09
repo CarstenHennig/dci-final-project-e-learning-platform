@@ -89,10 +89,26 @@ function YoutubeEmbed() {
 
 					</ListGroup>
 				</Card>
-
+				
 			</div>
 		</div>
 
 	</div>)
 }
 export default YoutubeEmbed;
+
+/* <Row xs={1} md={3} className="g-4">
+			{Array.from({ length: 8 }).map((_, idx) => (
+				<Col>
+					<Card>
+						
+						<Card.Body>
+							<Card.Title>Card title</Card.Title>
+							<Card.Text>
+								{videoData ? videoData.map((item, i) => <ListGroupItem key={item + i}>{<Card.Img variant="top" src={playVideo1} />} {item.title}</ListGroupItem>) : null}
+							</Card.Text>
+						</Card.Body>
+					</Card>
+				</Col>
+			))}
+		</Row> */
