@@ -14,6 +14,7 @@ import Popup from "./HelpPopUp.jsx";
 
 export default function WriteArticle() {
   const [title, setTitle] = useState(null);
+  const [summary, setSummary] = useState(null);
   const [content, setContent] = useState(null);
   const [value, setValue] = useState();
   const [isOpen, setIsOpen] = useState(false);
@@ -30,6 +31,7 @@ export default function WriteArticle() {
     axios
       .put("http://localhost:9000/posts/writePost", {
         title,
+        summary,
         content,
 
         // Hard coded email to target the blogging user
@@ -69,9 +71,28 @@ export default function WriteArticle() {
             <Form.Control
               as="textarea"
               placeholder="Write your headline"
+              maxlength="160"
               name="headline"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+              // style={{ height: "100px", margin: "5px", padding: "5px" }}
+            />
+          </FloatingLabel>
+
+          {/* Inserting summary */}
+
+          <p className="labels">Summary</p>
+          <FloatingLabel
+            controlId="floatingTextarea"
+            className="write-article-summary"
+          >
+            <Form.Control
+              as="textarea"
+              placeholder="Write your summary"
+              maxlength="320"
+              name="summary"
+              value={summary}
+              onChange={(e) => setSummary(e.target.value)}
               // style={{ height: "100px", margin: "5px", padding: "5px" }}
             />
           </FloatingLabel>
