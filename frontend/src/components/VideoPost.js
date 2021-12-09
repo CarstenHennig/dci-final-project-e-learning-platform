@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
-import { Alert, Card, Button } from "react-bootstrap"
+import { Alert, Card, Row, Col, Button, ListGroupItem, Image } from "react-bootstrap"
 import axios from "axios"
 import moment from "moment"
+import "../App.css";
+import playVideo1 from "../images/playVideo1.jpg"
 
 const baseUrl = "http://localhost:9000/galleries/getClips"
 
@@ -37,7 +39,7 @@ function EmbeddedMedia() {
 
 				<hr />
 				<Alert style={{ width: '50%', margin: 'auto' }}>
-					<Alert.Heading>{videoData ? videoData.map(x => x.videoUrl == vidUrl ? <p>{x.title}</p> : null) : null}</Alert.Heading>
+					<Alert.Heading>{videoData ? videoData.map(x => x.videoUrl === vidUrl ? <p>{x.title}</p> : null) : null}</Alert.Heading>
 					<p>{<ReactPlayer width="100%" muted={true} autoplay={true}
 						onReady={true} controls={true} url={vidUrl} />}</p>
 					<hr />
@@ -56,21 +58,40 @@ function EmbeddedMedia() {
 							: null}
 					</p>
 				</Alert>
-				<Card style={{ width: '35rem' }}>
+				{/* =================== */}
+				{/* Create Playlist */}
+
+				<Card variant="primary" style={{ width: '35rem', marginRight: 'auto', backgroundColor: ' #c6a61a' }}>
 					<Card.Body>
 						<Card.Title>Playlist</Card.Title>
 						<Card.Text>
-							{videoData ? videoData.map((item, i) => <li key={item + i} onClick={() => setVidUrl(item.videoUrl)}  >{item.title}</li>) : null}
+							{videoData ? videoData.map((item, i) => <ListGroupItem key={item + i}
+								onClick={() => setVidUrl(item.videoUrl)}  >{<Image style={{ width: '10%' }}
+									src={playVideo1} alt="play icon" thumbnail />}{item.title}
+							</ListGroupItem>) : null}
+
 						</Card.Text>
 					</Card.Body>
 				</Card>
 			</div>
 		);
 	}
-	return (<div>
+	return (<div className="main" >
 		<h1>YOULEARN !</h1>
 		<hr />
 		<VideoPlayer />
+
+		{/* Gallery Comes Bellow */}
+<Row xs={1} md={4} className="g-4" >
+			{Array.from({ length: 4 }).map((_, idx) => (
+				<Col>
+		{videoData ? videoData.map((item, i) => <
+			ListGroupItem key={item + i}>
+			{<Card.Img variant="top" style={{width: "100%", display: 'flex'}}  src={playVideo1} />}
+			{item.title}{<Button variant="success">Play</Button>}</ListGroupItem>) : null}
+</Col>
+			))}
+		</Row>
 	</div>)
 }
 export default EmbeddedMedia;
