@@ -5,14 +5,13 @@ import React from "react";
 import RouterComponents from "./components/Router.jsx";
 import InfoProvider from "./components/InfoProvider.jsx";
 import VideoGallery from "./components/VideoGallery.jsx";
-import EmbeddedMedia from "./components/VideoPost";
-
+import MediaPlayer from "./components/MediaPlayer.js";
 
 function App() {
   return (
     <div>
-      <EmbeddedMedia/>
-      <VideoGallery/>
+       <MediaPlayer/> 
+      <VideoGallery/> 
       {/* <InfoProvider>
         <RouterComponents />
       </InfoProvider>  */}

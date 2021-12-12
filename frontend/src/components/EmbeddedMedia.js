@@ -9,10 +9,10 @@ import playVideo1 from "../images/playVideo1.jpg"
 const baseUrl = "http://localhost:9000/galleries/getClips"
 
 function EmbeddedMedia() {
-	
+
 	let [videoData, setVideoData] = useState([])
 	let [vidUrl, setVidUrl] = useState("https://www.youtube.com/watch?v=W2FVN8AYYx8")
-	const [video, setVideo]= useState(null)
+	const [video, setVideo] = useState(null)
 
 	useEffect(() => {
 		axios.get(baseUrl)
@@ -39,10 +39,9 @@ function EmbeddedMedia() {
 			<div style={{ display: 'flex' }}>
 
 				<hr />
-				<Alert style={{ width: '50%', margin: 'auto' }}>
-					{/* <Alert.Heading>{videoData ? videoData.map(x => x.videoUrl === vidUrl ? <p>{x.title}</p> : null) : null}</Alert.Heading> */}
+				{/* <Alert style={{ width: '50%', margin: 'auto' }}>
 					<Alert.Heading>{video ? video.title : null}</Alert.Heading>
-					<p>{<ReactPlayer width="100%" muted={true} autoplay={true}
+					<p>{<ReactPlayer width="100%"  autoplay={true}
 						onReady={true} controls={true} url={video ? video.videoUrl : null} />}</p>
 					<hr />
 					<p className="mb-0">
@@ -50,15 +49,15 @@ function EmbeddedMedia() {
 							width: '10%', height: '20%',
 							borderRadius: '10%'
 						}} src="http://placekitten.com/g/150/150" />
-						{video ? 
+						{video ?
 							<>
 								<p>{video.postedBy}</p>
 								<p>{moment(video.createdAt).format(' DD - MM - YYYY')}</p>
 								<hr />
 								<p>{video.desc}</p>
-							</>	: null}
+							</> : null}
 					</p>
-				</Alert>
+				</Alert> */}
 				{/* =================== */}
 				{/* Create Playlist */}
 
