@@ -15,7 +15,7 @@ import Home from "./Home.jsx";
 import EditProfilePage from "./EditProfilePage.jsx";
 import UserProfile from "./UserProfile.jsx";
 
-function RouterComponents() {
+export default function RouterComponents() {
   const [isLog, setIsLog] = useContext(UserContext);
   console.log(isLog);
   return (
@@ -44,5 +44,3 @@ function RouterComponents() {
     </Router>
   );
 }
-
-export default RouterComponents;

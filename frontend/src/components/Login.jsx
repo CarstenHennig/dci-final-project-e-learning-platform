@@ -3,8 +3,9 @@ import React, { useState, useContext } from "react";
 import { UserContext } from "./InfoProvider.jsx";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
+import WelcomeText from "./Welcome.jsx";
 
-function Login(props) {
+export default function Login(props) {
   const history = useHistory();
 
   const [login, setLogin] = useState({});
@@ -15,11 +16,11 @@ function Login(props) {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log("come from Login", login);
+    console.log("This is the login ", login);
     return await axios
       .post("http://localhost:9000/users/login", login)
       .then((result) => {
-        console.log("hello", result.data.user);
+        console.log("Hello", result.data.user);
         if (result.data.token) {
           setIsLog({ ...isLog, isLog: true, user: result.data.user });
           history.push("/Home");
@@ -30,6 +31,10 @@ function Login(props) {
 
   return (
     <div className="login">
+      <div className="login">
+        <WelcomeText />
+      </div>
+
       <div className="login-container">
         <form onSubmit={submitHandler}>
           <div>
@@ -59,7 +64,7 @@ function Login(props) {
           <input className="sign-in-submit" type="submit" value="Sign in" />
           <h4>
             <Link className="sign-up-submit" to="/Registration">
-              Sign Up
+              Sign up
             </Link>
           </h4>
           {/* <input className="sign-up-submit" type="submit" value="Sign Up"  /> */}
@@ -68,5 +73,3 @@ function Login(props) {
     </div>
   );
 }
-
-export default Login;

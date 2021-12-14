@@ -2,9 +2,9 @@ import "./Nav.css";
 import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "./InfoProvider.jsx";
-import  Logo from '../images/Logo01.png'; 
+import Logo from "../images/Logo01.png";
 
-function Nav(props) {
+export default function Nav(props) {
   const navStyle = {
     color: "white",
   };
@@ -14,12 +14,13 @@ function Nav(props) {
     setIsLog(false);
     history.push("/Login");
   };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="logo">
-      <img src={Logo} />
+        <img src={Logo} />
       </div>
-      
+
       <button
         className="navbar-toggler"
         type="button"
@@ -31,6 +32,7 @@ function Nav(props) {
       >
         <span className="navbar-toggler-icon"></span>
       </button>
+
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav nav-links w-100">
           {!props.user ? (
@@ -50,16 +52,21 @@ function Nav(props) {
           ) : (
             <>
               <li className="nav-item">
-                <Link onClick={logOutHandler} style={navStyle} className="nav-link" to="#">
+                <Link
+                  onClick={logOutHandler}
+                  style={navStyle}
+                  className="nav-link"
+                  to="#"
+                >
                   Logout
                 </Link>
               </li>
 
               <li className="nav-item">
-            <Link className="nav-link" style={navStyle} to="/UserProfile">
-              Profile
-            </Link>
-            </li>
+                <Link className="nav-link" style={navStyle} to="/UserProfile">
+                  Profile
+                </Link>
+              </li>
 
               <li className="nav-item">
                 <Link className="nav-link" style={navStyle} to="/Article">
@@ -74,7 +81,7 @@ function Nav(props) {
               </li>
             </>
           )}
-          
+
           <li className="nav-item">
             <Link className="nav-link" style={navStyle} to="/Imprint">
               Imprint
@@ -91,5 +98,3 @@ function Nav(props) {
     </nav>
   );
 }
-
-export default Nav;

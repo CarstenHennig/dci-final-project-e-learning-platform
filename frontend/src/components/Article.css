@@ -35,3 +35,13 @@
   padding: 5px;
   margin: 5px;
 }
+
+@media screen and (max-width: 600px) {
+  form {
+    height: 35vh;
+  }
+
+  p {
+    font-size: 11px;
+  }
+}
