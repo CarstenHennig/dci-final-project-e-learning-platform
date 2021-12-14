@@ -49,8 +49,9 @@ const WelcomePopUp = (props) => {
           <hr />
           <h3>Contact us to become a YouLearn developer</h3>
           <p>
-            Send us an <a href="mailto:ch@digitalevangelists">email</a>, we will
-            contact you!
+            Fill this{" "}
+            <a href="https://bgyimel9j0r.typeform.com/to/lzTnrfXd">typeform</a>.
+            We will contact you!
           </p>
         </div>
       </div>
