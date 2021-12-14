@@ -7,15 +7,11 @@ import  Profile from '../images/profile-img.png';
 import BlogModal from "./BlogModal.jsx";
 
 
-// const [editProfile, setEditProfile] = useContext()
 
 function UserProfile() {
   const [isLog, setIsLog] = useContext(UserContext);
-
-  const clickHandler = (e)=>{
-    console.log(e.target.content)
-  }
-  const [show, setShow ] =  useState(false);
+  
+  const [activePost, setActivePost ] =  useState(null);
 
   return (
     <div>
@@ -53,8 +49,10 @@ function UserProfile() {
                 <li>{isLog.user.firstName}</li>
                 <li>{isLog.user.lastName}</li>
                 <li>{isLog.user.email}</li>
-                <li>{isLog.user.address.city}</li>
-                <li>{isLog.user.phoneNumber}</li>
+                <li>{isLog.user.city}</li>
+                <li>{isLog.user.street}</li>
+                <li>{isLog.user.zip}</li>
+                <li>{isLog.user.country}</li>
              
             </ul>
 
@@ -71,20 +69,19 @@ function UserProfile() {
           <h3>Your Blogs</h3>
           <div className="wrap-ul-your-blogs">
             <ul className="your-blogs">
-              {isLog.user.posts.map((post)=>
-              
-                <li  key={post._id}>
-                     <BlogModal userName={post.firstName} content={post.content} show={show} closeHandler={()=>setShow(false)}/>
-
-                  <p onClick={(e)=>{
-                  console.log(post._id);
-                  setShow(true)
-                }}>
+              {isLog.user.posts.map(post =>
+                <li key={post._id}>
+                  <p onClick={e => setActivePost(post)}>
                     {post.title}
                   </p>
                 </li>
               )}
-               
+              
+               <BlogModal
+                post={activePost}
+                closeHandler={()=> setActivePost(null)}
+               />
+
             </ul>
           </div>
         </div>
