@@ -52,6 +52,46 @@ function Registration(props) {
               placeholder="Your last name..."
             />
           </div>
+          <div>Address :</div>
+          <div>
+            <label for="city">City : </label>
+            <input
+              onChange={changeHandler}
+              type="text"
+              id="city"
+              name="city"
+              placeholder="Your city..."
+            />
+          </div>
+          <div>
+            <label for="street">Street : </label>
+            <input
+              onChange={changeHandler}
+              type="text"
+              id="street"
+              name="street"
+              placeholder="Your street..."
+            />
+          </div>
+          <div>
+            <label for="zip">Zip : </label>
+            <input
+              onChange={changeHandler}
+              type="text"
+              id="zip"
+              name="zip"
+            />
+          </div>
+          <div>
+            <label for="country">Country : </label>
+            <input
+              onChange={changeHandler}
+              type="text"
+              id="country"
+              name="country"
+            />
+          </div>
+
           <div>
             <label for="email">Your Email : </label>
             <input
