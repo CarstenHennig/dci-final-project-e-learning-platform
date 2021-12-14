@@ -1,17 +1,16 @@
 import "./Registration.css";
 import React, { useState } from "react";
 import axios from "axios";
-import {useHistory} from "react-router-dom"
+import { useHistory } from "react-router-dom";
 
-function Registration(props) {
+export default function Registration(props) {
   const [register, setRegister] = useState({});
 
   const changeHandler = (e) => {
     setRegister({ ...register, [e.target.name]: e.target.value });
-    
   };
 
-  const history = useHistory()
+  const history = useHistory();
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -20,7 +19,7 @@ function Registration(props) {
         .post("http://localhost:9000/users/register", register)
         .then((result) => {
           console.log("User Is registered", result);
-          history.push("/Login")
+          history.push("/Login");
         })
         .catch((error) => console.log(error));
     }
@@ -33,7 +32,7 @@ function Registration(props) {
       <div className="wrap">
         <form onSubmit={submitHandler}>
           <div>
-            <label for="fname">First Name : </label>
+            <label for="fname">First name : </label>
             <input
               onChange={changeHandler}
               type="text"
@@ -43,7 +42,7 @@ function Registration(props) {
             />
           </div>
           <div>
-            <label for="lname">Last Name : </label>
+            <label for="lname">Last name : </label>
             <input
               onChange={changeHandler}
               type="text"
@@ -74,13 +73,8 @@ function Registration(props) {
             />
           </div>
           <div>
-            <label for="zip">Zip : </label>
-            <input
-              onChange={changeHandler}
-              type="text"
-              id="zip"
-              name="zip"
-            />
+            <label for="zip">Zip code : </label>
+            <input onChange={changeHandler} type="text" id="zip" name="zip" />
           </div>
           <div>
             <label for="country">Country : </label>
@@ -93,7 +87,7 @@ function Registration(props) {
           </div>
 
           <div>
-            <label for="email">Your Email : </label>
+            <label for="email">Your email : </label>
             <input
               onChange={changeHandler}
               type="email"
@@ -111,30 +105,29 @@ function Registration(props) {
               id="pass"
               name="password"
               placeholder="8 characters minimum"
-              minlength="8"
+              minLength="8"
               required
             />
           </div>
           <div>
-            <label for="pass">Repeat Password :</label>
+            <label for="pass">Repeat password :</label>
             <input
               onChange={changeHandler}
               type="password"
               id="pass"
               name="repassword"
               placeholder="8 characters minimum"
-              minlength="8"
-              required/>
+              minLength="8"
+              required
+            />
           </div>
           <div>
-          <button type="submit" className="SignUp-button" >
-          Submit
-          </button>
+            <button type="submit" className="SignUp-button">
+              Submit
+            </button>
           </div>
         </form>
       </div>
     </div>
   );
 }
-
-export default Registration;
