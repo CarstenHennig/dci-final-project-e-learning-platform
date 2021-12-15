@@ -35,7 +35,7 @@ router
 
 		for (let index = 0; index < userPosts.length; index++) {
 			const element = userPosts[index];
-			console.log("ELEMENT HERE: ", element.posts[0].author, element.posts)
+			// console.log("ELEMENT HERE: ", element.posts[0].author, element.posts)
 			posts = posts.concat(element.posts)
 		}
 		return res.send(posts)
