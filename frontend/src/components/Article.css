@@ -8,6 +8,13 @@
   margin: 5px;
 }
 
+.write-article-summary {
+  width: 75%;
+  height: 100px;
+  padding: 5px;
+  margin: 5px;
+}
+
 .write-article-content {
   width: 75%;
   padding: 5px;
@@ -27,4 +34,14 @@
 .dropdownButtons {
   padding: 5px;
   margin: 5px;
+}
+
+@media screen and (max-width: 600px) {
+  form {
+    height: 35vh;
+  }
+
+  p {
+    font-size: 11px;
+  }
 }

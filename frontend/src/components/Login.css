@@ -1,6 +1,7 @@
 .login label {
   display: block;
 }
+
 .login {
   display: flex;
   justify-content: center;
@@ -8,10 +9,12 @@
   /* border: 3px solid blue; */
   height: 65vh;
 }
+
 .login input[type="submit"],
 label {
   margin-top: 1rem;
 }
+
 .login .sign-in-submit {
   width: 60%;
   background-color: #1a3be6;
@@ -22,15 +25,17 @@ label {
   border-radius: 4px;
   cursor: pointer;
   font-size: 20px;
-  margin-bottom: 30px;;
+  margin-bottom: 30px;
 }
+
 .login .sign-in-submit:hover {
   background-color: #3541808b;
 }
+
 .login .sign-up-submit {
   font-size: 20px;
   width: 70%;
-  background-color:#A7D5D4;
+  background-color: #a7d5d4;
   color: white;
   padding: 10px 15px;
   margin: 4px 0;
@@ -38,6 +43,7 @@ label {
   border-radius: 4px;
   cursor: pointer;
 }
+
 .login .sign-up-submit:hover {
-  background-color:#a7d5d46b;
+  background-color: #a7d5d46b;
 }

@@ -11,6 +11,10 @@ const Popup = (props) => {
         <div>
           <h3>Add a catchy headline</h3>
           <p>Not more than 5 - 7 words</p>
+          <p>Max. 160 characters</p>
+          <hr />
+          <h3>Add a summary</h3>
+          <p>Max. 320 characters</p>
           <hr />
           <h3>Add short but complete description</h3>
           <p>This information are important:</p>

@@ -1,16 +1,31 @@
 import { useContext } from "react";
 import { UserContext } from "./InfoProvider";
 import Profile from "../images/profile-img.png";
-
 import "./Home.css";
 import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import BlogModal from "./BlogModal.jsx";
 
 function Home() {
+  const [activePost, setActivePost] = useState(null);
   const [isLog, setIsLog] = useContext(UserContext);
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:9000/posts/getPost")
+      .then((response) => response.json())
+      .then((data) => {
+        setPosts(data);
+      });
+  }, []);
+
+  const openBlogPopUp = (post) => {
+    setActivePost(post);
+  };
 
   return (
     <div>
-      <div className="wellcom-div">
+      <div className="welcome-div">
         <div>Welcome {isLog.user.firstName || "Guest"}</div>
       </div>
       <div className="wrap-div-home">
@@ -120,45 +135,19 @@ function Home() {
         </div>
 
         <div className="inside-wrap-div-2">
-          <div className="wrap-div-box-1">
-            <h1 className="categories-font">Featured content slider</h1>
-            <div className="div-box-slider-1">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-              nihil dolore enim dolor error beatae corrupti earum non similique
-              delectus tempore minus quia, voluptas soluta illo voluptatem
-              eveniet maiores totam?
+          {posts.map((post) => (
+            <div className="wrap-div-box-1">
+              <h1 className="categories-font">{post.title}</h1>
+              <div className="div-box-slider-1">
+                {post.content}
+                <button onClick={openBlogPopUp}>Read more...</button>
+                <BlogModal
+                  posts={activePost}
+                  closeHandler={() => setActivePost(null)}
+                />
+              </div>
             </div>
-          </div>
-
-          <div className="wrap-div-box-1">
-            <h1 className="categories-font">Featured category</h1>
-            <div className="div-box-slider-1">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-              nihil dolore enim dolor error beatae corrupti earum non similique
-              delectus tempore minus quia, voluptas soluta illo voluptatem
-              eveniet maiores totam?
-            </div>
-          </div>
-
-          <div className="wrap-div-box-1">
-            <h1 className="categories-font">Featured category</h1>
-            <div className="div-box-slider-1">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-              nihil dolore enim dolor error beatae corrupti earum non similique
-              delectus tempore minus quia, voluptas soluta illo voluptatem
-              eveniet maiores totam?
-            </div>
-          </div>
-
-          <div className="wrap-div-box-1">
-            <h1 className="categories-font">Random content</h1>
-            <div className="div-box-slider-1">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-              nihil dolore enim dolor error beatae corrupti earum non similique
-              delectus tempore minus quia, voluptas soluta illo voluptatem
-              eveniet maiores totam?
-            </div>
-          </div>
+          ))}
         </div>
 
         <div className="inside-wrap-div-3">
@@ -167,7 +156,7 @@ function Home() {
               <p className="p-tag-profile">Your profile</p>
             </Link>
             <Link to="/UserProfile">
-              <img className="profiile" src={Profile} />
+              <img className="profile" src={Profile} />
             </Link>
           </div>
         </div>
