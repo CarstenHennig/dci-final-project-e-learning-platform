@@ -25,7 +25,7 @@ function Home() {
 
   return (
     <div>
-      <div className="wellcom-div">
+      <div className="welcome-div">
         <div>Welcome {isLog.user.firstName || "Guest"}</div>
       </div>
       <div className="wrap-div-home">
@@ -139,8 +139,8 @@ function Home() {
             <div className="wrap-div-box-1">
               <h1 className="categories-font">{post.title}</h1>
               <div className="div-box-slider-1">
-               {post.content}
-                <button onClick={openBlogPopUp}> read more...</button>
+                {post.content}
+                <button onClick={openBlogPopUp}>Read more...</button>
                 <BlogModal
                   posts={activePost}
                   closeHandler={() => setActivePost(null)}
@@ -156,7 +156,7 @@ function Home() {
               <p className="p-tag-profile">Your profile</p>
             </Link>
             <Link to="/UserProfile">
-              <img className="profiile" src={Profile} />
+              <img className="profile" src={Profile} />
             </Link>
           </div>
         </div>

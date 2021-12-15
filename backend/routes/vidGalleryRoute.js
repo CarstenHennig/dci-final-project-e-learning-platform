@@ -11,7 +11,7 @@ router.use(function (req, res, next) {
 
 //===== Register A User
 router
-	.route("/register")
+	.route("/createGallery")
 	.post(async (req, res) => {
 		const gallery = await Gallery.register(req.body);
 		console.log(req.body)
@@ -57,7 +57,7 @@ router
 			return res.status(201).json(video)
 
 		}
-
+		
 		res.json({ error: "Gallery cannot be updated" })
 	});
 
@@ -66,18 +66,19 @@ router
 	.route("/getClips")
 	.get(async (req, res, next) => {
 		const videos = await Gallery.find({})
-	
-		let clips = []
+	console.log("VIDS: ", videos)
+		let clips = videos
 
 		for (let index = 0; index < videos.length; index++) {
 			const element = videos[index];
-			console.log(element)
-			//console.log("CLIPS HERE: ", element.clips[0].author, element.clips)
-			clips = videos.concat(element.videos)
+			
+			
+			/* clips = videos.concat(element)  */
+
+			
 		}
+	/* 	console.log("CLIPS HERE: ",  clips) */
 		return res.send(clips)
 		next()
 	});
-
-
 export default router

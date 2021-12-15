@@ -19,7 +19,7 @@ const userSchema = mongoose.Schema({
 
 	},
 	describeSelf: {
-		type: String, 
+		type: String,
 		default: "A country boy from the barkih"
 
 	},
@@ -36,6 +36,7 @@ const userSchema = mongoose.Schema({
 	},
 
 	dateOfBirth: Number,
+<<<<<<< HEAD
 	
 	city: {
 		type: String, required
@@ -49,6 +50,13 @@ const userSchema = mongoose.Schema({
 	country: {
 		type: String, required
 	},
+=======
+
+	city: String,
+	street: String,
+	zip: Number,
+	country: String,
+>>>>>>> 22c99462a706671dc986ed1c76d6aca19680478d
 
 	phoneNumber: Number,
 	followers: {
@@ -60,7 +68,7 @@ const userSchema = mongoose.Schema({
 		default: 0,
 	},
 	posts: [{
-		
+
 		title: {
 			type: String,
 			default: 'Killing the Goose'
