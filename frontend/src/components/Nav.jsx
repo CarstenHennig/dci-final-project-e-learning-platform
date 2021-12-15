@@ -93,6 +93,12 @@ export default function Nav(props) {
               About
             </Link>
           </li>
+
+          <li className="nav-item">
+            <Link className="nav-link" style={navStyle} to="/EmbeddedMedia">
+              Video gallery
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
