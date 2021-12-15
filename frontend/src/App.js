@@ -6,15 +6,14 @@ import RouterComponents from "./components/Router.jsx";
 import InfoProvider from "./components/InfoProvider.jsx";
 
 
-function App() {
+export default function App() {
   return (
     <div>
-    
-       <InfoProvider>
+      <InfoProvider>
         <RouterComponents />
-      </InfoProvider>  
+      </InfoProvider>
     </div>
   );
 }
 
-export default App;
+
