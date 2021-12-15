@@ -6,9 +6,11 @@ nav {
   background: #a8a9ad;
   color: white;
 }
+
 .logo {
   font-size: 40px;
 }
+
 .div-nav {
   padding: 5px;
   display: flex;
@@ -16,16 +18,19 @@ nav {
   align-items: center;
   list-style: none;
 }
+
 .nav-links {
   display: flex;
   justify-content: space-around;
   align-items: center;
   list-style: none;
 }
-.logo{
+
+.logo {
   padding: 10px;
-  padding-bottom:30px;
+  padding-bottom: 30px;
 }
+
 .navbar {
   background-color: #a8a9ad;
 }
@@ -53,4 +58,3 @@ nav {
     margin-left: 3px;
   }
 }
-

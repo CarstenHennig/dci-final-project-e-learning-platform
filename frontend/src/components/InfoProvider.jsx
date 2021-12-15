@@ -1,22 +1,12 @@
-import React, { createContext, useState} from 'react';
+import React, { createContext, useState } from "react";
 
-export const UserContext = createContext()
+export const UserContext = createContext();
 
-
-function InfoProvider(props) {
-    const [isLog, setIsLog]= useState(false)
-    return (
+export default function InfoProvider(props) {
+  const [isLog, setIsLog] = useState(false);
+  return (
     <UserContext.Provider value={[isLog, setIsLog]}>
-        {props.children}
+      {props.children}
     </UserContext.Provider>
-
-    )
+  );
 }
-
-export default InfoProvider
-
-
-
-
-
-// rfce -> 

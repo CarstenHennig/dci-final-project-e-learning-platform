@@ -1,5 +1,10 @@
 .imprint {
+  text-align: center;
   /* display: flex;
-  justify-content: center; */
-  align-items: center;
+  align-items: center; */
+}
+
+.imprint-text {
+  height: 250px;
+  overflow: scroll;
 }
