@@ -64,7 +64,7 @@ const initialPostedBy= "Jackson Lekeujah"
 				{/* =================== */}
 				
 				{/*Card to Create Playlist */}
-
+				
 				<Card variant="primary" style={{ width: '35rem', marginRight: 'auto', backgroundColor: ' #c6a61a' }}>
 					<Card.Body>
 						<Card.Title>Playlist</Card.Title>

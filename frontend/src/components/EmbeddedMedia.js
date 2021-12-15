@@ -1,18 +1,15 @@
 import { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
-import { Alert, Card, Row, Col, Button, ListGroupItem, Image } from "react-bootstrap"
 import axios from "axios"
 import moment from "moment"
 import "../App.css";
 import playVideo1 from "../images/playVideo1.jpg"
-
+import { Card, Button, Modal } from "react-bootstrap"
 const baseUrl = "http://localhost:9000/galleries/getClips"
 
-function EmbeddedMedia() {
-
+export default function EmbeddedMedia() {
 	let [videoData, setVideoData] = useState([])
-	let [vidUrl, setVidUrl] = useState("https://www.youtube.com/watch?v=W2FVN8AYYx8")
-	const [video, setVideo] = useState(null)
+	const [videoClip, setVideoClip] = useState("")
 
 	useEffect(() => {
 		axios.get(baseUrl)
@@ -32,56 +29,59 @@ function EmbeddedMedia() {
 
 	}, []);
 
-	const data = videoData.length ? videoData[0] : null
 
-	function VideoPlayer() {
-		return (
-			<div style={{ display: 'flex' }}>
+	const [show, setShow] = useState(false);
 
-				<hr />
-				{/* <Alert style={{ width: '50%', margin: 'auto' }}>
-					<Alert.Heading>{video ? video.title : null}</Alert.Heading>
-					<p>{<ReactPlayer width="100%"  autoplay={true}
-						onReady={true} controls={true} url={video ? video.videoUrl : null} />}</p>
-					<hr />
-					<p className="mb-0">
-						<Card.Img variant="top" style={{
-							width: '10%', height: '20%',
-							borderRadius: '10%'
-						}} src="http://placekitten.com/g/150/150" />
-						{video ?
-							<>
-								<p>{video.postedBy}</p>
-								<p>{moment(video.createdAt).format(' DD - MM - YYYY')}</p>
-								<hr />
-								<p>{video.desc}</p>
-							</> : null}
-					</p>
-				</Alert> */}
-				{/* =================== */}
-				{/* Create Playlist */}
+	function handleShow() {
 
-				<Card variant="primary" style={{ width: '35rem', marginRight: 'auto', backgroundColor: ' #c6a61a' }}>
-					<Card.Body>
-						<Card.Title>Playlist</Card.Title>
-						<Card.Text>
-							{videoData ? videoData.map((item, i) =>
-								<ListGroupItem key={item + i}
-									onClick={() => setVideo(item)}  >{<Image style={{ width: '10%' }}
-										src={playVideo1} alt="play icon" thumbnail />}{item.title}
-								</ListGroupItem>) : null}
 
-						</Card.Text>
-					</Card.Body>
-				</Card>
-			</div>
-		);
+
+		setShow(true);
 	}
-	return (<div className="main" >
-		<h1>YOULEARN !</h1>
-		<hr />
-		<VideoPlayer />
+	return (
+		<>
+			<h1> YouLearn</h1>
+			<div className= "main" style={{ display: 'flex', flexWrap: "wrap", flexFlow: "row Wrap", justifyContent: "spaceAround" }}>
 
-	</div>)
+				<>
+					{videoData.map((clip, index) => <Card key={clip._id} style={{ width: '18rem', display: "flex", flexWrap: "wrap", flexFlow: "row Wrap", justifyContent: "spaceAround" }}>
+
+						<Card.Img variant="top" src={playVideo1} />
+						<Card.Text>
+							{clip.title}
+						</Card.Text>
+						<Button key={index + 1} className="me-2" onClick={() => { setVideoClip(clip); handleShow(); }}>
+
+							Play Clip
+						</Button>
+
+						<Modal show={show} onHide={() => setShow(false)}>
+							<Modal.Header closeButton>
+								<p>{videoClip.title}</p>
+							</Modal.Header>
+							<Modal.Body style={{ width: "100%" }}>   {
+								<ReactPlayer autoPlay={true} width="100%"
+									controls={true} url={videoClip ? videoClip.videoUrl : null} />}
+							</Modal.Body>
+							Posted by {videoClip.postedBy} on
+							{moment(videoClip.createdAt).format(' DD - MM - YYYY')}
+							<hr />
+							<div style={{ padding: "10px", fontSize: "10px", justifyContent: "justify" }}>
+								Clip Info: <br /> {videoClip.desc}
+							</div>
+
+						</Modal>
+						<Card.Footer className="text-muted">
+
+						</Card.Footer>
+					</Card>)}
+
+
+
+
+				</>
+			</div></>
+	);
 }
-export default EmbeddedMedia;
+
+

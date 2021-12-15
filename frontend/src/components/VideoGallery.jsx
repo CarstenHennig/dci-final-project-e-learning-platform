@@ -12,9 +12,7 @@ import MediaPlayer from "./MediaPlayer.js"
 const baseUrl = "http://localhost:9000/galleries/getClips"
 
 function VideoGallery() {
-
-	let [videoData, setVideoData] = useState([])
-	let [vidUrl, setVidUrl] = useState("https://www.youtube.com/watch?v=W2FVN8AYYx8")
+	let [videoData, setVideoData] = useState([])	
 	const [video, setVideo] = useState("")
 
 	useEffect(() => {
@@ -53,7 +51,7 @@ function playHandler(){
 					{data ?  <
 						ListGroupItem  onLoad={() => setVideo(data)}  >{<Card.Img variant="top" style={{ width: "100%", display: 'flex' }} src={playVideo1} />}
 						{console.log(video)}
-						{video.title}{<button style={{ border: "2px", padding: "5px", backgroundColor: "slateGrey", color: "blue", borderRadius: "40%" }} onClick ={playHandler} >Play</button>}
+						{video.title}{<button style={{ border: "2px", padding: "5px", backgroundColor: "slateGrey", color: "blue", borderRadius: "40%" }} onClick ={video.videoUrl} >Play</button>}
 						</ListGroupItem> : null}
 				</>
 			))}

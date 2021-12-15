@@ -19,7 +19,7 @@ const userSchema = mongoose.Schema({
 
 	},
 	describeSelf: {
-		type: String, 
+		type: String,
 		default: "A country boy from the barkih"
 
 	},
@@ -36,12 +36,12 @@ const userSchema = mongoose.Schema({
 	},
 
 	dateOfBirth: Number,
-	address: {
-		city: String,
-		street: String,
-		zip: Number,
-		country: String,
-	},
+
+	city: String,
+	street: String,
+	zip: Number,
+	country: String,
+
 	phoneNumber: Number,
 	followers: {
 		type: Number,
@@ -52,7 +52,7 @@ const userSchema = mongoose.Schema({
 		default: 0,
 	},
 	posts: [{
-		
+
 		title: {
 			type: String,
 			default: 'Killing the Goose'

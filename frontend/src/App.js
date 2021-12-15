@@ -10,11 +10,10 @@ import MediaPlayer from "./components/MediaPlayer.js";
 function App() {
   return (
     <div>
-       <MediaPlayer/> 
-      <VideoGallery/> 
-      {/* <InfoProvider>
+    
+       <InfoProvider>
         <RouterComponents />
-      </InfoProvider>  */}
+      </InfoProvider>  
     </div>
   );
 }
