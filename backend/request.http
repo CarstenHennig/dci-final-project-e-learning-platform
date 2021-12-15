@@ -59,11 +59,6 @@ PUT http://localhost:9000/posts/writePost
 Content-Type: application/json
 	
 	{	
-		"email": "aggripina@emanu.come",
-		"title": "Gengis Khan ganta ",
-		"author": "Jonny One",
-		"summary" : "The falcom took a vett fw ",
-		"content": "They took my scarf and my staff. They robbed me of my dignity and thought that would emasciate my humanity. But I rose up like the proverbial phoneix, and like a lark sang to the heavens the perreniality of my humanity. The data showed the epidemic gaining pace with 131,731 cases detected over past seven days, compared to 73,200 cases reported for all of October."
 		
 		
 		"email":"karin167@gmail.com",

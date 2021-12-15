@@ -36,7 +36,7 @@ const userSchema = mongoose.Schema({
 	},
 
 	dateOfBirth: Number,
-<<<<<<< HEAD
+
 	
 	city: {
 		type: String, required
@@ -50,13 +50,6 @@ const userSchema = mongoose.Schema({
 	country: {
 		type: String, required
 	},
-=======
-
-	city: String,
-	street: String,
-	zip: Number,
-	country: String,
->>>>>>> 22c99462a706671dc986ed1c76d6aca19680478d
 
 	phoneNumber: Number,
 	followers: {
