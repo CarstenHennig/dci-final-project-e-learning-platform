@@ -7,7 +7,7 @@ import InfoProvider from "./components/InfoProvider.jsx";
 
 
 
->>>> master
+
 export default function App() {
   return (
     <div>
