@@ -1,6 +1,11 @@
+import React from "react";
 import "./Imprint.css";
+import ModalCredits from "./ImprintModal.jsx";
+import { Button } from "react-bootstrap";
 
-function Imprint() {
+export default function Imprint() {
+  const [modalShow, setModalShow] = React.useState(false);
+
   return (
     <div className="imprint">
       <h2> Imprint </h2>
@@ -28,7 +33,21 @@ function Imprint() {
           </a>
         </p>
       </div>
+
+      {/* Modal for credits */}
+
+      <>
+        <Button variant="primary" onClick={() => setModalShow(true)}>
+          Deep thanks to ...
+        </Button>
+
+        <ModalCredits show={modalShow} onHide={() => setModalShow(false)} />
+      </>
+
       <hr />
+
+      {/* Large text part of imprint in scrollbar div */}
+
       <div class="imprint-text">
         <p>Registered in the regional register of cooperatives</p>
         <p>Court of jurisdiction: Hamburg</p>
@@ -68,5 +87,3 @@ function Imprint() {
     </div>
   );
 }
-
-export default Imprint;
