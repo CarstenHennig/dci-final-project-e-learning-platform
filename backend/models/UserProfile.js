@@ -37,10 +37,19 @@ const userSchema = mongoose.Schema({
 
 	dateOfBirth: Number,
 
-	city: String,
-	street: String,
-	zip: Number,
-	country: String,
+	
+	city: {
+		type: String, required
+	},
+	street: {
+		type: String, required
+	},
+	zip: {
+		type: Number, required
+	},
+	country: {
+		type: String, required
+	},
 
 	phoneNumber: Number,
 	followers: {
