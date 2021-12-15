@@ -4,7 +4,7 @@ import Pic1 from "../images/pixelcells3.png";
 import Pic2 from "../images/pixelcells.png";
 import Pic3 from "../images/pixelcells2.png";
 
-function About() {
+export default function About() {
   return (
     <div className="about">
       <div className="about_head"></div>
@@ -68,5 +68,3 @@ function About() {
     </div>
   );
 }
-
-export default About;
