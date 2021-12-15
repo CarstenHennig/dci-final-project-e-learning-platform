@@ -5,7 +5,10 @@ import React from "react";
 import RouterComponents from "./components/Router.jsx";
 import InfoProvider from "./components/InfoProvider.jsx";
 
-function App() {
+
+
+>>>> master
+export default function App() {
   return (
     <div>
       <InfoProvider>
@@ -15,4 +18,3 @@ function App() {
   );
 }
 
-export default App;

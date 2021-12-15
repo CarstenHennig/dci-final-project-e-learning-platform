@@ -1,12 +1,10 @@
 import "./Footer.css";
 
-function Footer() {
+export default function Footer() {
   return (
     <footer>
-      <h1> Lets Learn Together </h1>
+      <h1> Let's learn together </h1>
       <p></p>
     </footer>
   );
 }
-
-export default Footer;

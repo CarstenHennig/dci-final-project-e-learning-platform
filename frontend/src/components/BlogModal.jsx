@@ -16,7 +16,6 @@ function BlogModal(props) {
           <p>{props.post.content}</p>
           <p>{props.post.email}</p>
           <p>This Blog created on: {props.post.createdAt}</p>
-
         </div>
         <div className="modal-footer"></div>
       </div>

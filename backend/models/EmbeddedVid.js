@@ -5,9 +5,12 @@ const required = true;
 
 
 const vidGallerySchema = mongoose.Schema({
-	galleryName: {type:String, required},
-	ownerName: {type:String, required},
-	email: {type:String, required},
+
+	galleryName: {
+		type: String},
+	ownerName: { type: String },
+	email: { type: String },
+
 	videos: [{
 
 		title: {
@@ -64,7 +67,7 @@ vidGallerySchema.statics.login = async (galleryData) => {
 	if (!gallery) {
 		return null;
 	}
-	const success = galleryData.email= gallery.email
+	const success = galleryData.email = gallery.email
 
 	if (!success) {
 
@@ -81,7 +84,7 @@ vidGallerySchema.methods.toJSON = function () {
 
 	return gallery
 }
-const Gallery = mongoose.model('embeddedVideos', vidGallerySchema);
+const Gallery = mongoose.model('embedVideos', vidGallerySchema);
 
 export default Gallery;
 

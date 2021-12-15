@@ -19,7 +19,7 @@ const userSchema = mongoose.Schema({
 
 	},
 	describeSelf: {
-		type: String, 
+		type: String,
 		default: "A country boy from the barkih"
 
 	},
@@ -36,6 +36,7 @@ const userSchema = mongoose.Schema({
 	},
 
 	dateOfBirth: Number,
+
 	
 	city: {
 		type: String, required
@@ -60,7 +61,7 @@ const userSchema = mongoose.Schema({
 		default: 0,
 	},
 	posts: [{
-		
+
 		title: {
 			type: String,
 			default: 'Killing the Goose'
