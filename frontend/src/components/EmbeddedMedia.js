@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
 import axios from "axios"
 import moment from "moment"
-import "../App.css";
+import "./EmbeddedMedia.scss";
 import playVideo1 from "../images/playVideo1.jpg"
 import { Card, Button, Modal } from "react-bootstrap"
 const baseUrl = "http://localhost:9000/galleries/getClips"
@@ -40,22 +40,28 @@ export default function EmbeddedMedia() {
 	}
 	return (
 		<>
-			<h1> YouLearn</h1>
-			<div className= "main" style={{ display: 'flex', flexWrap: "wrap", flexFlow: "row Wrap", justifyContent: "spaceAround" }}>
-
+		<h1> Video Gallery </h1>
+			<div className="embedded-media">
+			
+			
 				<>
-					{videoData.map((clip, index) => <Card key={clip._id} style={{ width: '18rem', display: "flex", flexWrap: "wrap", flexFlow: "row Wrap", justifyContent: "spaceAround" }}>
+					{videoData.map((clip, index) => <Card className="wrap-card" key={clip._id}>
 
-						<Card.Img variant="top" src={playVideo1} />
-						<Card.Text>
+						<Card.Img variant="top" src={playVideo1} onClick={() => { setVideoClip(clip); handleShow(); }} />
+						<Card.Text className="card-media">
 							{clip.title}
 						</Card.Text>
 						<Button key={index + 1} className="me-2" onClick={() => { setVideoClip(clip); handleShow(); }}>
 
 							Play Clip
 						</Button>
+						
+						<Card.Footer className="text-muted">
 
-						<Modal show={show} onHide={() => setShow(false)}>
+						</Card.Footer>
+					</Card>)}
+
+					<Modal show={show} onHide={() => setShow(false)}>
 							<Modal.Header closeButton>
 								<p>{videoClip.title}</p>
 							</Modal.Header>
@@ -71,10 +77,6 @@ export default function EmbeddedMedia() {
 							</div>
 
 						</Modal>
-						<Card.Footer className="text-muted">
-
-						</Card.Footer>
-					</Card>)}
 
 
 

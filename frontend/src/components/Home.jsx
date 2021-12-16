@@ -19,10 +19,6 @@ function Home() {
       });
   }, []);
 
-  const openBlogPopUp = (post) => {
-    setActivePost(post);
-  };
-
   return (
     <div>
       <div className="welcome-div">
@@ -135,19 +131,21 @@ function Home() {
         </div>
 
         <div className="inside-wrap-div-2">
-          {posts.map((post) => (
+          {posts.map((oneSinglePost) => (
             <div className="wrap-div-box-1">
-              <h1 className="categories-font">{post.title}</h1>
+              <h1 className="categories-font">{oneSinglePost.title}</h1>
               <div className="div-box-slider-1">
-                {post.content}
-                <button onClick={openBlogPopUp}>Read more...</button>
-                <BlogModal
-                  posts={activePost}
-                  closeHandler={() => setActivePost(null)}
-                />
+                {oneSinglePost.content}
+                <button onClick={() => setActivePost(oneSinglePost)}>Read more...</button>
               </div>
             </div>
           ))}
+         
+          <BlogModal
+            post={activePost}
+            closeHandler={() => setActivePost(null)}
+          />
+         
         </div>
 
         <div className="inside-wrap-div-3">

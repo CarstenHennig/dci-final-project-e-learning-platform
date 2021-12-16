@@ -11,13 +11,13 @@ export default function WelcomeText() {
 
   return (
     <div className="Home-welcome">
+      <div>
       <h1>Task of the day</h1>
-      <h1>YouLearn || NoLearn</h1>
-      <h4>set StartToday = (i) => i.login </h4>
       <button onClick={togglePopUp} className="button-welcome-popup">
-        Sure, but why?
+      Are you ready?
       </button>
       {isOpen ? <WelcomePopUp handleClose={togglePopUp} /> : null}
+      </div>
     </div>
   );
 }

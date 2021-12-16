@@ -1,0 +1,19 @@
+
+
+.wrap-card {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    width: 15rem;
+    
+}
+.embedded-media {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row-wrap;
+    justify-content: space-around;
+    .card-img-top {
+        cursor: pointer;
+    }
+}

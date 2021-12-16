@@ -7,13 +7,13 @@ import Registration from "./Registration.jsx";
 import Imprint from "./Imprint.jsx";
 import About from "./About.jsx";
 import Article from "./Article.jsx";
-import PostVideo from "./Video.jsx";
 import PostPodcast from "./Podcast.jsx";
 import Footer from "./Footer.jsx";
 import { UserContext } from "./InfoProvider.jsx";
 import Home from "./Home.jsx";
 import EditProfilePage from "./EditProfilePage.jsx";
 import UserProfile from "./UserProfile.jsx";
+import EmbeddedMedia from "./EmbeddedMedia.js";
 
 export default function RouterComponents() {
   const [isLog, setIsLog] = useContext(UserContext);
@@ -33,8 +33,8 @@ export default function RouterComponents() {
             {isLog ? (
               <Route path="/UserProfile" component={UserProfile} />
             ) : null}
-            <Route path="/Video" component={PostVideo} />
-            <Route path="/Podcast" component={PostPodcast} />
+            {isLog ? <Route path="/EmbeddedMedia" component={EmbeddedMedia} /> : null}
+            {isLog ? <Route path="/Podcast" component={PostPodcast} /> : null}
             {isLog ? <Route path="/Home" component={Home} /> : null}
             <Route path="/EditProfilePage" component={EditProfilePage} />
           </Switch>
