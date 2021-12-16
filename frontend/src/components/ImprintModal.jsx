@@ -37,8 +37,8 @@ export default function ModalCredits(props) {
             style={{ textDecoration: "none" }}
           >
             video icon provided via unsplashed.com
-          </a>
-          !
+          </a>{" "}
+          that gives our video gallery an awesome looking!
         </p>
       </Modal.Body>
       <Modal.Footer>
