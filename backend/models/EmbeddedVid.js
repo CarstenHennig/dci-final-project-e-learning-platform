@@ -10,7 +10,7 @@ const vidGallerySchema = mongoose.Schema({
 		type: String},
 	ownerName: { type: String },
 	email: { type: String },
-
+	
 	videos: [{
 
 		title: {

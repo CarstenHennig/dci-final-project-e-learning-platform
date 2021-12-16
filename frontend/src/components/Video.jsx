@@ -17,7 +17,7 @@ export default function PostVideo() {
   const [title, setTitle] = useState(null);
   const [desc, setDesc] = useState(null);
   const [videoUrl, setVideoUrl] = useState(null);
-  const [valueCategory, setValueCategory] = useState();
+  const [category, setCategory] = useState();
   const [isOpen, setIsOpen] = useState(false);
 
   const togglePopUp = () => {
@@ -27,7 +27,7 @@ export default function PostVideo() {
   /** Function HandleChange sending form data via axios to backend */
 
   const HandleChange = (e) => {
-    console.log(title, desc, videoUrl, valueCategory);
+    console.log(title, desc, videoUrl, category);
     e.preventDefault();
 
     axios
@@ -36,10 +36,7 @@ export default function PostVideo() {
         title,
         desc,
         videoUrl,
-        valueCategory,
-
-        // Hard coded email and posted by name to target the blogging user
-        // Removed after improved to local stored UserID
+        category,
         email: "zulu_nation@gmail.com",
         postedBy: "Shaka",
       })
@@ -122,8 +119,8 @@ export default function PostVideo() {
         <div className="dropdownButtons">
           <p>Select a category</p>
           <DropdownBlogCategory
-            value={valueCategory}
-            setValue={setValueCategory}
+            category={category}
+            setCategory={setCategory}
           />
         </div>
 

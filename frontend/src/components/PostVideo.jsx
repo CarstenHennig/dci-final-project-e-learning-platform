@@ -1,24 +1,25 @@
-/** Frontend component to create a blog post
+/** Frontend component to post a video
  * using React, Axios, own style sheet, Bootstrap and FontAwesome
  */
 
+/** Text areas should be responsive for mobile use */
+
 import React, { useState } from "react";
 import axios from "axios";
-import "./Article.css";
+import "./Video.css";
 import { FloatingLabel, Form } from "react-bootstrap";
 import DropdownBlogCategory from "./ArticleDropdownButton.jsx";
-import UploadImageToArticle from "./UploadImageToArticle.jsx";
 import Popup from "./HelpPopUp.jsx";
 
-/** Function to write a blog post */
+/** Function to post a video */
 
-export default function WriteArticle() {
+export default function PostVideo() {
   const [title, setTitle] = useState(null);
-  const [summary, setSummary] = useState(null);
-  const [content, setContent] = useState(null);
-  const [author, setAuthor] = useState(null);
+  const [desc, setDesc] = useState(null);
+  const [videoUrl, setVideoUrl] = useState(null);
+  const [valueCategory, setValueCategory] = useState(null);
   const [email, setEmail] = useState(null);
-  const [value, setValue] = useState();
+  const [postedBy,setPostedBy] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
   const togglePopUp = () => {
@@ -26,21 +27,24 @@ export default function WriteArticle() {
   };
 
   /** Function HandleChange sending form data via axios to backend */
-  
+
   const HandleChange = (e) => {
-    console.log(title, content, value);
+    console.log(title, desc, videoUrl, valueCategory);
     e.preventDefault();
+
     axios
-      .put("http://localhost:9000/posts/writePost", {
+      // To paste video posting endpoint from Ferdinand
+      .put("http://localhost:9000/galleries/createClip", {
         title,
-        summary,
-        content,
-        author,   /*(set to current logged in user)  */   
-        email, /* (set to current logged in user)  */ 
+        desc,
+        videoUrl,
+        valueCategory,
+        email: "zulu_nation@gmail.com",
+        postedBy: "Shaka",
       })
       .then(
         (response) => {
-          alert("Blog post saved");
+          alert("Video sent");
         },
         (error) => {
           alert(error);
@@ -52,8 +56,7 @@ export default function WriteArticle() {
     <div>
       <div className="headline">
         <h4>
-          <i class="fa fa-pencil-square" aria-hidden="true"></i> Publish your
-          blog posts
+          <i class="fa fa-video-camera" aria-hidden="true"></i> Post your video
         </h4>
         <button onClick={togglePopUp}>Get help</button>
         {isOpen ? <Popup handleClose={togglePopUp} /> : null}
@@ -66,12 +69,11 @@ export default function WriteArticle() {
           <p className="labels">Headline</p>
           <FloatingLabel
             controlId="floatingTextarea"
-            className="write-article-headline"
+            className="write-video-headline"
           >
             <Form.Control
               as="textarea"
-              placeholder="Write your headline"
-              maxlength="160"
+              placeholder="Write headline of video"
               name="headline"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -79,52 +81,51 @@ export default function WriteArticle() {
             />
           </FloatingLabel>
 
-          {/* Inserting summary */}
+          {/* Inserting description */}
 
-          <p className="labels">Summary</p>
+          <p className="labels">Description</p>
           <FloatingLabel
-            controlId="floatingTextarea"
-            className="write-article-summary"
+            controlId="floatingTextarea2"
+            className="write-video-description"
           >
             <Form.Control
               as="textarea"
-              placeholder="Write your summary"
-              maxlength="320"
-              name="summary"
-              value={summary}
-              onChange={(e) => setSummary(e.target.value)}
-              // style={{ height: "100px", margin: "5px", padding: "5px" }}
+              placeholder="Write your video description"
+              name="text"
+              value={desc}
+              onChange={(e) => setDesc(e.target.value)}
+              style={{ height: "150px", margin: "5px", padding: "5px" }}
             />
           </FloatingLabel>
 
-          {/* Inserting blog text */}
+          {/* Inserting video url */}
 
-          <p className="labels">Content</p>
+          <p className="labels">Video URL</p>
+           <p>{videoUrl}</p> 
           <FloatingLabel
-            controlId="floatingTextarea2"
-            className="write-article-content"
+            controlId="floatingTextarea3"
+            className="post-video-url"
           >
             <Form.Control
               as="textarea"
-              placeholder="Write your content"
+              placeholder="Paste your video URL"
               name="text"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              style={{ height: "500px", margin: "5px", padding: "5px" }}
+              value={videoUrl}
+              onChange={(e) => setVideoUrl(e.target.value)}
+            
+              style={{ height: "150px", margin: "5px", padding: "5px" }}
             />
           </FloatingLabel>
         </>
-
-        {/** Text areas should be responsive for mobile use */}
-
-        {/* Inserting component to upload a picture */}
-        <UploadImageToArticle />
 
         {/* Selecting blog category */}
 
         <div className="dropdownButtons">
           <p>Select a category</p>
-          <DropdownBlogCategory value={value} setValue={setValue} />
+          <DropdownBlogCategory
+            value={valueCategory}
+            setValue={setValueCategory}
+          />
         </div>
 
         {/* Button to publish */}
