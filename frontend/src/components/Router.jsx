@@ -30,10 +30,14 @@ export default function RouterComponents() {
             <Route path="/Imprint" component={Imprint} />
             <Route path="/About" component={About} />
             <Route path="/Article" component={Article} />
+            <Route path="/Video" component={Video} />
+            <Route path="/Podcast" component={Podcast} />
             {isLog ? (
               <Route path="/UserProfile" component={UserProfile} />
             ) : null}
-            {isLog ? <Route path="/EmbeddedMedia" component={EmbeddedMedia} /> : null}
+            {isLog ? (
+              <Route path="/EmbeddedMedia" component={EmbeddedMedia} />
+            ) : null}
             {isLog ? <Route path="/Podcast" component={PostPodcast} /> : null}
             {isLog ? <Route path="/Home" component={Home} /> : null}
             <Route path="/EditProfilePage" component={EditProfilePage} />

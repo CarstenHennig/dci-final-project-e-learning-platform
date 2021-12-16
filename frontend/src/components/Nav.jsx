@@ -87,6 +87,12 @@ export default function Nav(props) {
               </li>
 
               <li className="nav-item">
+                <Link className="nav-link" style={navStyle} to="/Podcast">
+                  <li>Post podcast</li>
+                </Link>
+              </li>
+
+              <li className="nav-item">
                 <Link className="nav-link" style={navStyle} to="/Home">
                   <li>Home</li>
                 </Link>
