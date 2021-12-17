@@ -12,10 +12,10 @@ router.use(function (req, res, next) {
 router
 	.route("/writePost")
 	.put(async (req, res, next) => {
-
+		
 		const storePost = await User.findOne({ email: req.body.email })
 		if (storePost) {
-			const post = { title: req.body.title, summary: req.body.summary, content: req.body.content, author: req.body.author }
+			const post = { title: req.body.title, summary: req.body.summary, content: req.body.content, author: req.body.author, imageURL: req.body.imageURL}
 			const output = storePost.posts.push(post)
 			await storePost.save()
 			console.log("OUTPUT: ", post)

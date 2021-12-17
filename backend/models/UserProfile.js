@@ -73,7 +73,7 @@ const userSchema = mongoose.Schema({
 			type: String,
 			default: "Sally Santus"
 		},
-		image: {
+		imageURL: {
 			type: String,
 			default: 'http://placekitten.com/g/450/350'
 
