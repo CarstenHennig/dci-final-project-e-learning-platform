@@ -1,53 +1,24 @@
 "use strict";
 import { Router } from "express";
-import Gallery from "../models/EmbeddedVid.js"
-import jwt from "jsonwebtoken";
+import User from "../models/UserProfile.js"
+import moment from "moment";
 let router = Router();
 
 router.use(function (req, res, next) {
-	console.log("PINGED ", req.url, "@", new Date().toLocaleTimeString());
+	console.log("PINGED ", req.url, "@", moment(new Date()).format(' DD - MMMM - YYYY'));
 	next();
 });
 
-//===== Register A User
-router
-	.route("/createGallery")
-	.post(async (req, res) => {
-		const gallery = await Gallery.register(req.body);
-		console.log(req.body)
-		if (!gallery) {
-			return res.status(400).json({ success: false });
-		}
-		res.status(201).json({ success: true, gallery: gallery });
-	})
-router
-	.route("/login")
-	.post(async (req, res) => {
-		const gallery = await Gallery.login(req.body);
-
-		if (!gallery) {
-			return res.status(400).json({ gallery });
-		}
-		// create JWT token
-		const token = jwt.sign({ _id: gallery._id }, process.env.SECRET);
-
-		res.json({ gallery, token })
-		console.log(gallery);
-
-
-	})
-
-//==== 
 // /* Create clips by one user */
 router
 	.route("/createClip")
 	.put(async (req, res, next) => {
-
-		const storeVideo = await Gallery.findOne({ email: req.body.email })
-		console.log(req.body)
-		if (storeVideo) {
+		
+		const storeVideo = await User.findOne({ email: req.body.email })
+		const videoClips = storeVideo
+		if (videoClips) {
 			const video = {
-				title: req.body.title, desc: req.body.desc,
+				title: req.body.title, desc: req.body.desc, category: req.body.category,
 				videoUrl: req.body.videoUrl, postedBy: req.body.postedBy
 			}
 			console.log(video)
@@ -57,28 +28,22 @@ router
 			return res.status(201).json(video)
 
 		}
-		
-		res.json({ error: "Gallery cannot be updated" })
+
+		res.json({ error: "Error: Videos cannot be updated! Check inputs!" })
 	});
 
-//===== Get messages of all users
+//===== Retrieve ll users videos
 router
 	.route("/getClips")
 	.get(async (req, res, next) => {
-		const videos = await Gallery.find({})
-	console.log("VIDS: ", videos)
-		let clips = videos
+		const userVideos = await User.find({})
+		let videos = []
 
-		for (let index = 0; index < videos.length; index++) {
-			const element = videos[index];
-			
-			
-			/* clips = videos.concat(element)  */
-
-			
+		for (let index = 0; index < userVideos.length; index++) {
+			const element = userVideos[index];
+			videos = videos.concat(element.videos)
 		}
-	/* 	console.log("CLIPS HERE: ",  clips) */
-		return res.send(clips)
+		return res.send(videos)
 		next()
 	});
 export default router
