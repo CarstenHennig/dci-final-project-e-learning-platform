@@ -31,7 +31,7 @@ export default function UserProfile() {
           You can manage your details here.
         </p>
       </div>
-
+      
       <div className="div-wrap-main">
         <div className="inside-div">
           <div className="user-list">

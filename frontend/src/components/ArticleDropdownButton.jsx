@@ -13,10 +13,10 @@ export default function DropdownBlogCategory(props) {
         Select category
       </Dropdown.Toggle>
       <Dropdown.Menu category={props.category}>
-        <Dropdown.Item eventKey={1}>Web Dev</Dropdown.Item>
-        <Dropdown.Item eventKey={2}>Online Marketing</Dropdown.Item>
-        <Dropdown.Item eventKey={3}>Cloud Computing</Dropdown.Item>
-        <Dropdown.Item eventKey={4}>Other topics</Dropdown.Item>
+        <Dropdown.Item eventKey={"web dev"}>Web Dev</Dropdown.Item>
+        <Dropdown.Item eventKey={"online marketing"}>Online Marketing</Dropdown.Item>
+        <Dropdown.Item eventKey={"cloud computing"}>Cloud Computing</Dropdown.Item>
+        <Dropdown.Item eventKey={"other topics"}>Other topics</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );

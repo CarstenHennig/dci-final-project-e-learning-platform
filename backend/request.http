@@ -1,32 +1,15 @@
-###
-Post  http://localhost:9000/galleries/createGallery/
-Content-Type: application/json
 
-{
-	"ownerName": "Amanda Holden",
-	"galleryName": "Cassandra",
-	"email": "cassandra@gmail.com"
-}
-###
-POST http://localhost:9000/galleries/login
-Content-Type: application/json
-
-	{  
-		"email": "paton@gmail.com"
-    
-
-	}
 ###
 PUT http://localhost:9000/galleries/createClip
 Content-Type: application/json
 
 	{  			
-		"email": "aggripina@emanu.come",
-		"title": "It is a matter of Faith",
+		"email": "aggripina@emanu.com",
+		"title": "Pele LeRoi - Bottle Dance",
 		"category" : "Money and Life",
-		"desc":"Over the past two decades, The Veritas Forum has been hosting vibrant discussions on life's hardest questions and engaging the world's leading colleges and universities with Christian perspectives and the relevance of Jesus. Learn more at http://www.veritas.org, with upcoming events and over 600 pieces of media on topics including science, philosophy, music, business, medicine, and more!",
-		"videoUrl": "https://www.youtube.com/watch?v=d0xyapiZ2pM",
-		"postedBy": "Amanda Holden"   
+		"desc":" Learn more at http://www.veritas.org, with upcoming events and over 600 pieces of media on topics including science, philosophy, music, business, medicine, and more!",
+		"videoUrl": "https://www.youtube.com/watch?v=6jIgHR50lCo",
+		"postedBy": "Agripina Tinnto"   
 
 	}
 ###
@@ -58,17 +41,11 @@ Content-Type: application/json
 	
 	{	
 		
-<<<<<<< HEAD
-		"email":"aggripina@emanu.come",
+		"email":"aggripina@emanu.com",
 		"title": "Gongs and gongs",
 		"summary":"Gone with the wind and came with the wind",
-=======
-		
-		"email":"karin167@gmail.com",
-		"title": "PART III: The rustle in the mount ",
->>>>>>> 0be0b4b10e7e3cc3b5395957e38359d40bf55c8e
-		"content": "They took my scarf and my staff. They robbed me of my dignity and thought that would emasciate my humanity. But I rose up like the proverbial phoneix, and like a lark sang to the heavens the perreniality of my humanity. The data showed the epidemic gaining pace with 131,731 cases detected over past seven days, compared to 73,200 cases reported for all of October.",
-		"author": "Zhang Licun"
+		"content": "The data showed the epidemic gaining pace with 131,731 cases detected over past seven days, compared to 73,200 cases reported for all of October.",
+		"author": "Agripina Tinnto"
 		
 				
 	}
@@ -94,9 +71,9 @@ POST http://localhost:9000/users/register
 Content-Type: application/json
 
 {
-"firstName": "Karin",
-"lastName": "Ben Zaken",
-"email": "karin167@gmail.com",
+"firstName": "Agripina",
+"lastName": "Tinnto",
+"email": "aggripina@emanu.com",
 "password": "12345678",
 "avatar": "{image: src='http://placekitten.com/g/150/150'}",
 "dateOfBirth": 13122000,
@@ -109,12 +86,21 @@ Content-Type: application/json
 	"phoneNumber": "0124567844",
 	"posts" :{	
 		
-		"author": "Karin",
-		"email": "karin167@gmail.com",
+		"author": "Agripina Tinnto",
+		"email": "aggripina@emanu.com",
 		"title": "The life in Berlin",
 		"content": "Israeli girl in the big city in Germany!"
 		
 				
+	},
+	"videos" :{  			
+		"email": "aggripina@emanu.come",
+		"title": "It is a matter of Faith",
+		"category" : "Money and Life",
+		"desc":"Over the past two decades, The Veritas Forum has been hosting vibrant discussions on life's hardest questions and engaging the world's leading colleges and universities with Christian perspectives and the relevance of Jesus. Learn more at http://www.veritas.org, with upcoming events and over 600 pieces of media on topics including science, philosophy, music, business, medicine, and more!",
+		"videoUrl": "https://www.youtube.com/watch?v=d0xyapiZ2pM",
+		"postedBy": "Agripina Tinnto"   
+
 	}
 
 

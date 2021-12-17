@@ -1,24 +1,26 @@
 /** Frontend component to post a video
- * using React, Axios, own style sheet, Bootstrap and FontAwesome
- */
+ * using React, Axios, own style sheet, Bootstrap and FontAwesome */
 
 /** Text areas should be responsive for mobile use */
 
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import axios from "axios";
 import "./Video.css";
-import { FloatingLabel, Form } from "react-bootstrap";
+import { FloatingLabel, Form, Alert } from "react-bootstrap";
 import DropdownBlogCategory from "./ArticleDropdownButton.jsx";
 import Popup from "./HelpPopUp.jsx";
-
+import { UserContext } from "./InfoProvider";
 /** Function to post a video */
 
 export default function PostVideo() {
+  const [isLog, setIsLog] = useContext(UserContext);
   const [title, setTitle] = useState(null);
   const [desc, setDesc] = useState(null);
   const [videoUrl, setVideoUrl] = useState(null);
-  const [category, setCategory] = useState();
+  const [category, setCategory] = useState("Web Dev");
   const [isOpen, setIsOpen] = useState(false);
+  const [email, setEmail] = useState(isLog.user.email);
+  const [postedBy,setPostedBy] = useState(isLog.user.firstName + isLog.user.lastName);
 
   const togglePopUp = () => {
     setIsOpen(!isOpen);
@@ -37,8 +39,8 @@ export default function PostVideo() {
         desc,
         videoUrl,
         category,
-        email: "zulu_nation@gmail.com",
-        postedBy: "Shaka",
+        email: email ,
+        postedBy: postedBy,
       })
       .then(
         (response) => {
@@ -75,7 +77,7 @@ export default function PostVideo() {
               name="headline"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              // style={{ height: "100px", margin: "5px", padding: "5px" }}
+              
             />
           </FloatingLabel>
 
@@ -121,7 +123,11 @@ export default function PostVideo() {
           <DropdownBlogCategory
             category={category}
             setCategory={setCategory}
+            
           />
+          <Alert variant="primary" style={{width:"fit-content", padding: "0px"}}> 
+          <p>{category}</p>
+          </Alert>
         </div>
 
         {/* Button to publish */}

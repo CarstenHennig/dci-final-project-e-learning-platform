@@ -2,24 +2,27 @@
  * using React, Axios, own style sheet, Bootstrap and FontAwesome
  */
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import "./Article.css";
 import { FloatingLabel, Form } from "react-bootstrap";
 import DropdownBlogCategory from "./ArticleDropdownButton.jsx";
 import UploadImageToArticle from "./UploadImageToArticle.jsx";
 import Popup from "./HelpPopUp.jsx";
+import { UserContext } from "./InfoProvider";
 
 /** Function to write a blog post */
 
 export default function WriteArticle() {
+   const [isLog, setIsLog] = useContext(UserContext);
   const [title, setTitle] = useState(null);
   const [summary, setSummary] = useState(null);
   const [content, setContent] = useState(null);
-  const [author, setAuthor] = useState(null);
-  const [email, setEmail] = useState(null);
+   const [author,setAuthor] = useState(isLog.user.firstName  +" "+  isLog.user.lastName);
+  const [email, setEmail] = useState(isLog.user.email);
   const [value, setValue] = useState();
   const [isOpen, setIsOpen] = useState(false);
+ 
 
   const togglePopUp = () => {
     setIsOpen(!isOpen);
@@ -35,8 +38,8 @@ export default function WriteArticle() {
         title,
         summary,
         content,
-        author,   /*(set to current logged in user)  */   
-        email, /* (set to current logged in user)  */ 
+        author: author,/* (set to logged in user firstName + lastName) */    
+        email: email, /* (set to current logged in user email)  */ 
       })
       .then(
         (response) => {
@@ -47,7 +50,7 @@ export default function WriteArticle() {
         }
       );
   };
-
+console.log("HAHAHA,",author)
   return (
     <div>
       <div className="headline">

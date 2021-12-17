@@ -7,6 +7,7 @@
     margin-left: 10px;
     width: 15rem;
     
+    
 }
 .embedded-media {
     display: flex;
@@ -16,4 +17,14 @@
     .card-img-top {
         cursor: pointer;
     }
+}
+.card-media{
+    color: rgb(55, 55, 77);
+    cursor: pointer;
+   
+    
+}
+.card-media:hover{
+    text-decoration: underline;
+    color: rgb(90, 34, 196);
 }
