@@ -14,7 +14,7 @@ import Home from "./Home.jsx";
 import EditProfilePage from "./EditProfilePage.jsx";
 import UserProfile from "./UserProfile.jsx";
 import EmbeddedMedia from "./EmbeddedMedia.js";
-
+import PostVideo from "./Video.jsx"
 export default function RouterComponents() {
   const [isLog, setIsLog] = useContext(UserContext);
   console.log(isLog);
@@ -40,6 +40,7 @@ export default function RouterComponents() {
             ) : null}
             {isLog ? <Route path="/Podcast" component={PostPodcast} /> : null}
             {isLog ? <Route path="/Home" component={Home} /> : null}
+            {isLog ? <Route path="/Video" component={PostVideo} /> : null}
             <Route path="/EditProfilePage" component={EditProfilePage} />
           </Switch>
         </main>
