@@ -18,7 +18,7 @@ export default function WriteArticle() {
   const [title, setTitle] = useState(null);
   const [summary, setSummary] = useState(null);
   const [content, setContent] = useState(null);
-   const [author,setAuthor] = useState(isLog.user.firstName  +" "+  isLog.user.lastName);
+   const [author,setAuthor] = useState(isLog.user.firstName  +" "+  isLog.user.lastName); 
   const [email, setEmail] = useState(isLog.user.email);
   const [value, setValue] = useState();
   const [isOpen, setIsOpen] = useState(false);
@@ -50,7 +50,7 @@ export default function WriteArticle() {
         }
       );
   };
-console.log("HAHAHA,",author)
+
   return (
     <div>
       <div className="headline">
