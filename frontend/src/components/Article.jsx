@@ -10,6 +10,7 @@ import DropdownBlogCategory from "./ArticleDropdownButton.jsx";
 import UploadImageToArticle from "./UploadImageToArticle.jsx";
 import Popup from "./HelpPopUp.jsx";
 import {UserContext} from "./InfoProvider";
+import TextEditor from "./TextEditor.js";
 
 /** Function to write a blog post */
 
@@ -23,7 +24,6 @@ export default function WriteArticle() {
     const [value, setValue] = useState();
     const [isOpen, setIsOpen] = useState(false);
     const [imageURL, setImageURL] = useState(null)
-    
 
 
     const togglePopUp = () => {
@@ -55,7 +55,7 @@ export default function WriteArticle() {
                 <h4>
                     <i class="fa fa-pencil-square" aria-hidden="true"></i>
                     Publish your
-                              blog posts
+                                                                                                              blog posts
                 </h4>
                 <button onClick={togglePopUp}>Get help</button>
                 {
@@ -84,9 +84,7 @@ export default function WriteArticle() {
                             value={summary}
                             onChange={
                                 (e) => setSummary(e.target.value)
-                            }
-                            // style={{ height: "100px", margin: "5px", padding: "5px" }}
-                        />
+                            }/>
                     </FloatingLabel>
 
                     {/* Inserting image url*/}
@@ -106,21 +104,24 @@ export default function WriteArticle() {
                     {/* Inserting blog text */}
 
                     <p className="labels">Content</p>
+                    
                     <FloatingLabel controlId="floatingTextarea2" className="write-article-content">
-                        <Form.Control as="textarea" placeholder="Write your content" name="text"
-                            value={content}
-                            onChange={
-                                (e) => setContent(e.target.value)
-                            }
-                            style={
-                                {
+                      
+                        <Form.Control as = "element"  style={{
                                     height: "500px",
+                                     overflowY: 'scroll',
                                     margin: "5px",
-                                    padding: "5px"
+                                    padding: "5px",
+                                    backgroundColor:"#e6f2ff"
                                 }
-                            }/>
+                            } > 
+                        <TextEditor value={content} onChange={(e) =>setContent(e.target.value)}/>
+                        </Form.Control>
+                       
                     </FloatingLabel>
+
                 </>
+
 
                 {/** Text areas should be responsive for mobile use */}
 
@@ -145,7 +146,6 @@ export default function WriteArticle() {
                 </button>
             </form>
             {/* Inserting component to upload a picture */}
-            <UploadImageToArticle/> {/* Selecting blog category */} 
-            </div>
+            <UploadImageToArticle/> {/* Selecting blog category */} </div>
     );
 }
