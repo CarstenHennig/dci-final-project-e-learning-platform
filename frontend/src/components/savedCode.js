@@ -2,19 +2,26 @@
  * using React, Axios, own style sheet, Bootstrap and FontAwesome
  */
 
-import React, { useState, useContext } from "react";
+import React, {useState, useContext} from "react";
 import axios from "axios";
 import "./Article.css";
-import { FloatingLabel, Form } from "react-bootstrap";
+import {FloatingLabel, Form} from "react-bootstrap";
 import DropdownBlogCategory from "./ArticleDropdownButton.jsx";
 import UploadImageToArticle from "./UploadImageToArticle.jsx";
 import Popup from "./HelpPopUp.jsx";
-import { UserContext } from "./InfoProvider";
-import RichTextEditor from "./wysiwygEditor/RichTextEditor.jsx"
+import {UserContext} from "./InfoProvider";
+
+// RICH TEXT EDITOR IMPORTS:
+import {EditorState, convertToRaw} from 'draft-js';
+import {Editor} from 'react-draft-wysiwyg';
+import draftToHtml from 'draftjs-to-html';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import {useHistory} from "react-router-dom";
 
 /** Function to write a blog post */
 
 export default function WriteArticle() {
+   let history = useHistory();
     const [isLog, setIsLog] = useContext(UserContext);
     const [title, setTitle] = useState(null);
     const [summary, setSummary] = useState(null);
@@ -25,7 +32,7 @@ export default function WriteArticle() {
     const [isOpen, setIsOpen] = useState(false);
     const [imageURL, setImageURL] = useState(null)
 
-
+    // Set Help Modal:
     const togglePopUp = () => {
         setIsOpen(!isOpen);
     };
@@ -33,34 +40,36 @@ export default function WriteArticle() {
     /** Function HandleChange sending form data via axios to backend */
 
     const HandleChange = (e) => {
-        console.log(title, content, value);
+
         e.preventDefault();
         axios.put("http://localhost:9000/posts/writePost", {
             title,
             summary,
-            content,
             imageURL,
+            content,
             author: author, /* (set to logged in user firstName + lastName) */
             email: email, /* (set to current logged in user email)  */
         }).then((response) => {
             alert("Blog post saved");
+          history.push('/Home');
         }, (error) => {
             alert(error);
         });
     };
 
+    console.log("HAHAHA,", author)
     return (
         <div>
             <div className="headline">
                 <h4>
                     <i class="fa fa-pencil-square" aria-hidden="true"></i>
                     Publish your
-                    blog posts
+                              blog posts
                 </h4>
                 <button onClick={togglePopUp}>Get help</button>
                 {
-                    isOpen ? <Popup handleClose={togglePopUp} /> : null
-                } </div>
+                isOpen ? <Popup handleClose={togglePopUp}/> : null
+            } </div>
 
             <form>
                 <> {/* Inserting blog headline */}
@@ -72,7 +81,7 @@ export default function WriteArticle() {
                             onChange={
                                 (e) => setTitle(e.target.value)
                             }
-                        // style={{ height: "100px", margin: "5px", padding: "5px" }}
+                            // style={{ height: "100px", margin: "5px", padding: "5px" }}
                         />
                     </FloatingLabel>
 
@@ -84,52 +93,48 @@ export default function WriteArticle() {
                             value={summary}
                             onChange={
                                 (e) => setSummary(e.target.value)
-                            } />
-                    </FloatingLabel>
-
-                    {/* Inserting image url*/}
-
-                    <p className="labels">Image link</p>
-                    <FloatingLabel controlId="floatingTextarea" className="write-article-headline">
-                        <Form.Control as="textarea" placeholder="post image link here" maxlength="160" name="headline"
-                            value={imageURL}
-                            onChange={
-                                (e) => setImageURL(e.target.value)
                             }
-                        // style={{ height: "100px", margin: "5px", padding: "5px" }}
+                            // style={{ height: "100px", margin: "5px", padding: "5px" }}
                         />
                     </FloatingLabel>
-
 
                     {/* Inserting blog text */}
 
                     <p className="labels">Content</p>
-
                     <FloatingLabel controlId="floatingTextarea2" className="write-article-content">
-
-                        <Form.Control as="element" style={{
-                            height: "500px",
-                            overflowY: 'scroll',
-                            margin: "5px",
-                            padding: "5px",
-                            backgroundColor: "#e6f2ff"
-                        }
-                        } >
-                            <RichTextEditor value={content} onChange={(e) => setContent(e.target.value)} />
-                        </Form.Control>
-
+                        <Form.Control as="textarea" placeholder="Write your content" name="text"
+                            value={content}
+                            onChange={
+                                (e) => setContent(e.target.value)
+                            }
+                            style={
+                                {
+                                    height: "500px",
+                                    margin: "5px",
+                                    padding: "5px"
+                                }
+                            }/>
                     </FloatingLabel>
 
+                    {/* Insert imageURL */}
+                    <p className="labels">Image Link</p>
+                    <FloatingLabel controlId="floatingTextarea" className="write-article-headline">
+                        <Form.Control as="textarea" placeholder="Paste Image link here" maxlength="160" name="imageURL"
+                            value={imageURL}
+                            onChange={
+                                (e) => setImageURL(e.target.value)
+                            }/>
+                    </FloatingLabel>
                 </>
-
-
                 {/** Text areas should be responsive for mobile use */}
 
+
+                {/* Selecting blog category */}
 
                 <div className="dropdownButtons">
                     <p>Select a category</p>
                     <DropdownBlogCategory value={value}
-                        setValue={setValue} />
+                        setValue={setValue}/>
                 </div>
 
                 {/* Button to publish */}
@@ -141,11 +146,13 @@ export default function WriteArticle() {
                             margin: "5px",
                             padding: "5px"
                         }
-                    }>
+                }>
                     Publish
                 </button>
             </form>
             {/* Inserting component to upload a picture */}
-            <UploadImageToArticle /> {/* Selecting blog category */} </div>
+            <UploadImageToArticle/>
+
+        </div>
     );
 }

@@ -59,7 +59,7 @@ const userSchema = mongoose.Schema({
 		default: 0,
 	},
 	posts: [{
-
+		
 		title: {
 			type: String,
 			default: 'Killing the Goose'
@@ -67,7 +67,7 @@ const userSchema = mongoose.Schema({
 		summary: { type: String, default: 'Killing the goose' },
 		content: {
 			type: String,
-			default: 'From the land passed hope and fear. from the land of the muses, where Medusa is a gift, let the golden river flow for eternity'
+			default: 'DEFAULT CONTENT: From the land passed hope and fear. from the land of the muses, where Medusa is a gift, let the golden river flow for eternity'
 		},
 		author: {
 			type: String,
