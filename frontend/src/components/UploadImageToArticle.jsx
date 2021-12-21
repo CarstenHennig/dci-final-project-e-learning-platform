@@ -74,7 +74,7 @@ export default function UploadImageToArticle() {
                     {
                     filename ? (
                         <p>
-                            Copy the code below and insert in the "Image" field above: {
+                            Copy the code below and insert in the "Image Link" field above: {
                             "http://localhost:9000/" + filename
                         }</p>
                     ) : null

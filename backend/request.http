@@ -42,9 +42,9 @@ Content-Type: application/json
 	{	
 		
 		"email":"aggripina@emanu.com",
-		"title": "Gongs and gongs",		
-		"summary":"Gone with the wind and came with the wind",
-		"content": "The data showed the epidemic gaining pace with 131,731 cases detected over past seven days, compared to 73,200 cases reported for all of October.",
+		"title": "Matta matata",		
+		"summary":"Lorem ipsum dolor sit amet",
+		"content": "Lorem ipsum dolor sit ametThe data showed the epidemic gaining pace with 131,731 cases detected over past seven days, compared to 73,200 cases reported for all of October.",
 		"author": "Agripina Tinnto",
 		"imageURL": "https://images.unsplash.com/photo-1633114127451-558041183c3b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
 		
