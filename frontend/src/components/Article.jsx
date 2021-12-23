@@ -5,7 +5,7 @@
 import React, {useState, useContext} from "react";
 import axios from "axios";
 import "./Article.css";
-import {FloatingLabel, Form, FormControl} from "react-bootstrap";
+import {FloatingLabel, Form, Alert} from "react-bootstrap";
 import DropdownBlogCategory from "./ArticleDropdownButton.jsx";
 import UploadImageToArticle from "./UploadImageToArticle.jsx";
 import Popup from "./HelpPopUp.jsx";
@@ -16,24 +16,25 @@ import {EditorState, convertToRaw} from 'draft-js';
 import {Editor} from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import "./Editor.css"
 import {useHistory} from "react-router-dom";
 
 /** Function to write a blog post */
 
 export default function WriteArticle() {
     let history = useHistory();
+
+    //Declare states
     const [isLog, setIsLog] = useContext(UserContext);
-    const [title, setTitle]= useState(null);
+    const [title, setTitle] = useState(null);
     const [summary, setSummary] = useState(null);
     const [author] = useState(isLog.user.firstName + " " + isLog.user.lastName);
     const [email] = useState(isLog.user.email);
-    const [value, setValue] = useState();
+    const [category, setCategory] = useState("TrustTech")    
     const [isOpen, setIsOpen] = useState(false);
     const [imageURL, setImageURL] = useState(null)
-
-    const [userInfo, setUserInfo] = useState({
-        title: '',       
-    });
+    const [userInfo, setUserInfo] = useState({title: ''});
+     const [isError, setError] = useState(null);
 
 
     // Set Help Modal:
@@ -41,7 +42,7 @@ export default function WriteArticle() {
         setIsOpen(!isOpen);
     };
 
-    // EDITOR CONFIGURATIONS
+    // RICH TEXT EDITOR CONFIGURATIONS
     let editorState = EditorState.createEmpty();
     let [content, setContent] = useState(editorState);
     const onEditorStateChange = (editorState) => {
@@ -53,15 +54,20 @@ export default function WriteArticle() {
     const HandleChange = (e) => {
         e.preventDefault();
         e.persist();
+           if(summary.length > 150){
+        setError(alert('Required, Add content Minimum length 150 characters or less'));
+        return;
+      }
         setUserInfo({
-      ...userInfo,
-      [e.target.name]:e.target.value
-    });
+            ...userInfo,
+            [e.target.name]: e.target.value
+        });
         axios.put("http://localhost:9000/posts/writePost", {
             title,
             summary,
             imageURL,
             content: userInfo.content.value,
+            category,
             author: author, /* (set to logged in user firstName + lastName) */
             email: email, /* (set to current logged in user email)  */
         }).then((response) => {
@@ -89,20 +95,18 @@ export default function WriteArticle() {
 
                     <p className="labels">Headline</p>
                     <FloatingLabel controlId="floatingTextarea" className="write-article-headline">
-                        <Form.Control as="textarea" placeholder="Write your headline" maxlength="160" name="headline"
+                        <Form.Control as="textarea" placeholder="Write your headline" maxlength="250" name="headline"
                             value={title}
                             onChange={
                                 (e) => setTitle(e.target.value)
-                            }
-                            
-                        />
+                            }/>
                     </FloatingLabel>
 
                     {/* Inserting summary */}
 
                     <p className="labels">Summary</p>
                     <FloatingLabel controlId="floatingTextarea" className="write-article-summary">
-                        <Form.Control as="textarea" placeholder="Write your summary" maxlength="320" name="summary"
+                        <Form.Control as="textarea" placeholder="Write your summary" maxlength="150" name="summary"
                             value={summary}
                             onChange={
                                 (e) => setSummary(e.target.value)
@@ -112,17 +116,24 @@ export default function WriteArticle() {
                     </FloatingLabel>
 
                     {/* Inserting blog text */}
-                  <p className="labels">Content</p>
+                    <p className="labels">Content</p>
                     <FloatingLabel controlId="floatingTextarea2" className="write-article-content">
-                         <Editor editorState={content}
-                                        toolbarClassName="toolbarClassName"
-                                        wrapperClassName="wrapperClassName"
-                                        editorClassName="editorClassName"
-                                        onEditorStateChange={onEditorStateChange}/>
-                  <textarea style={{display:'none'}} ref={(val) => userInfo.content = val} value={draftToHtml(convertToRaw(content.getCurrentContent())) } />
-            
-                                              
-               
+                        <Editor editorState={content}
+                            toolbarClassName="toolbarClassName"
+                            wrapperClassName="wrapperClassName"
+                            editorClassName="editorClassName"
+                            onEditorStateChange={onEditorStateChange}/>
+                        <textarea style={
+                                {display: 'none'}
+                            }
+                            ref={
+                                (val) => userInfo.content = val
+                            }
+                            value={
+                                draftToHtml(convertToRaw(content.getCurrentContent()))
+                            }/>
+
+
                     </FloatingLabel>
 
                     {/* Insert imageURL */}
@@ -142,8 +153,11 @@ export default function WriteArticle() {
 
                 <div className="dropdownButtons">
                     <p>Select a category</p>
-                    <DropdownBlogCategory value={value}
-                        setValue={setValue}/>
+                    <DropdownBlogCategory category={category}
+                        setCategory={setCategory}/>
+                         <Alert variant="primary" style={{width:"fit-content", padding: "0px"}}> 
+          <p>{category}</p>
+          </Alert>
                 </div>
 
                 {/* Button to publish */}

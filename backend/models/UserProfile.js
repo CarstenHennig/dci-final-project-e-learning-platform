@@ -73,6 +73,7 @@ const userSchema = mongoose.Schema({
 			type: String,
 			default: "Sally Santus"
 		},
+		category: { type: String, default: "Lifestyle" },
 		imageURL: {
 			type: String,
 			default: 'http://placekitten.com/g/450/350'
@@ -93,6 +94,7 @@ const userSchema = mongoose.Schema({
 			type: String,
 			default: 'From the land passed hope and fear. from the land of the muses, where Medusa is a gift, let the golden river flow for eternity'
 		},
+		
 		postedBy: {
 			type: String,
 			default: "Sally Santus"
@@ -108,7 +110,7 @@ const userSchema = mongoose.Schema({
 			default: new Date()
 		}
 	}],
-
+	
 	createdAt: {
 		type: Date,
 		default: new Date()

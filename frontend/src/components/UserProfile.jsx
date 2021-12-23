@@ -5,6 +5,7 @@ import { UserContext } from "./InfoProvider";
 import { Link } from "react-router-dom";
 import Profile from "../images/profile-img.png";
 import BlogModal from "./BlogModal.jsx";
+import UploadImageToArticle from "./UploadImageToArticle.jsx"
 
 export default function UserProfile() {
   const [isLog, setIsLog] = useContext(UserContext);
@@ -37,13 +38,15 @@ export default function UserProfile() {
           <div className="user-list">
             <h3>private Details</h3>
             <div className="profile-img">
-              <img className="profiile" src={Profile} alt="" />
+              <img className="profiile" src={isLog.user.avatar} alt="" />
             </div>
             <div>
-              <button className="btn-add-profile-picture">
+              <button className="btn-add-profile-picture" onClick={UploadImageToArticle} >
                 Edit your profile picture
               </button>
+              
             </div>
+            <UploadImageToArticle/>
             <ul className="ul-list">
               <li>{isLog.user.firstName}</li>
               <li>{isLog.user.lastName}</li>

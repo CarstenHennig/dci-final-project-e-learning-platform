@@ -15,7 +15,7 @@ router
 		
 		const storePost = await User.findOne({ email: req.body.email })
 		if (storePost) {
-			const post = { title: req.body.title, summary: req.body.summary, content: req.body.content, author: req.body.author, imageURL: req.body.imageURL}
+			const post = { title: req.body.title, summary: req.body.summary, content: req.body.content, author: req.body.author, imageURL: req.body.imageURL, category: req.body.category}
 			const output = storePost.posts.push(post)
 			await storePost.save()
 			console.log("OUTPUT: ", post)
