@@ -3,14 +3,38 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import { UserContext } from "./InfoProvider";
 import { Link } from "react-router-dom";
-import Profile from "../images/profile-img.png";
 import BlogModal from "./BlogModal.jsx";
-import UploadImageToArticle from "./UploadImageToArticle.jsx"
+import { Modal, Button } from "react-bootstrap"
+import EditProfileImage from "./EditProfileImage.jsx"
+import axios from "axios"
 
 export default function UserProfile() {
-  const [isLog, setIsLog] = useContext(UserContext);
 
+  const [isLog, setIsLog] = useContext(UserContext);
   const [activePost, setActivePost] = useState(null);
+  const [show, setShow] = useState(false);
+  const [avatar, setAvatar] = useState(null);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const handleAvatarUrl = () => {    
+  
+const userId = isLog.user._id
+    axios
+    
+      .put("http://localhost:9000/editUsers/avatar/" +userId, {
+        avatar: localStorage.getItem('profileImage'),
+
+      })
+      .then(
+        (response) => {
+          alert("Profile photo posted successfully");
+        },
+        (error) => {
+          alert(error);
+        }
+      );
+  };
 
   return (
     <div>
@@ -32,21 +56,36 @@ export default function UserProfile() {
           You can manage your details here.
         </p>
       </div>
-      
+
       <div className="div-wrap-main">
         <div className="inside-div">
           <div className="user-list">
             <h3>private Details</h3>
             <div className="profile-img">
-              <img className="profiile" src={isLog.user.avatar} alt="" />
+              <img className="profile" src={isLog.user.avatar} alt="profile photo" />
             </div>
-            <div>
-              <button className="btn-add-profile-picture" onClick={UploadImageToArticle} >
-                Edit your profile picture
-              </button>
-              
-            </div>
-            <UploadImageToArticle/>
+
+            <>
+              <Button variant="primary" className="btn-add-profile-picture" onClick={handleShow}>
+                Edit Profile Photo
+              </Button>
+
+              <Modal show={show} onHide={handleClose} animation={false}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Upload Profile Photo</Modal.Title>
+                </Modal.Header>
+                <Modal.Body><EditProfileImage />             
+               </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="outline-dark" onClick={handleClose}>
+                    Cancel
+                  </Button>
+                  <Button variant="outline-success" onClick={ ()=> {handleAvatarUrl (); handleClose ()}}>
+                    Save Image
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+            </>
             <ul className="ul-list">
               <li>{isLog.user.firstName}</li>
               <li>{isLog.user.lastName}</li>

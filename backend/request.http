@@ -1,3 +1,12 @@
+### 
+PUT http://localhost:9000/editUsers/avatar/61c28f15c14994bddf486464
+Content-Type: application/json
+
+{
+	"avatar" : "https://images.unsplash.com/photo-1640237501194-b6302e84ce14?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=400&q=60"
+
+} 
+
 
 ###
 PUT http://localhost:9000/galleries/createClip
@@ -12,8 +21,12 @@ Content-Type: application/json
 		"postedBy": "Agripina Tinnto"   
 
 	}
+
 ###
 GET http://localhost:9000/galleries/getClips
+
+
+
 
 ###
 PUT  http://localhost:9000/editUsers/address/61a619a59abc09ee1dbffd4e

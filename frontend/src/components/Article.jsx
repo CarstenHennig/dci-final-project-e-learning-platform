@@ -23,7 +23,7 @@ import {useHistory} from "react-router-dom";
 
 export default function WriteArticle() {
     let history = useHistory();
-
+    
     //Declare states
     const [isLog, setIsLog] = useContext(UserContext);
     const [title, setTitle] = useState(null);
@@ -48,7 +48,7 @@ export default function WriteArticle() {
     const onEditorStateChange = (editorState) => {
         setContent(editorState);
     }
-
+    
     /** HANDLE CHANGE FUNCTION POSTS ARTICLE TO SERVER*/
 
     const HandleChange = (e) => {
@@ -139,7 +139,7 @@ export default function WriteArticle() {
                     {/* Insert imageURL */}
                     <p className="labels">Image Link</p>
                     <FloatingLabel controlId="floatingTextarea" className="write-article-headline">
-                        <Form.Control as="textarea" placeholder="Paste Image link here" maxlength="160" name="imageURL"
+                        <Form.Control as="textarea" placeholder="Paste Image link here"  name="imageURL"
                             value={imageURL}
                             onChange={
                                 (e) => setImageURL(e.target.value)

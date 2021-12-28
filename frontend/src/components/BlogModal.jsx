@@ -6,7 +6,7 @@ function BlogModal(props) {
     if (! props.post) {
         return null;
     }
-
+    
     return (
         <div className="modal" id="modal">
             <div className="main-content">

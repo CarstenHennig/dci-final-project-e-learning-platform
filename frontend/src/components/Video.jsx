@@ -51,7 +51,7 @@ export default function PostVideo() {
         }
       );
   };
-
+  
   return (
     <div>
       <div className="headline">
@@ -61,7 +61,7 @@ export default function PostVideo() {
         <button onClick={togglePopUp}>Get help</button>
         {isOpen ? <Popup handleClose={togglePopUp} /> : null}
       </div>
-
+      
       <form>
         <>
           {/* Inserting blog headline */}
