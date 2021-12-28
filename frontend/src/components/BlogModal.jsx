@@ -25,8 +25,8 @@ function BlogModal(props) {
                                 objectFit: "cover"
                             }
                         }
-                        src="https://source.unsplash.com/random/"/>
-
+                        src="https://source.unsplash.com/random/" alt="Random"/>
+                        
                     <p>By {
                         props.post.author
                     }</p>

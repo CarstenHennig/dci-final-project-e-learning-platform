@@ -23,18 +23,18 @@ import {useHistory} from "react-router-dom";
 
 export default function WriteArticle() {
     let history = useHistory();
-    
-    //Declare states
+
+    // Declare states
     const [isLog, setIsLog] = useContext(UserContext);
     const [title, setTitle] = useState(null);
     const [summary, setSummary] = useState(null);
     const [author] = useState(isLog.user.firstName + " " + isLog.user.lastName);
     const [email] = useState(isLog.user.email);
-    const [category, setCategory] = useState("TrustTech")    
+    const [category, setCategory] = useState("TrustTech")
     const [isOpen, setIsOpen] = useState(false);
     const [imageURL, setImageURL] = useState(null)
     const [userInfo, setUserInfo] = useState({title: ''});
-     const [isError, setError] = useState(null);
+    const [isError, setError] = useState(null);
 
 
     // Set Help Modal:
@@ -48,16 +48,16 @@ export default function WriteArticle() {
     const onEditorStateChange = (editorState) => {
         setContent(editorState);
     }
-    
+
     /** HANDLE CHANGE FUNCTION POSTS ARTICLE TO SERVER*/
 
     const HandleChange = (e) => {
         e.preventDefault();
         e.persist();
-           if(summary.length > 150){
-        setError(alert('Required, Add content Minimum length 150 characters or less'));
-        return;
-      }
+        if (summary.length > 150) {
+            setError(alert('Required, Add content Minimum length 150 characters or less'));
+            return;
+        }
         setUserInfo({
             ...userInfo,
             [e.target.name]: e.target.value
@@ -139,7 +139,7 @@ export default function WriteArticle() {
                     {/* Insert imageURL */}
                     <p className="labels">Image Link</p>
                     <FloatingLabel controlId="floatingTextarea" className="write-article-headline">
-                        <Form.Control as="textarea" placeholder="Paste Image link here"  name="imageURL"
+                        <Form.Control as="textarea" placeholder="Paste Image link here" name="imageURL"
                             value={imageURL}
                             onChange={
                                 (e) => setImageURL(e.target.value)
@@ -155,9 +155,15 @@ export default function WriteArticle() {
                     <p>Select a category</p>
                     <DropdownBlogCategory category={category}
                         setCategory={setCategory}/>
-                         <Alert variant="primary" style={{width:"fit-content", padding: "0px"}}> 
-          <p>{category}</p>
-          </Alert>
+                    <Alert variant="primary"
+                        style={
+                            {
+                                width: "fit-content",
+                                padding: "0px"
+                            }
+                    }>
+                        <p>{category}</p>
+                    </Alert>
                 </div>
 
                 {/* Button to publish */}

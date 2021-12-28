@@ -2,7 +2,7 @@
 /** Improving this component should contain a functionality to add an individual category to the list of categories */
 
 import { Dropdown } from "react-bootstrap";
-import { useState } from "react";
+
 
 export default function DropdownBlogCategory(props) {
   const handleChange = (e) => props.setCategory(e.target.value);

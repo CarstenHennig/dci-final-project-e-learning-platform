@@ -1,21 +1,19 @@
 import React, {useState, useContext} from "react";
 import {UserContext} from "./InfoProvider";
-import axios from "axios";
-import fs from "fs";
+
 
 export default function UploadImageToArticle() {
-    const [isLog, setIsLog] = useContext(UserContext);
+    const [isLog] = useContext(UserContext);
     const [fileData, setFileData] = useState();
     const [filename, setFilename] = useState(null);
-    const [email, setEmail] = useState(isLog.user.email);
-    const [author, setAuthor] = useState(isLog.user.firstName + " " + isLog.user.lastName);
+    
     const [imageLink, setImageLink] = useState(null)
     const baseUrl = "http://localhost:9000/uploads";
 
     const fileChangeHandler = (e) => {
         setFileData(e.target.files[0]);
     };
-
+    
     const onSubmitHandler = (e) => {
         e.preventDefault();
         const data = new FormData();
