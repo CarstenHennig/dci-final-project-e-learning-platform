@@ -16,7 +16,10 @@ export default function UserProfile() {
   const [avatar, setAvatar] = useState(null);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  function clearLocalStorage() {
+  localStorage.removeItem('profileImage');
+}
+  
   const handleAvatarUrl = () => {    
   
 const userId = isLog.user._id
@@ -80,7 +83,7 @@ const userId = isLog.user._id
                   <Button variant="outline-dark" onClick={handleClose}>
                     Cancel
                   </Button>
-                  <Button variant="outline-success" onClick={ ()=> {handleAvatarUrl (); handleClose ()}}>
+                  <Button variant="outline-success" onClick={ ()=> {handleAvatarUrl (); clearLocalStorage(); handleClose ()}}>
                     Save Image
                   </Button>
                 </Modal.Footer>

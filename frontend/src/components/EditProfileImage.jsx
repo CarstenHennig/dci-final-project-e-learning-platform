@@ -5,7 +5,8 @@ import {Button} from "react-bootstrap"
 export default function EditProfileImage() {
     const [isLog, setIsLog] = useContext(UserContext);
     const [fileData, setFileData] = useState();
-    const [filename, setFilename] = useState(null);   
+    const [filename, setFilename] = useState(null);
+    const [imageLink, setImageLink] = useState(null)   
     const baseUrl = "http://localhost:9000/uploads";
     
     const fileChangeHandler = (e) => {
@@ -34,10 +35,14 @@ export default function EditProfileImage() {
     return (
         <div>
             <div  >
-                <form onSubmit={onSubmitHandler} style={{width: "10%"}}>
+                <form onSubmit={onSubmitHandler} style={{width: "10%", backgroundColor:"red"}}>
                     <input type="file" name="image"
                         onChange={fileChangeHandler}/>
-                    <Button variant="outline-dark" >Load image</Button>
+                    <button variant="outline-dark" onSubmit={
+                        () => {
+                            setImageLink("http://localhost:9000/" + filename)
+                        }
+                    } >Load image</button>
                 </form>
                 
 

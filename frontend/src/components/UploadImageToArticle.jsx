@@ -31,7 +31,7 @@ export default function UploadImageToArticle() {
             console.log(err.message);
         });
     };
-
+    
 
     return (
         <div>
