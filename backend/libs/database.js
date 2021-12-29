@@ -3,8 +3,9 @@ import mongoose from "mongoose";
 //CONNECT TO MONGODB
 
 export  async function connect() {
-	const { DB_USER, DB_PASS, DB_HOST, DB_NAME } = process.env;
-	const connectionString = `mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}`;
+	
+const connectionString = process.env.MongoDB_CString
+
 
 	mongoose.connection.on("error", (e) => console.log(">> Error!", e) || process.exit(0));
 	mongoose.connection.on("connecting", () => console.log(">> Connecting"));

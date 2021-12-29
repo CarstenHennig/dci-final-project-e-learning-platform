@@ -1,19 +1,18 @@
 import React, {useState, useContext} from "react";
 import {UserContext} from "./InfoProvider";
+import {Button} from "react-bootstrap"
 
-
-export default function UploadImageToArticle() {
-    const [isLog] = useContext(UserContext);
+export default function EditProfileImage() {
+    const [isLog, setIsLog] = useContext(UserContext);
     const [fileData, setFileData] = useState();
     const [filename, setFilename] = useState(null);
-    
-    const [imageLink, setImageLink] = useState(null)
+    const [imageLink, setImageLink] = useState(null)   
     const baseUrl = "http://localhost:9000/uploads";
-
+    
     const fileChangeHandler = (e) => {
         setFileData(e.target.files[0]);
     };
-    
+
     const onSubmitHandler = (e) => {
         e.preventDefault();
         const data = new FormData();
@@ -22,37 +21,33 @@ export default function UploadImageToArticle() {
             method: "POST",
             body: data
         }).then((result) => {
-            console.log(result);
+            console.log("RES",result);
             return result.json();
         }).then((result) => {
             setFilename(result.filename);
-            console.log(filename);
+            console.log( "FILENAME",filename);
         }).catch((err) => {
             console.log(err.message);
         });
     };
-    
+
 
     return (
         <div>
-            <div style={
-                {
-                    width: "50vw",
-                    margin: "5px",
-                    padding: "5px"
-                }
-            }>
-                <form onSubmit={onSubmitHandler}>
+            <div  >
+                <form onSubmit={onSubmitHandler} style={{width: "10%", backgroundColor:"red"}}>
                     <input type="file" name="image"
                         onChange={fileChangeHandler}/>
-                    <button onSubmit={
+                    <button variant="outline-dark" onSubmit={
                         () => {
                             setImageLink("http://localhost:9000/" + filename)
                         }
-                    }>Load image</button>
+                    } >Load image</button>
                 </form>
+                
 
                 <div>
+                 
                     <> {
                         filename ? (
 
@@ -60,8 +55,9 @@ export default function UploadImageToArticle() {
                                     {
                                         margin: "5px",
                                         padding: "5px",
-                                        width: "200px",
-                                        objectFit: "fill"
+                                        width: "100px",
+                                        objectFit: "fill",
+                                        borderRadius:"20%"
                                     }
                                 }
                                 src={
@@ -70,14 +66,10 @@ export default function UploadImageToArticle() {
                         ) : null
                     } </>
                     {
-                    filename ? (
-                        <p>
-                            Copy the code below and insert in the "Image Link" field above: {
-                            "http://localhost:9000/" + filename
-                        }</p>
-                    ) : null
+                    filename ? ( localStorage.setItem('profileImage', "http://localhost:9000/" + filename) ) : null
                 } </div>
             </div>
         </div>
     );
 }
+

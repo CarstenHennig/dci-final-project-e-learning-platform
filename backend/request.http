@@ -1,3 +1,12 @@
+### 
+PUT http://localhost:9000/editUsers/avatar/61c28f15c14994bddf486464
+Content-Type: application/json
+
+{
+	"avatar" : "https://images.unsplash.com/photo-1640237501194-b6302e84ce14?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=400&q=60"
+
+} 
+
 
 ###
 PUT http://localhost:9000/galleries/createClip
@@ -12,8 +21,12 @@ Content-Type: application/json
 		"postedBy": "Agripina Tinnto"   
 
 	}
+
 ###
 GET http://localhost:9000/galleries/getClips
+
+
+
 
 ###
 PUT  http://localhost:9000/editUsers/address/61a619a59abc09ee1dbffd4e
@@ -42,10 +55,12 @@ Content-Type: application/json
 	{	
 		
 		"email":"aggripina@emanu.com",
-		"title": "Gongs and gongs",
-		"summary":"Gone with the wind and came with the wind",
-		"content": "The data showed the epidemic gaining pace with 131,731 cases detected over past seven days, compared to 73,200 cases reported for all of October.",
-		"author": "Agripina Tinnto"
+		"title": "Goose bumps over the sprees",		
+		"summary":"Lorem ipsum dolor sit amet",
+		"content": "Lorem ipsum dolor sit ametThe data showed the epidemic gaining pace with 131,731 cases detected over past seven days, compared to 73,200 cases reported for all of October.",
+		"author": "Agripina Tinnto",
+		"category": "Money and Life",
+		"imageURL": "https://images.unsplash.com/photo-1633114127451-558041183c3b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
 		
 				
 	}
@@ -63,7 +78,7 @@ Content-Type: application/json
 	}
 
 ###
-GET http://localhost:9000/users/61a5fca4b24250cd5ea94538
+GET http://localhost:9000/users/61bbee9509b24bf2759737f3
 
 
 ###
