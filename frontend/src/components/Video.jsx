@@ -13,15 +13,15 @@ import { UserContext } from "./InfoProvider";
 /** Function to post a video */
 
 export default function PostVideo() {
-  const [isLog, setIsLog] = useContext(UserContext);
+  const [isLog] = useContext(UserContext);
   const [title, setTitle] = useState(null);
   const [desc, setDesc] = useState(null);
   const [videoUrl, setVideoUrl] = useState(null);
   const [category, setCategory] = useState("Web Dev");
   const [isOpen, setIsOpen] = useState(false);
-  const [email, setEmail] = useState(isLog.user.email);
-  const [postedBy,setPostedBy] = useState(isLog.user.firstName + isLog.user.lastName);
-
+  const [email] = useState(isLog.user.email);
+  const [postedBy] = useState(isLog.user.firstName + isLog.user.lastName);
+  
   const togglePopUp = () => {
     setIsOpen(!isOpen);
   };
@@ -51,7 +51,7 @@ export default function PostVideo() {
         }
       );
   };
-
+  
   return (
     <div>
       <div className="headline">
@@ -61,7 +61,7 @@ export default function PostVideo() {
         <button onClick={togglePopUp}>Get help</button>
         {isOpen ? <Popup handleClose={togglePopUp} /> : null}
       </div>
-
+      
       <form>
         <>
           {/* Inserting blog headline */}
