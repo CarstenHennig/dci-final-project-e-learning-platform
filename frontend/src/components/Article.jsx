@@ -50,12 +50,12 @@ export default function WriteArticle() {
     }
 
     /** HANDLE CHANGE FUNCTION POSTS ARTICLE TO SERVER*/
-
+    
     const HandleChange = (e) => {
         e.preventDefault();
         e.persist();
-        if (summary.length > 150) {
-            setError(alert('Required, Add content Minimum length 150 characters or less'));
+        if (summary.length > 350) {
+            setError(alert('Required, Add content Minimum length 350 characters or less'));
             return;
         }
         setUserInfo({
@@ -106,7 +106,7 @@ export default function WriteArticle() {
 
                     <p className="labels">Summary</p>
                     <FloatingLabel controlId="floatingTextarea" className="write-article-summary">
-                        <Form.Control as="textarea" placeholder="Write your summary" maxlength="150" name="summary"
+                        <Form.Control as="textarea" placeholder="Write your summary" maxlength="350" name="summary"
                             value={summary}
                             onChange={
                                 (e) => setSummary(e.target.value)

@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import { connect } from './libs/database.js';
 import users from "./routes/userRoutes.js"
 import editUsers from "./routes/editUsers.js"
-import posts from "./routes/2_postRoutes.js"
+import posts from "./routes/postRoutes.js"
 import comments from "./routes/commentsRoute.js"
 import uploads from "./routes/uploadsRoutes.js"
 import galleries from "./routes/vidGalleryRoute.js"
