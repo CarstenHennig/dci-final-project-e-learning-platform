@@ -1,6 +1,7 @@
 /* WelcomePopUp style */
 
 .popup-box {
+  z-index: 9999;
   background: #e6a61a;
   position: absolute;
   width: 100%;
@@ -10,6 +11,7 @@
 }
 
 .box {
+  
   position: relative;
   width: 70%;
   margin: 0 auto;
