@@ -1,16 +1,35 @@
-import React from "react";
+import React, {useState} from "react";
 import "./BlogModal.css";
 import moment from "moment";
+import Comments from "./Comments.jsx"
 
 function BlogModal(props) {
-    if (! props.post) {
-        return null;
+    // Comments component
+    function DisplayComments() {
+        let commentData;
+        if (props.post) {
+            commentData = props.post.comments
+            return (
+                <> {
+                    commentData ? commentData.map((comment) => {
+                        return <div dangerouslySetInnerHTML={
+                            {__html: comment.comment}
+                        }/>
+                    }) : null
+                } </>
+            )
+        }
     }
-    
+
+    if (! props.post) {
+        return null
+    }
+
     return (
         <div className="modal" id="modal">
             <div className="main-content">
                 <button onClick={
+
                     props.closeHandler
                 }>close</button>
                 <div className="modal-header"></div>
@@ -25,30 +44,49 @@ function BlogModal(props) {
                                 objectFit: "cover"
                             }
                         }
-                        src={props.post.imageURL} alt="Random"/>
-                        
+                        src={
+                            props.post.imageURL
+                        }
+                        alt="Random"/>
+
                     <p>By {
                         props.post.author
                     }</p>
                     <p style={
-                        {color: "grey"}
-                    }>Posted: {
-                        moment(props.post.createdAt).format(' DD - MM - YYYY')
-                    }</p>
-                    <hr style={
                         {
                             color: "grey",
-                            height: "5px",
-                            backgroundImage: "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
-                            width: "40%",
-                            border: "3px cyan double"
+                            width: "fit-content"
                         }
-                    }/>
+                    }>Posted: {
+                        moment(props.post.createdAt).format(' DD - MM - YYYY')
+                    }
+                        <hr style={
+                            {
+                                color: "grey",
+                                height: "1px",
+                                width: "100%",
+                                border: "1px tomato solid"
+                            }
+                        }/>
+                    </p>
+
                     <div dangerouslySetInnerHTML={
                         {__html: props.post.content}
                     }/>
 
-
+                </div>
+                <hr/> {/* DisplayComments shows users comments*/}
+                <h4>Comments</h4>
+                <div className="comments-display">
+                    <DisplayComments commenting={
+                        props.post.comments
+                    }/>
+                </div>
+                <hr/> {/* WRITE a comment component follows*/}
+                <div className="comments">
+                    <Comments post={
+                        props.post
+                    }/>
                 </div>
                 <div className="modal-footer"></div>
             </div>

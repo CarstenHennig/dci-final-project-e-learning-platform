@@ -16,3 +16,7 @@
   overflow: scroll !important; 
   padding: 30px;
 }
+
+.comments-display {
+  background-color:rgb(253, 253, 249);
+}
