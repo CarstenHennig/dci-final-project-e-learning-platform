@@ -5,18 +5,21 @@ import "./Home.css";
 import {Link} from "react-router-dom";
 import React, {useState, useEffect} from "react";
 import BlogModal from "./BlogModal.jsx";
-import {ContentState} from "react-draft-wysiwyg";
+
 
 function Home() {
     const [activePost, setActivePost] = useState(null);
     const [isLog, setIsLog] = useContext(UserContext);
     const [posts, setPosts] = useState([]);
 
+
     useEffect(() => {
-        fetch("http://localhost:9000/posts/getPost").then((response) => response.json()).then((data) => {
+        fetch("http://localhost:9000/posts/allPosts").then((response) => response.json()).then((data) => {
             setPosts(data);
+
         });
     }, []);
+
 
     return (
         <div>
@@ -158,12 +161,14 @@ function Home() {
                                         oneSinglePost.title
                                     }</h6>
                                     {
-                                    oneSinglePost.content ? <div dangerouslySetInnerHTML={
+                                    oneSinglePost ? <div dangerouslySetInnerHTML={
                                         {__html: oneSinglePost.summary}
                                     }/> : null
                                 }
                                     <button onClick={
-                                        () => setActivePost(oneSinglePost)
+                                        () => {
+                                            setActivePost(oneSinglePost)
+                                        }
                                     }>Read more...</button>
                                 </div>
 
@@ -188,7 +193,9 @@ function Home() {
                         </Link>
                         <Link to="/UserProfile">
                             <img className="profile"
-                                src={isLog.user.avatar}/>
+                                src={
+                                    isLog.user.avatar
+                                }/>
                         </Link>
                     </div>
                 </div>

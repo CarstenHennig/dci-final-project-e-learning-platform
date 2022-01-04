@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import { hash, compare } from '../libs/hashGenerate.js';
-import moment from 'moment';
+import {postSchema }from "./Post.js"
+
 
 const required = true;
 
@@ -58,32 +59,8 @@ const userSchema = mongoose.Schema({
 		type: Number,
 		default: 0,
 	},
-	posts: [{
-		
-		title: {
-			type: String,
-			default: 'Killing the Goose'
-		},
-		summary: { type: String, default: 'Killing the goose' },
-		content: {
-			type: String,
-			default: 'DEFAULT CONTENT: From the land passed hope and fear. from the land of the muses, where Medusa is a gift, let the golden river flow for eternity'
-		},
-		author: {
-			type: String,
-			default: "Sally Santus"
-		},
-		category: { type: String, default: "Lifestyle" },
-		imageURL: {
-			type: String,
-			default: 'http://placekitten.com/g/450/350'
-
-		},
-		createdAt: {
-			type: Date,
-			default: new Date().toString()
-		}
-	}],
+	posts: [postSchema],
+	totalPosts: { type: Number, default: 0 },
 	videos: [{
 
 		title: {
@@ -94,7 +71,7 @@ const userSchema = mongoose.Schema({
 			type: String,
 			default: 'From the land passed hope and fear. from the land of the muses, where Medusa is a gift, let the golden river flow for eternity'
 		},
-		
+
 		postedBy: {
 			type: String,
 			default: "Sally Santus"
@@ -110,12 +87,22 @@ const userSchema = mongoose.Schema({
 			default: new Date()
 		}
 	}],
-	
+
 	createdAt: {
 		type: Date,
 		default: new Date()
 	}
 }, { timestamps: true });
+
+userSchema.methods.addPost = async function (post) {
+  if (this.posts.length === 3) {
+    this.posts.pop();
+  }
+  this.totalPosts++;
+  this.posts.push(post);
+  await post.save();
+  return this.save();
+};
 
 
 // 1) USER Registration controller
