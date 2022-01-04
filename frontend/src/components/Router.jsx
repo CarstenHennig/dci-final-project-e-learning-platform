@@ -14,7 +14,8 @@ import Home from "./Home.jsx";
 import EditProfilePage from "./EditProfilePage.jsx";
 import UserProfile from "./UserProfile.jsx";
 import EmbeddedMedia from "./EmbeddedMedia.js";
-import PostVideo from "./Video.jsx"
+import PostVideo from "./Video.jsx";
+
 export default function RouterComponents() {
   const [isLog, setIsLog] = useContext(UserContext);
   console.log(isLog);
@@ -30,10 +31,14 @@ export default function RouterComponents() {
             <Route path="/Imprint" component={Imprint} />
             <Route path="/About" component={About} />
             <Route path="/Article" component={Article} />
+            <Route path="/Video" component={PostVideo} />
+            <Route path="/Podcast" component={PostPodcast} />
             {isLog ? (
               <Route path="/UserProfile" component={UserProfile} />
             ) : null}
-            {isLog ? <Route path="/EmbeddedMedia" component={EmbeddedMedia} /> : null}
+            {isLog ? (
+              <Route path="/EmbeddedMedia" component={EmbeddedMedia} />
+            ) : null}
             {isLog ? <Route path="/Podcast" component={PostPodcast} /> : null}
             {isLog ? <Route path="/Home" component={Home} /> : null}
             {isLog ? <Route path="/Video" component={PostVideo} /> : null}
