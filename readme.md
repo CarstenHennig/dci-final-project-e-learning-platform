@@ -1,30 +1,47 @@
-# Joel Peltonen: _For your final project!_
+### What is YouLearn?
 
-Right now I am expecting you to:
-Form groups
-Discuss your idea in your group
-Define and refine the idea
-write single sentence description
-write a more detailed description
-define MVP (what minimum features you need) https://en.wikipedia.org/wiki/Minimum_viable_product
-spend time here, be very specific
-free form, you can make a though bubble or bullet points or such
-define tech stack (which technologies to use)
-define roles for group members
-Project Manager; overall responsibility for the successful implementation of Agile methodology (Standups Meeting-Retrospectives-etc)
-Repository Maintainer; responsible for enforcing process in the GitHub project repository
-Lead Frontend developer
-Lead Backend developer
+YouLearn is the e-learning platform for students and alumni of Digital Career Institute (DCI), Germany.
 
-| Week   | Topic            | Content                                    |
-| ------ | :--------------- | :----------------------------------------- |
-| Week 1 | "Ideation week"  | Stack and MVP definition, individual pitch |
-| Week 2 | "Design"         | Mockup and User Stories                    |
-| Week 3 | "Development"    | Bootstrap project                          |
-| Week 4 | "Implementation" | Core features development                  |
-| Week 5 | "Review"         | Feature freeze                             |
-| Week 6 | "Finalize"       | Documentation and Deployment               |
-| Week 7 | "Present"        | Prepare presentation                       |
+YouLearn is an open source project to improve all skills of DCI studies, i.e. web development, cloud computing and online marketing.
+
+# Why I should join YouLearn
+
+Share your thoughts, tasks and project ideas as blog posts, video tutorials and podcasts.
+
+Join YouLearn on the GitHub repository to develop new functions, improve the code, add API and do other dev stuff.
+
+# For sure, but what is my benefit?
+
+YouLearn is a peer-to-peer e-learning platform. You'll benefit from the input of all other community members.
+
+# Contact us to become a YouLearn developer
+
+Fill this typeform: https://bgyimel9j0r.typeform.com/to/lzTnrfXd  
+We will contact you!
+
+### How to start
+
+# Clone Github repo
+
+Using 'git clone 'https://github.com/CarstenHennig/dci-final-project-e-learning-platform.git'
+
+# Contact us connect to the MongoDB Atlas database (mandatory)
+
+Contact us via this Typeform: https://bgyimel9j0r.typeform.com/to/lzTnrfXd?typeform-source=localhost
+We provide you access to our MongoDB Atlas database for storing user profiles and user-generated content
+
+# Update node packages
+
+Using 'npm install'
+
+# Start frontend and backend server
+
+Using 'cd frontend', 'npm start'
+Using 'cd ..', 'cd backend', 'nodemon server.js'
+
+# Push your code updates
+
+Using 'git add .', 'git commit -m <keywords on updated code>', 'git push'
 
 ## Short exec summary to discuss our project idea
 
