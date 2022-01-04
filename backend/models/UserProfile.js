@@ -49,7 +49,7 @@ const userSchema = mongoose.Schema({
 	country: {
 		type: String, required
 	},
-
+	
 	phoneNumber: Number,
 	followers: {
 		type: Number,

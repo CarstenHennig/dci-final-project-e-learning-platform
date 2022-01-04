@@ -15,8 +15,7 @@ router
 	.route("/writeComment")
 	.put(async (req, res, next) => {
 		const storeComment = await Post.findOne({_id: req.body.postId})	
-console.log(req.body.postId)
-console.log(storeComment._id)
+
 		  if (storeComment) {
 			const commentData = { comment: req.body.comment, commenter: req.body.commenter, postId: req.body.postId}
 			const output = storeComment.comments.push(commentData)
