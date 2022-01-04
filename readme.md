@@ -43,7 +43,7 @@ Using 'cd ..', 'cd backend', 'nodemon server.js'
 
 Using 'git add .', 'git commit -m <keywords on updated code>', 'git push'
 
-## Short exec summary to discuss our project idea
+### Short exec summary to discuss our project idea
 
 # What
 
@@ -52,6 +52,7 @@ Scalable low code solution
 
 First project: E-Learning Platform for Students and Alumni of DCI Digital Career Institute
 
+Brand name YouLearn
 Hashtag #DesignNewThinking
 
 # Why
@@ -79,7 +80,7 @@ The business model is focussed on - open low code solution for basic monthly fee
 
 ## Discussion / Design Thinking
 
-Meta Platform ‚How to learn‘
+Meta Platform ‚YouLearn‘
 Create and mix your individual learning modules:
 
 - Blog publishing (text module)
@@ -96,7 +97,9 @@ First steps of project management following design thinking process:
 - Designing market research (web crawl) AND survey
 - Defining unique selling propositions (USP) and main purpose for our target groups
 
-To do:
+BetaBeta version V-1.0:
 
 - Create presentation of project idea
 - Create very first raw UI
+- Create MVP with basic functionality
+- Create MongoDB Atlas database for storing user profiles and user-generated content
