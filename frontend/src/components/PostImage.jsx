@@ -44,26 +44,7 @@ export default function PostImage() {
   return (
     <div>
       {" "}
-      {/* FOR CARSTEN */}
-      {/* <div style={{backgroundColor:"tomato", width:"50vw", margin:"auto", padding:"10px"}}>
-            <h4>Write Article</h4>
-             <form onSubmit={onSubmitHandler}>
-               <textarea placeholder="Article title" style={{backgroundColor:"salmon", width:"100%",  margin:"auto", padding:"10px"}}/>
-               <hr />
-               <textarea name="description" placeholder="Write your article here" style={{backgroundColor:"sandybrown", width:"100%", height:"450px",margin:"auto", padding:"10px"}}/>
-               <hr />
-                <input type="file" name="image"
-                    onChange={fileChangeHandler}/>
-                <button>Publish</button>
-            </form>
-			 
-            <div> {
-                filename ? <img style={{width: '150px', height: '150px', borderRadius: '50%'}} src={
-                    "http://localhost:9000/" + filename
-                }/> : null
-            } </div>
-
-             </div> */}
+      
       <hr /> {/* FOR KARIN */}
       <div
         style={{

@@ -1,22 +1,37 @@
 .modal {
-  position: absolute;  
-  width: 70%;
-  height: 100vh;
-  top: 15%;
-  right: 0%;
-  left: 16%;  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    position: absolute;
+    width: 70%;
+    height: 100vh;
+    top: 15%;
+    right: 0;
+    left: 16%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .main-content {
-  background-color: rgb(250, 243, 243);     
-  overflow: scroll !important; 
-  padding: 30px;
+    background-color: rgb(250, 243, 243);
+    overflow: scroll !important;
+    padding: 30px;
+}
+.comments-display {
+    background-color: rgb(253, 253, 249);
+}
+.commentsInfoContainer {
+    color: #585555;
+    flex: 2 1 auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 10px;
+    height: 30px;
+    margin-bottom: 10px;
+    gap: 10px 10px;
+}
+.commentHeader{
+  text-decoration: underline;
 }
 
-.comments-display {
-  background-color:rgb(253, 253, 249);
-}
+

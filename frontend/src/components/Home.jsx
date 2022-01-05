@@ -1,6 +1,5 @@
 import {useContext} from "react";
 import {UserContext} from "./InfoProvider";
-import Profile from "../images/profile-img.png";
 import "./Home.css";
 import {Link} from "react-router-dom";
 import React, {useState, useEffect} from "react";
@@ -133,14 +132,19 @@ function Home() {
                         </div>
                     </div>
                 </div>
-
+                
                 <div className="inside-wrap-div-2">
                     {
                     posts.map((oneSinglePost) => (
                         <div className="wrap-div-box-1">
-                            <h3 className="categories-font">Featured: {
+                            <div className="headerWrapper">
+                                 <h3 className="categories-font">By {
+                                oneSinglePost.author
+                            }</h3>
+                            <h3 className="categories-font">in {
                                 oneSinglePost.category
                             }</h3>
+                            </div>
                             <div className="div-box-slider-1">
                                 <img style={
                                         {

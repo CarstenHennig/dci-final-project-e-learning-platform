@@ -1,0 +1,18 @@
+.toolbarClass{
+	display: none;
+	background-color: rgb(217, 224, 224);
+	
+}
+.wrapperClass { 
+	border: 1px solid rgba(0, 76, 255, 0.459);
+	background-color:inherit;
+	width: 100%;
+	border-radius: 18px;	 
+}
+.editorClass{ 
+  background-color: white;
+  height: 150px;
+  width: 100%;  
+ overflow-y: hidden;
+  
+}

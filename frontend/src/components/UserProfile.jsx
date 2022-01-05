@@ -9,13 +9,14 @@ import EditProfileImage from "./EditProfileImage.jsx"
 import axios from "axios"
 
 export default function UserProfile() {
-
+  
   const [isLog, setIsLog] = useContext(UserContext);
   const [activePost, setActivePost] = useState(null);
   const [show, setShow] = useState(false);
   const [avatar, setAvatar] = useState(null);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  
   function clearLocalStorage() {
   localStorage.removeItem('profileImage');
 }

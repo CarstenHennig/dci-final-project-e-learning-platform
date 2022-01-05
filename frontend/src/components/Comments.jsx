@@ -8,15 +8,15 @@ import {UserContext} from "./InfoProvider";
 import {EditorState, convertToRaw} from 'draft-js';
 import {Editor} from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import "./Editor.css"
+/* import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'; */
+import "./Com_Editor.css"
 import {useHistory} from "react-router-dom";
 
 /** Function to write a blog post */
 
 export default function Comments(props) {
     let history = useHistory();
-console.log("LLLLOOO",props)
+
     // Declare states
 
     const [isLog, setIsLog] = useContext(UserContext);
@@ -55,25 +55,26 @@ console.log("LLLLOOO",props)
             email: email, /* (set to current logged in user email)  */
         }).then((response) => {
             alert("Blog comment saved");
-            history.push('/Home');
+            /* history.push('/Home'); */
+            
         }, (error) => {
             alert(error);
         });
     };
-
+    
 
     return (
         <div>
-
+        
             {/* <p>From Comments: PostId - {postId} </p> */}
-            <form>
+            <form >
                 <> {/* Comments Editor */}
                     <h5 className="labels">Post a Comment</h5>
                     <FloatingLabel controlId="floatingTextarea2" className="write-article-content">
                         <Editor editorState={comment}
-                            toolbarClassName="toolbarClassName"
-                            wrapperClassName="wrapperClassName"
-                            editorClassName="editorClassName"
+                            toolbarClassName="toolbarClass"
+                            wrapperClassName="wrapperClass"
+                            editorClassName="editorClass"
                             onEditorStateChange={onEditorStateChange}/>
                         <textarea style={
                                 {display: 'none'}
@@ -94,7 +95,8 @@ console.log("LLLLOOO",props)
                     style={
                         {
                             margin: "5px",
-                            padding: "5px"
+                            padding: "5px",
+                            borderRadius: "10px"
                         }
                 }>
                     Submit Comment
