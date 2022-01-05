@@ -2,23 +2,47 @@ import React, {useState} from "react";
 import "./BlogModal.css";
 import moment from "moment";
 import Comments from "./Comments.jsx"
+import {useHistory} from "react-router-dom";
+import {Alert,Container, Row, Col} from "react-bootstrap"
 
-function BlogModal(props) {
-    // Comments component
+function BlogModal(props) { // Comments component
+
+
     function DisplayComments() {
+        const history = useHistory();
         let commentData;
-        if (props.post) {
-            commentData = props.post.comments
+        if (props.post) {           
+            commentData =props.post.comments            
             return (
-                <> {
-                    commentData ? commentData.map((comment) => {
-                        return <div dangerouslySetInnerHTML={
-                            {__html: comment.comment}
-                        }/>
-                    }) : null
-                } </>
+                <>
+                
+                    <Alert variant="success"  placeholder="No comments Yet"> {
+                        commentData ? commentData.map((comment) => {
+                            return (
+                                <Row>
+                                    <div className="commentsInfoContainer">                                   <p className="commentHeader">On {
+                                            moment(comment.createdAt).format(' DD - MM - YYYY')
+                                        }</p>     
+                                        <p className= "commentHeader"> by  {
+                                            comment.commenter
+                                        } </p>
+                                        
+                                    </div>
+                                    <p dangerouslySetInnerHTML={
+                                        {__html: comment.comment}
+                                    }/>
+                                    <hr />
+                                </Row>
+
+                            )
+
+                        }) : null
+                    } </Alert>
+                </>
+
             )
         }
+
     }
 
     if (! props.post) {
@@ -77,11 +101,10 @@ function BlogModal(props) {
                 </div>
                 <hr/> {/* DisplayComments shows users comments*/}
                 <h4>Comments</h4>
-                <div className="comments-display">
-                    <DisplayComments commenting={
-                        props.post.comments
-                    }/>
+                <div className="comments-display" placeholder="No comments Yet">
+                    <DisplayComments commenting={props.post} />
                 </div>
+
                 <hr/> {/* WRITE a comment component follows*/}
                 <div className="comments">
                     <Comments post={

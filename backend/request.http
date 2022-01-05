@@ -83,8 +83,7 @@ Content-Type: application/json
 	}
 
 ###
-GET http://localhost:9000/users/61bbee9509b24bf2759737f3
-
+GET http://localhost:9000/users/61d43da49b2de3d80e7cf518
 
 ###
 POST http://localhost:9000/users/register

@@ -137,3 +137,10 @@
   text-decoration: none;
 }
 
+.headerWrapper{
+display: flex;
+flex-direction: row;
+background-color:rgb(229, 209, 143);
+gap: 20px 10px;
+width: fit-content;
+}

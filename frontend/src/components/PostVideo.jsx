@@ -18,10 +18,8 @@ export default function PostVideo() {
   const [desc, setDesc] = useState(null);
   const [videoUrl, setVideoUrl] = useState(null);
   const [valueCategory, setValueCategory] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [postedBy,setPostedBy] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
-
+  
   const togglePopUp = () => {
     setIsOpen(!isOpen);
   };
